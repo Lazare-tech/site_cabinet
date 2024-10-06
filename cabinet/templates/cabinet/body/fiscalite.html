@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Hero Section -->
+    <div class="hero_acc d-flex justify-content-center align-items-center">
+        <div class="hero_content text-center">
+            <h1>Maîtrisez la fiscalité pour optimiser vos finances</h1>
+            <p>Plongez dans l'univers de nos services de fiscalité et découvrez comment notre expertise peut faire une réelle différence dans la gestion de vos affaires financières.</p>
+            <a href="#services" class="btn btn-dark">Découvrir nos services</a>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h3 class="text-fiscalite text-muted">Nos services de fiscalité</h3>
+            <div class="row gx-5">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-hand-holding-usd fa-3x mb-4"></i>
+                            <h3 class="card-title">Consultation fiscale</h3>
+                            <p class="card-text">Obtenez des conseils d'experts pour optimiser votre situation fiscale.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-gavel fa-3x mb-4"></i>
+                            <h3 class="card-title">Gestion du contentieux fiscal</h3>
+                            <p class="card-text">Assistance juridique et gestion des litiges fiscaux.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-briefcase fa-3x mb-4"></i>
+                            <h3 class="card-title">Gestion fiscale des entreprises</h3>
+                            <p class="card-text">Services de gestion fiscale adaptés aux besoins des entreprises.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-calculator fa-3x mb-4"></i>
+                            <h3 class="card-title">Conseils et analyse fiscale</h3>
+                            <p class="card-text">Analyse approfondie de votre situation fiscale et conseils personnalisés.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock content %}
