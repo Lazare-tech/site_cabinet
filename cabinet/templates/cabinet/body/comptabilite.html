@@ -1,44 +1,27 @@
-<?php include("navbar.php") ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domaine de Comptabilité</title>
-
-    <!-- Liens vers Bootstrap et Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-
-    <!-- Styles personnalisés -->
-    <link rel="stylesheet" href="expertise.css">
-    <link rel="stylesheet" href="style.css">
-
-
-    
-</head>
-<body>
-
+{% extends "base.html" %}
+{% block title %}Comptabilite{% endblock title %}
+{% block content %}
     <!-- Hero Section -->
-    <div class="hero_acc d-flex justify-content-center align-items-center">
-        <div class="hero_content text-center">
+    <div class="hero_compta d-flex justify-content-center align-items-center">
+        <div class="hero_content text-center text-light">
             <h1>Maîtrisez la comptabilité pour votre entreprise</h1>
             <p>Découvrez nos services de comptabilité conçus pour optimiser la gestion financière de votre entreprise.</p>
             <a href="#services" class="btn btn-dark">Découvrir nos services</a>
         </div>
     </div>
+    
 
     <!-- Services Section -->
     <section id="services" class="services-section py-5">
         <div class="container">
-            <h3 class="text-comptabilite text-muted">Nos services de comptabilité</h3>
+            <h3 class="text-center text-muted">Nos services de comptabilité</h3>
             <div class="row gx-5">
                 <!-- Service 1 -->
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card service-card h-100">
                         <div class="card-body">
                             <i class="fas fa-file-invoice-dollar fa-3x mb-4"></i>
-                            <h3 class="card-title">Audit comptable</h3>
+                            <h5 class="card-title">Audit comptable</h5>
                             <p class="card-text">Révision et analyse des états financiers de votre entreprise.</p>
                         </div>
                     </div>
@@ -49,7 +32,7 @@
                     <div class="card service-card h-100">
                         <div class="card-body">
                             <i class="fas fa-hands-helping fa-3x mb-4"></i>
-                            <h3 class="card-title">Assistance comptable</h3>
+                            <h5 class="card-title">Assistance comptable</h5>
                             <p class="card-text">Aide à la tenue de la comptabilité et à la préparation des déclarations fiscales.</p>
                         </div>
                     </div>
@@ -60,7 +43,7 @@
                     <div class="card service-card h-100">
                         <div class="card-body">
                             <i class="fas fa-laptop-code fa-3x mb-4"></i>
-                            <h3 class="card-title">Formation logiciel comptable</h3>
+                            <h5 class="card-title">Formation logiciel comptable</h5>
                             <p class="card-text">Formation sur l'utilisation des logiciels de comptabilité.</p>
                         </div>
                     </div>
@@ -71,7 +54,7 @@
                     <div class="card service-card h-100">
                         <div class="card-body">
                             <i class="fas fa-cart-arrow-down fa-3x mb-4"></i>
-                            <h3 class="card-title">Vente de logiciel comptable</h3>
+                            <h5 class="card-title">Vente de logiciel comptable</h5>
                             <p class="card-text">Conseil et vente de logiciels de comptabilité adaptés à vos besoins.</p>
                         </div>
                     </div>
@@ -82,7 +65,7 @@
                     <div class="card service-card h-100">
                         <div class="card-body">
                             <i class="fas fa-chart-line fa-3x mb-4"></i>
-                            <h3 class="card-title">Elaboration des états financiers</h3>
+                            <h5 class="card-title">Elaboration des états financiers</h5>
                             <p class="card-text">Préparation des bilans et des états financiers conformes aux normes comptables.</p>
                         </div>
                     </div>
@@ -91,12 +74,4 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="footer-section">
-        <p>&copy; 2023 Votre Entreprise. Tous droits réservés.</p>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    {% endblock content %}

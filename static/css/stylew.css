@@ -61,7 +61,7 @@ nav ul li:hover .sub-menu {
 
 /* Hero section */
 .hero_acc {
-    background-image: url(images/compta1.jpg);
+    background-image: url(assets/images/compta1.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;

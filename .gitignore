@@ -1,0 +1,78 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pdb
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+
+# Environnements virtuels
+venv/
+env/
+.venv/
+.env/
+.env.local/
+.env.*.local/
+
+# Configuration locale
+*.local
+*.log
+
+# Fichiers de cache
+*.db
+*.sqlite3
+*.sqlite
+
+# Fichiers de migration
+*/migrations/*.py
+*/migrations/*.pyc
+*/migrations/__init__.py
+
+# Fichiers de test
+.coverage
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Dossiers spécifiques à Django
+staticfiles/
+media/
+uploads/
+
+# Fichiers de configuration de secrets
+secrets.json
+*.pem
+*.key
+
+# Fichiers temporaires
+*~ 
+*.swp
+*.bak
+*.tmp
+
+# Environnement Docker
+Dockerfile
+docker-compose.yml
+*.dockerfile
+
+# Autres fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de base de données
+*.db
+*.sqlite3
+
+# Éviter de versionner les fichiers de secrets ou de configuration sensibles
+secret_key.txt
