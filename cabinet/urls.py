@@ -13,6 +13,7 @@ urlpatterns = [
         path('gestion-juridique', cabinet.views.juridique, name='juridique'),
         path('gestion-management', cabinet.views.management, name='management'),
         path('contact', cabinet.views.contacts, name='contact'),
+        path('blog', cabinet.views.blog, name='blog'),
 
 
 

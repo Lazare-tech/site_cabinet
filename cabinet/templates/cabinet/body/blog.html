@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock title %}
+{% block content %}
+<!-- Hero Section -->
+<section class="hero_blog">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 text-hero text-light">
+                    <h1 class="display-4 fw-bold">Expertise Juridique à Votre Service</h1>
+                    <p class="lead">Découvrez les actualités, analyses et conseils pour protéger et développer votre entreprise avec une approche juridique sur mesure.</p>
+                    <button class="down-to-article"><i class="fas fa-long-arrow-alt-down"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Article & Categories -->
+<section class="featured-article py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Featured Article (Col-6) -->
+            <div class="col-lg-6">
+                <h2 class="fw-bold">Article à la Une</h2>
+                <article class="card mb-4">
+                    <img src="assets/images/featured-article.jpg" class="card-img-top" alt="Article Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Les dernières réformes fiscales et leur impact sur les entreprises en 2024</h5>
+                        <p class="card-text">Explorez les nouvelles réformes fiscales et découvrez comment elles influencent la gestion des entreprises et les stratégies fiscales à adopter.</p>
+                        <a href="/article" class="btn btn-outline-primary">Lire l'article</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Categories (Col-6) -->
+            <div class="col-lg-6">
+                <h2 class="fw-bold">Catégories</h2>
+                <ul class="list-group list-categories">
+                    <a href="/categories/droit-affaires" class="list-group-item d-flex justify-content-between align-items-center category-article-hover">
+                        Droit des Affaires
+                        <span class="badge bg-primary rounded-pill">12 articles</span>
+                    </a>
+                    <a href="/categories/fiscalite-entreprises" class="list-group-item d-flex justify-content-between align-items-center category-article-hover">
+                        Fiscalité des Entreprises
+                        <span class="badge bg-primary rounded-pill">15 articles</span>
+                    </a>
+                    <a href="/categories/droit-social-rh" class="list-group-item d-flex justify-content-between align-items-center category-article-hover">
+                        Droit Social & RH
+                        <span class="badge bg-primary rounded-pill">9 articles</span>
+                    </a>
+                    <a href="/categories/protection-juridique" class="list-group-item d-flex justify-content-between align-items-center category-article-hover">
+                        Protection Juridique
+                        <span class="badge bg-primary rounded-pill">11 articles</span>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Previous Articles Section -->
+<section class="previous-articles py-5">
+    <div class="container">
+        <h2 class="fw-bold">Articles Précédents</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Article Card 1 -->
+            <div class="col">
+                <div class="card">
+                    <img src="assets/images/article1.jpg" class="card-img-top" alt="Article 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Comprendre les Obligations Légales des Entreprises</h5>
+                        <p class="card-text"><small class="text-muted">Publié le 12 Septembre 2023</small></p>
+                        <a href="/article1" class="btn btn-outline-primary">Lire l'article</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Article Card 2 -->
+            <div class="col">
+                <div class="card">
+                    <img src="assets/images/article2.jpg" class="card-img-top" alt="Article 2 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Stratégies pour Gérer les Conflits au Travail</h5>
+                        <p class="card-text"><small class="text-muted">Publié le 05 Août 2023</small></p>
+                        <a href="/article2" class="btn btn-outline-primary">Lire l'article</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Article Card 3 -->
+            <div class="col">
+                <div class="card">
+                    <img src="assets/images/article3.jpg" class="card-img-top" alt="Article 3 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Les Erreurs Courantes en Droit des Sociétés</h5>
+                        <p class="card-text"><small class="text-muted">Publié le 20 Juillet 2023</small></p>
+                        <a href="/article3" class="btn btn-outline-primary">Lire l'article</a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</section>
+{% include 'cabinet/body/news-letter.html' %}
+
+{% endblock content %}

@@ -1,3 +1,6 @@
+/* Navbar fixe */
+
+
 /*........................... RESPONSIVE PARTY  ......................................................*/
 
 /* HERO PARTY */
@@ -32,32 +35,29 @@
   cursor: pointer;
   font-size: 24px; /* Taille de la flèche */
   border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Ombre pour effet 3D */
   /* z-index: 10; */
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 /* Positionnement du bouton précédent */
-.carousel-button.next ,.carousel-button.prev{
-  position: relative;
-  left:50px;
-}
+.carousel-button.next,
 .carousel-button.prev {
   position: relative;
-
-  left: 10px;
+  left: 50px;
+  background-color: white; /* Fond blanc */
+  border: 1px solid #1A237E; /* Bordure de couleur #1A237E */
+  color: #1A237E; /* Couleur du texte et icônes */
+  padding: 10px 20px; /* Espacement autour du bouton */
+  border-radius: 50%; /* Arrondir les bords légèrement */
+  font-weight: bold; /* Texte en gras */
+  transition: background-color 0.3s, color 0.3s; /* Transition douce pour hover */
 }
-
-/* Positionnement du bouton suivant */
-.carousel-button.next {
-  right: 10px;
-}
-
 /* Effet au survol des boutons */
-.carousel-button:hover {
-  background-color: rgba(0, 0, 0, 0.9); /* Assombrit le fond */
-  transform: translateY(-50%) scale(1.1); /* Agrandit légèrement le bouton */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7); /* Accentue l'ombre */
+
+.carousel-button.next:hover,
+.carousel-button.prev:hover {
+  background-color: #1A237E; /* Fond bleu foncé au survol */
+  color: white; /* Texte blanc au survol */
 }
 .carousel-container {
   overflow-x: auto;
@@ -235,3 +235,65 @@
     font-size: 1.2rem; /* Adjust as needed */
     margin-bottom: 30px;
 }
+/* BLOG PARTY  */
+.hero_blog  {
+  background-image: url('/assets/images/question-mark-2492009_1280.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  height: 80vh; /* Adjust height as needed */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.down-to-article {
+  position: relative;
+  left: 50px;
+  background-color: #202020; /* Fond blanc */
+  border: 1px solid white; /* Bordure de couleur #1A237E */
+  color: white; /* Couleur du texte et icônes */
+  padding: 12px 22px; /* Espacement autour du bouton */
+  border-radius: 50%; /* Arrondir les bords légèrement */
+  font-weight: bold; /* Texte en gras */
+  transition: background-color 0.3s, color 0.3s; /* Transition douce pour hover */
+}
+.down-to-article:hover {
+  
+  background-color: white; /* Fond blanc */
+  color: blue; /* Couleur du texte et icônes */
+}
+/* Effet de survol sur les catégories */
+.category-article-hover {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.category-article-hover:hover {
+  background-color: #1A237E; /* Couleur de fond au survol */
+  color: white;
+  transform: scale(1.05); /* Légère mise en avant de la catégorie */
+}
+
+.category-article-hover:hover .badge {
+  background-color: white; /* Changer la couleur du badge */
+  color: #1A237E;
+}
+.previous-articles .card {
+  border: 1px solid #0d4d66; /* Bordure personnalisée pour les cartes */
+}
+
+.previous-articles .card img {
+  height: 200px; /* Hauteur fixe pour les images */
+  object-fit: cover; /* Maintenir le rapport d'aspect */
+}
+
+.previous-articles .btn-outline-primary {
+  border-color: #0d4d66; /* Couleur de bordure du bouton */
+}
+
+.previous-articles .btn-outline-primary:hover {
+  background-color: #0d4d66; /* Couleur de fond au survol */
+  color: white; /* Couleur du texte au survol */
+}
+
+/* END BLOG PARTY  */

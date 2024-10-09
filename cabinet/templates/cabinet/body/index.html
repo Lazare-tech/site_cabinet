@@ -91,8 +91,8 @@
 <section class="container mt-5 position-relative">
 <div class="d-flex">
 
-  <button class="carousel-button prev" onclick="scrollCarousel(-1)">&#10094;</button>
-  <button class="carousel-button next" onclick="scrollCarousel(1)">&#10095;</button>
+  <button class="carousel-button prev" onclick="scrollCarousel(-1)"><i class="fas fa-angle-left"></i></button>
+  <button class="carousel-button next" onclick="scrollCarousel(1)"><i class="fas fa-angle-right"></i></button>
 </div>
   <div class="carousel-container d-flex carou mb-5">
     <!-- Dynamic Service Categories -->
@@ -171,12 +171,12 @@
 
 <!-- Articles Section -->
 <section class="articles-section">
-  <div class="container px-4 ">
+  <div class="container  ">
     <h4 class="pb-2 border-bottom p-5">Découvrez nos articles</h4>
 
     <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
       <div class="col d-flex flex-column align-items-start gap-2">
-        <h2 class="fw-bold text-body-emphasis">Restez informé et compétitif !</h2>
+        <h4 class="fw-bold text-body-emphasis">Restez informé et compétitif !</h4>
         <p class="text-body-secondary">
           Plongez dans nos articles captivants couvrant des sujets juridiques, fiscaux et managériaux.
         </p>
@@ -293,44 +293,7 @@
     </div>
   </div>
 </section>
-
-<section class="news">
-<div class="container p-5 pb-0">
-  <form action="">
-    <!--Grid row-->
-    <div class="row">
-      <!--Grid column-->
-      <div class="col-auto mb-4 mb-md-0">
-        <p class="pt-2">
-          <span>Sign up for our newsletter</span>
-        </p>
-      </div>
-      <!--Grid column-->
-
-      <!--Grid column-->
-      <div class="col-md-5 col-12 mb-4 mb-md-0">
-        <!-- Email input -->
-        <div data-mdb-input-init class="form-outline mb-4">
-          <input type="email" id="form5Example22" class="form-control" />
-          <label class="form-label" for="form5Example22">Email address</label>
-        </div>
-      </div>
-      <!--Grid column-->
-
-      <!--Grid column-->
-      <div class="col-auto mb-4 mb-md-0">
-        <!-- Submit button -->
-        <button data-mdb-ripple-init type="button" class="btn btn-outline-primary mb-4">
-          Subscribe
-        </button>
-      </div>
-      <!--Grid column-->
-    </div>
-    <!--Grid row-->
-  </form>
-</div>
-</section>
-<!-- Grid container -->
+{% include 'cabinet/body/news-letter.html' %}
 
 <!-- Bootstrap JS and Dependencies -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

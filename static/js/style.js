@@ -1,15 +1,12 @@
 // fixer le menu lors du defilement
-window.addEventListener('scroll', function() {
-    var mainNavbar = document.getElementById('mainNavbar');
-    var spacer = document.querySelector('.spacer');
-    if (window.scrollY > mainNavbar.offsetTop) {
-      mainNavbar.classList.add('fixed-navbar');
-      spacer.style.display = 'block'; // Ensure spacer is visible
-    } else {
-      mainNavbar.classList.remove('fixed-navbar');
-      spacer.style.display = 'none'; // Hide spacer when not needed
-    }
-  });
+// window.onscroll = function() {
+//     var navbar = document.getElementById("mainNavbar");
+//     if (window.pageYOffset > 50) { // Vous pouvez ajuster ce chiffre
+//         navbar.classList.add("fixed-top", "shadow"); // Ajoute la classe fixe et l'ombre
+//     } else {
+//         navbar.classList.remove("fixed-top", "shadow"); // Supprime la classe fixe et l'ombre
+//     }
+// };
 
 // SLIDE IMAGE MINIATURE CATEGORY
 const track = document.querySelector('.carousel-track');

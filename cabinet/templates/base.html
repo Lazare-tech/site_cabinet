@@ -170,8 +170,33 @@
     background-color: #0d4d66;
     color: white;
   }
+  
+  #myBtn {
+    display: none; /* Masqué par défaut */
+    position: fixed; /* Reste en place lors du défilement */
+    bottom: 20px; /* Espacement depuis le bas de la page */
+    right: 30px; /* Espacement depuis le côté droit de la page */
+    z-index: 99; /* Assure que le bouton est au-dessus d'autres éléments */
+    font-size: 18px; /* Taille de la police */
+    border: none; /* Pas de bordure */
+    outline: none; /* Pas de contour */
+    background-color: #1A237E; /* Couleur de fond personnalisée */
+    color: white; /* Couleur du texte */
+    cursor: pointer; /* Curseur en forme de main lors du survol */
+    padding: 15px; /* Espacement interne */
+    border-radius: 15px 15px 0 0; /* Coins arrondis en haut */
+    transition: background-color 0.3s, transform 0.3s; /* Transition fluide pour les effets */
+    border:1px solid #1A237E;
+
+}
+
+#myBtn:hover {
+    background-color: white; /* Couleur de fond lors du survol */
+    transform: scale(1.1); /* Agrandir légèrement lors du survol */
+    color: #1A237E;
+}
+
 </style>
- 
 </head>
 
 <body>
@@ -185,9 +210,14 @@
    
     
     {% block content %}
+    
     {% endblock content %}
   
-    
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top" id="myBtn" onclick="topFunction()">
+  <i class="fas fa-chevron-up"></i> <!-- Icône pour le bouton -->
+</a>
+
   </main>
   {% include 'cabinet/footer/footer.html' %}
   
@@ -206,6 +236,27 @@
 
   <script type="text/javascript" src={% static "js/style.js" %}></script>
 
+  <script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    </script>
 
 </body>
 

@@ -18,3 +18,7 @@ def management(request):
 #
 def contacts(request):
     return render(request,'cabinet/body/contact.html')
+#
+#
+def blog(request):
+    return render(request,'cabinet/body/blog.html')
