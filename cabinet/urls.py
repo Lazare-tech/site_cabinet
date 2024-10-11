@@ -13,8 +13,11 @@ urlpatterns = [
         path('gestion-juridique', cabinet.views.juridique, name='juridique'),
         path('gestion-management', cabinet.views.management, name='management'),
         path('contact', cabinet.views.contacts, name='contact'),
-        path('blog', cabinet.views.blog, name='blog'),
+            path('blog/', cabinet.views.blog, name='blog'),
 
+    path('blog/categorie/<slug:slug>/', cabinet.views.blog, name='blog'),  # Pour la catégorie sélectionnée
+
+        path('article/<slug:slug>/', cabinet.views.article, name='article'),
 
 
  

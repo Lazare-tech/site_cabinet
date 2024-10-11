@@ -256,6 +256,31 @@
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
+    
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      const articleButtons = document.querySelectorAll(".read-article-btn");
+  
+      articleButtons.forEach(button => {
+          button.addEventListener("click", function(event) {
+              event.preventDefault();
+              const articleId = this.getAttribute("data-article-id");
+  
+              // Fetch article content via AJAX (Using Django URL pattern)
+              fetch(`/get-article-content/${articleId}/`)
+                  .then(response => response.json())
+                  .then(data => {
+                      // Update the Featured Article section with the clicked article's content
+                      document.getElementById("featured-article-img").src = data.photo_url;
+                      document.getElementById("featured-article-title").innerText = data.title;
+                      document.getElementById("featured-article-text").innerText = data.truncated_content;
+                      document.getElementById("featured-article-full-content").innerHTML = `<p>${data.full_content}</p>`;
+                  })
+                  .catch(error => console.error("Error fetching article content:", error));
+          });
+      });
+  });
+  
     </script>
 
 </body>

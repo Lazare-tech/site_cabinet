@@ -23,15 +23,14 @@
         <div class="row">
          <!-- Featured Article (Col-6) -->
 <div class="col-lg-8">
-    <h2 class="fw-bold">Article à la Une</h2>
     <article class="mb-4">
         <div class="card-body">
             <!-- Image à gauche -->
-            <img src="{{ article_a_la_une.photo.url }}" class="img-fluid float-start me-3 mb-3 card-img-article-one" alt="Article Image" style="width: 300px;">
+            <img src="{{ article.photo.url }}" class="img-fluid float-start me-3 mb-3 card-img-article-one" alt="Article Image" style="width: 300px;">
             
             <!-- Texte à droite et en dessous de l'image -->
-            <h5 class="card-title">{{ article_a_la_une.titre }}</h5>
-            <p class="card-text">{{ article_a_la_une.contenu }}</p>
+            <h5 class="card-title">{{ article.titre }}</h5>
+            <p class="card-text">{{ article.contenu }}</p>
             
             <!-- Contenu caché (sera déplié) -->
             {% comment %} <div id="collapseArticle" class="collapse">
@@ -48,7 +47,7 @@
                 <h2 class="fw-bold">Catégories</h2>
                 <ul class="list-group list-categories">
                     {% for categorie in categorie_article %}
-                        <a href="{% url 'cabinet:blog' categorie.slug %}" class="list-group-item d-flex justify-content-between align-items-center category-article-hover">
+                        <a href="{% url 'cabinet:blog' categorie.slug %}#articles-section" class="list-group-item d-flex justify-content-between align-items-center category-article-hover">
                             {{ categorie.nom_article }}
                             <span class="badge bg-primary rounded-pill"></span>
                         </a>
@@ -62,7 +61,7 @@
 <!-- Previous Articles Section -->
 <!-- Previous Articles Section -->
 <section class="previous-articles py-5">
-    <div class="container">
+    <div class="container" id="articles-section">
         <h2 class="fw-bold">{% if articles_precedents %}Articles pour {{ categorie.nom_article }}{% else %}Articles Précédents{% endif %}</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {% for article in articles_precedents %}
