@@ -32,8 +32,8 @@ class Article(models.Model):
     article = models.ForeignKey(Articlecategorie, related_name='articles', verbose_name="Article", on_delete=models.CASCADE)
     titre = models.CharField(max_length=255, verbose_name="Titre de l'article", null=True)
     contenu = models.TextField(verbose_name="Contenu de l'article")
-    photo = models.ImageField(upload_to='article_image', verbose_name="Image de l'article", null=True)
-    date_publie = models.DateField(verbose_name="Date de publication de l'article")
+    photo = models.ImageField(upload_to='article_image', verbose_name="Image de l'article", null=True,blank=True)
+    date_publie = models.DateField(verbose_name="Date de publication de l'article",auto_now=True)
     slug = models.SlugField(unique=True, max_length=255, blank=True)  # Ajouter le slug ici
 
     class Meta:

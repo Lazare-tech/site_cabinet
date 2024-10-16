@@ -7,8 +7,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-12 text-hero text-light">
-                    <h1 class="display-4 fw-bold">Expertise Juridique à Votre Service</h1>
-                    <p class="lead">Découvrez les actualités, analyses et conseils pour protéger et développer votre entreprise avec une approche juridique sur mesure.</p>
+                    <h1 class="display-3 fw-bold">Expertise Juridique a votre service</h1>
+                    <p class="lead">Decouvrez les Actualités, analyses et conseils pour protéger et développer votre entreprise avec
+                    une approche juridique sur mesure.</p>
                     <button class="down-to-article"><i class="fas fa-long-arrow-alt-down"></i></button>
                 </div>
             </div>
@@ -17,64 +18,71 @@
 </section>
 
 <!-- Featured Article & Categories -->
-<section class="featured-article py-5 bg-light">
-
+<section class="featured-article py-5 bg-light" id="article-a-la-une">
     <div class="container">
         <div class="row">
-         <!-- Featured Article (Col-6) -->
-<div class="col-lg-8">
-    <h2 class="fw-bold">Article à la Une</h2>
-    <article class="mb-4">
-        <div class="card-body">
-            <!-- Image à gauche -->
-            <img src="{{ article_a_la_une.photo.url }}" class="img-fluid float-start me-3 mb-3 card-img-article-one" alt="Article Image" style="width: 300px;">
-            
-            <!-- Texte à droite et en dessous de l'image -->
-            <h5 class="card-title">{{ article_a_la_une.titre }}</h5>
-            <p class="card-text">{{ article_a_la_une.contenu }}</p>
-            
-            <!-- Contenu caché (sera déplié) -->
-            {% comment %} <div id="collapseArticle" class="collapse">
-                <p class="card-text">{{ article_a_la_une.contenu|safe }}</p>
-            </div> {% endcomment %}
-            
-            <!-- Bouton pour déplier/replier le contenu -->
-            {% comment %} <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseArticle" role="button" aria-expanded="false" aria-controls="collapseArticle">Lire l'article</a> {% endcomment %}
-        </div>
-    </article>
-    
-</div>
+            <!-- Featured Article -->
+            <div class="col-lg-8">
+                {% if article_a_la_une %}
+                <h2 class="fw-bold">À la Une</h2>
+                <article class="mb-4">
+                    <div class="card-body">
+                    {% if article_a_la_une.photo %}
+                        <img src="{{ article_a_la_une.photo.url }}" class="img-fluid float-start me-3 mb-3 card-img-article-one" alt="Article Image" style="width: 300px;">
+                        {% endif %}
+                        <h5 class="card-title">{{ article_a_la_une.titre }}</h5>
+                        <p class="card-text">{{ article_a_la_une.contenu }}</p>
+                    </div>
+                </article>
+                {% endif %}
+            </div>
+            <!-- Categories -->
             <div class="col-lg-4">
-                <h2 class="fw-bold">Catégories</h2>
+                <h4 class="fw-bold">Catégories</h4>
                 <ul class="list-group list-categories">
                     {% for categorie in categorie_article %}
-                        <a href="{% url 'cabinet:blog' categorie.slug %}" class="list-group-item d-flex justify-content-between align-items-center category-article-hover">
-                            {{ categorie.nom_article }}
-                            <span class="badge bg-primary rounded-pill"></span>
-                        </a>
+                    <a href="{% url 'cabinet:blog-categorie' categorie.slug %}#articles-precedents" class="list-group-item d-flex justify-content-between align-items-center category-article-hover">
+                         {{ categorie.nom_article }}
+                        <span class="badge bg-primary rounded-pill"></span>
+                    </a>
                     {% endfor %}
                 </ul>
-                
             </div>
         </div>
     </div>
 </section>
+
 <!-- Previous Articles Section -->
-<!-- Previous Articles Section -->
-<section class="previous-articles py-5">
+<section class="previous-articles py-5" id="articles-precedents">
     <div class="container">
-        <h2 class="fw-bold">{% if articles_precedents %}Articles pour {{ categorie.nom_article }}{% else %}Articles Précédents{% endif %}</h2>
+        {% if articles_precedents and not categorie %}
+        <h4 class="fw-bold">Articles Récents</h4>
+        {% elif categorie %}
+        <h5 class="fw-bold text-muted">
+            <a href="{% url 'cabinet:blog' %}#articles-precedents">Tous les Articles</a>|{{ categorie.nom_article }}
+        </h5>
+        {% else %}
+        <h4>Aucun article disponible pour le moment</h4>
+        {% endif %}
+
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {% for article in articles_precedents %}
             <!-- Article Card -->
             <div class="col">
                 <div class="card">
+                {% if article.photo %}
                     <img src="{{ article.photo.url }}" class="card-img-top card-img-article" alt="Article Image">
-                    <div class="card-body">
-                        <h6 class="card-title">{{ article.titre }}</h6>
-                        <p class="card-text"><small class="text-muted">Publié le {{ article.date_publie|date:"d F Y" }}</small></p>
-                        <a href="{% url 'cabinet:article' article.slug %}" class="btn btn-outline-primary">Lire l'article</a>
-                    </div>
+                   {% else %}
+                   <div class="card-img-top" style="background: linear-gradient(to right, #1A237E, #5C6BC0); height: 200px; display: flex; align-items: center; justify-content: center; color: white;">
+                    <p style="text-align: center; margin: 0;">{{ article.contenu|truncatewords:30 }}</p>
+                </div>
+            {% endif %}
+    
+            <div class="card-body">
+                <h6 class="card-title">{{ article.titre }}</h6>
+                <p class="card-text"><small class="text-muted">Publié le {{ article.date_publie|date:"d F Y" }}</small></p>
+                <a href="{% url 'cabinet:article' article.slug %}#article-a-la-une" class="btn btn-outline-primary">Lire l'article</a>
+            </div>
                 </div>
             </div>
             {% endfor %}

@@ -15,9 +15,9 @@ urlpatterns = [
         path('contact', cabinet.views.contacts, name='contact'),
             path('blog/', cabinet.views.blog, name='blog'),
 
-    path('blog/categorie/<slug:slug>/', cabinet.views.blog, name='blog'),  # Pour la catégorie sélectionnée
+    path('blog/categorie/<slug:slug>/', cabinet.views.blog_article, name='blog-categorie'),  # Pour la catégorie sélectionnée
 
-        path('article/<slug:slug>/', cabinet.views.article, name='article'),
+        path('blog/article/<slug:slug>/', cabinet.views.article, name='article'),
 
 
  
