@@ -31,7 +31,7 @@
                         <img src="{{ article_a_la_une.photo.url }}" class="img-fluid float-start me-3 mb-3 card-img-article-one" alt="Article Image" style="width: 300px;">
                         {% endif %}
                         <h5 class="card-title">{{ article_a_la_une.titre }}</h5>
-                        <p class="card-text">{{ article_a_la_une.contenu }}</p>
+                        <p class="card-text">{{ article_a_la_une.contenu|safe }}</p>
                     </div>
                 </article>
                 {% endif %}

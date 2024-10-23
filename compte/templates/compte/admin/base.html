@@ -15,8 +15,11 @@
   <!-- MDB -->
   <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
   <!-- Custom styles -->
   <link rel="stylesheet" href="{% static 'css/admin.css' %}" />
+  <link rel="stylesheet" href="{% static 'fontawesome-free/css/all.min.css' %}" />
 
   <!-- Chart.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
@@ -25,6 +28,8 @@
 
   <!-- Custom styles -->
   <style>
+   
+    
     body {
       font-family: 'Roboto', sans-serif;
       background-color: #f8f9fa;
@@ -122,6 +127,7 @@
 
 /* END ADMIN STAT  */
 
+
   </style>
 </head>
 
@@ -129,144 +135,83 @@
   <!--Main Navigation-->
   <header>
     <!-- Sidebar -->
-    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-dark">
-      <div class="position-sticky">
-        <div class="list-group list-group-flush mx-3 mt-4">
-          <a href="{% url 'compte:dashboard' %}" class="list-group-item list-group-item-action py-2 active mb-3" data-mdb-ripple-init aria-current="true">
-            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
-          </a>
-
-          <a href="{% url 'compte:profile' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
-            <i class="fas fa-user fa-fw me-3"></i><span>Profile</span></a>
-
-          <a href="#produit" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
-            <i class="fas fa-store fa-fw me-3"></i><span>Mes articles</span></a>
-
-          <a href="#adresse" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
-            <i class="fas fa-location-dot fa-fw me-3"></i><span>Addresses</span>
-          </a>
-
-          
-          <a href="{% url 'compte:logout' %}" class="btn btn-outline-danger mt-5" data-mdb-ripple-init>
-            <i class="fas fa-bullhorn fa-user me-3"></i><span>Deconnexion</span>
-          </a>
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse gradient-sidebar">
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a href="{% url 'compte:dashboard' %}" class="list-group-item list-group-item-action py-2 active mb-3" data-mdb-ripple-init aria-current="true">
+                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+                </a>
+                <a href="{% url 'compte:profile' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
+                    <i class="fas fa-user-circle fa-fw me-3"></i><span>Profile</span>
+                </a>
+                <a href="{% url 'compte:article' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
+                    <i class="fas fa-map-marker-alt fa-fw me-3"></i><span>Categorie article</span>
+                </a>
+                <a href="{% url 'compte:dashboard' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
+                    <i class="fas fa-gavel fa-fw me-3"></i><span>Mes articles</span>
+                </a>
+                <a href="#adresse" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
+                    <i class="fas fa-map-marker-alt fa-fw me-3"></i><span>Addresses</span>
+                </a>
+                <a href="{% url 'compte:logout' %}" class="btn btn-outline-danger mt-5" data-mdb-ripple-init>
+                    <i class="fas fa-bullhorn fa-user me-3"></i><span>Deconnexion</span>
+                </a>
+            </div>
         </div>
-      </div>
     </nav>
     <!-- Sidebar -->
 
     <!-- Navbar -->
-    <nav id="admin-navbar" class="navbar navbar-expand-lg navbar-dark bg-admin fixed-top">
-      <!-- Container wrapper -->
-      <div class="container-fluid">
-        <!-- Toggle button -->
-        <button class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-    
-        <!-- Brand - Accueil -->
-        <a class="navbar-brand text-light me-auto px-5" href="{% url 'cabinet:homepage' %}">
-          Accueil
-        </a>
-    
-        <!-- Right links -->
-        <div class="d-flex align-items-center">
-          {% if user.is_authenticated %}
-          <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
-            <!-- Admin Home Link -->
-            <li class="nav-item">
-              <a class="nav-link text-light" href="{% url 'cabinet:homepage' %}">Dashboard Admin</a>
-            </li>
-            <!-- Avatar with user initial -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                <div class="user-circle me-2 bg-light text-dark rounded-circle d-flex justify-content-center align-items-center" style="width: 35px; height: 35px;">
-                  {{ user.username|slice:":2" }}
-                </div>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="{% url 'compte:profile' %}">Mon Profil</a></li>
-                <li><a class="dropdown-item" href="{% url 'compte:logout' %}">Déconnexion</a></li>
-              </ul>
-            </li>
-          </ul>
-          {% else %}
-          <a href="{% url 'compte:login' %}" class="d-inline-block text-light" aria-expanded="false">
-            <i class="fas fa-user fa-2x mx-2"></i>
-          </a>
-          {% endif %} 
+    <nav id="admin-navbar" class="navbar navbar-expand-lg navbar-dark gradient-navbar fixed-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a class="navbar-brand text-light me-auto px-5" href="{% url 'cabinet:homepage' %}">
+                Accueil
+            </a>
+            <div class="d-flex align-items-center">
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{% url 'cabinet:homepage' %}">Dashboard Admin</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <div class="user-circle me-2 bg-light text-dark rounded-circle d-flex justify-content-center align-items-center" style="width: 35px; height: 35px;">
+                                {{ user.username|slice:":2" }}
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{% url 'compte:profile' %}">Mon Profil</a></li>
+                            <li><a class="dropdown-item" href="{% url 'compte:logout' %}">Déconnexion</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                {% else %}
+                <a href="{% url 'compte:login' %}" class="d-inline-block text-light" aria-expanded="false">
+                    <i class="fas fa-user fa-2x mx-2"></i>
+                </a>
+                {% endif %}
+            </div>
         </div>
-      </div>
-      <!-- Container wrapper -->
     </nav>
-    
-    <!-- Navbar -->
-  </header>
+</header>
   <!--Main Navigation-->
 
   <!--Main layout-->
   <main style="margin-top: 58px">
     <div class="container pt-4" class="justify-content-center">
-      <section>
-        <div class="row">
-          <div class="col-xl-3 col-sm-3 col-12 mb-4">
-            <div class="card h-100">
-              <div class="card-body">
-                <div class="d-flex justify-content-between px-md-1">
-                  <div class="align-self-center">
-                    <i class="fas fa-pencil-alt text-info fa-3x stat-icone"></i>
-                  </div>
-                  <div class="text-end">
-                    <h3>8</h3>
-                    <p class="mb-0 stat-title">Articles</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-3 col-12 mb-4">
-            <div class="card h-100">
-              <div class="card-body">
-                <div class="d-flex justify-content-between px-md-1">
-                  <div class="align-self-center stat">
-                    <i class="fas fa-warehouse text-warning fa-3x stat-icone"></i>
-                  </div>
-                  <div class="text-end">
-                    <h3>5</h3>
-                    <p class="mb-0 stat-title">Product Categories</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-         
-          <div class="col-xl-3 col-sm-3 col-12 mb-4">
-            <div class="card h-100">
-              <div class="card-body">
-                <div class="d-flex justify-content-between px-md-1">
-                  <div class="align-self-center">
-                    <i class="fas fa-phone text-danger fa-3x stat-icone"></i>
-                  </div>
-                  <div class="text-end">
-                    <h6>Addresses</h6>
-                  
-                    <h6 class="mb-0 text-muted">{{ addresses.contact }}</h6>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {% block stats %}
 
+      {% include 'compte/admin/article/stat.html' %}
+      {% endblock stats %}
       {% block main %}
 
       {% endblock main %}
     </div>
   </main>
   <!--Main layout-->
-
   <!-- MDB -->
   <script type="text/javascript" src="{% static '/js/mdb.umd.min.js' %}"></script>
   <!-- Custom scripts -->
@@ -274,6 +219,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {

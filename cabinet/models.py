@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django_ckeditor_5.fields import CKEditor5Field  # Correct import for CKEditor 5
 
 # Modèle pour les catégories d'articles
 class Articlecategorie(models.Model):
@@ -7,8 +8,8 @@ class Articlecategorie(models.Model):
     slug = models.SlugField(unique=True, max_length=255, blank=True)
     
     class Meta:
-        verbose_name= "Categorie d\'article"
-        verbose_name_plural= "Categories d\'article "
+        verbose_name= "Categorie d'article"
+        verbose_name_plural= "Categories d'article"
         
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -26,19 +27,19 @@ class Articlecategorie(models.Model):
     
     def __str__(self):
         return self.nom_article
-
 # Modèle pour les articles individuels
 class Article(models.Model):
     article = models.ForeignKey(Articlecategorie, related_name='articles', verbose_name="Article", on_delete=models.CASCADE)
     titre = models.CharField(max_length=255, verbose_name="Titre de l'article", null=True)
-    contenu = models.TextField(verbose_name="Contenu de l'article")
-    photo = models.ImageField(upload_to='article_image', verbose_name="Image de l'article", null=True,blank=True)
-    date_publie = models.DateField(verbose_name="Date de publication de l'article",auto_now=True)
-    slug = models.SlugField(unique=True, max_length=255, blank=True)  # Ajouter le slug ici
+    contenu = CKEditor5Field(config_name='extends')  # Use CKEditor5Field here
+    photo = models.ImageField(upload_to='article_image', verbose_name="Image de l'article", null=True, blank=True)
+    date_publie = models.DateField(verbose_name="Date de publication de l'article", auto_now=True)
+
+    slug = models.SlugField(unique=True, max_length=255, blank=True)
 
     class Meta:
-        verbose_name='Article'
-        verbose_name_plural= 'Articles'
+        verbose_name = 'Article'
+        verbose_name_plural = 'Articles'
         
     def save(self, *args, **kwargs):
         if not self.slug:

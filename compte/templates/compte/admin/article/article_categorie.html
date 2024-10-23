@@ -1,0 +1,69 @@
+{% extends "../../admin/base.html" %}
+{% load form_helpers %}
+
+{% block main %}
+
+
+<section class="mb-4 mx-5">
+    <div class="card">
+      <div class="card-header text-center ">
+        <h5 class="mb-0 text-center" id="produit">
+          <strong>Inventaire des categories</strong>
+        </h5>
+        {% if messages %}
+        <div id="alertMessage">
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+        <div class="d-flex justify-content-end p-3" id="section-boisson">
+          <a href="{% url 'compte:add_categorie_article' %}" class="btn btn-outline-success">
+            <i class="fas fa-plus fa-fw"></i><span>Ajouter une categorie</span>
+          </a>
+        </div>
+      </div>
+       <div class="card-body">
+        {% if categorie_article %}
+          <div class="table-responsive" >
+            <table class="table table-hover text-nowrap">
+              <thead>
+                <tr>
+                  <th scope="col">Categorie Article</th>
+                 
+                  
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for article in categorie_article %}
+                  <tr>
+                    <th scope="row">{{ article.nom_article }}</th>
+                 
+                    <td>
+                   
+                      
+                  <!-- Trigger button -->
+                  <a href="{% url 'compte:delete_categorie_article' article.slug %}" class="btn" data-mdb-toggle="modal" data-mdb-target="#modalDelete{{ boisson.slug }}">
+                    <i class="fas fa-trash text-danger fa-2x"></i>
+                  </a>
+                      <a href="{% url 'compte:update_categorie_article' article.slug %}" class="btn" data-mdb-ripple-init>
+                        <i class="fas fa-pencil-alt text-primary fa-2x"></i>
+                      </a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <p class="text-center">Aucune categorie. <a href="">Ajoutez une categorie</a></p>
+        {% endif %}
+      </div> 
+    </div>
+  </section>
+
+{% endblock main %}

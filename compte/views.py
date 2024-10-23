@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import login, authenticate,logout
 from django.conf import settings
 
-from cabinet.models import Article
+from cabinet.models import Article, Articlecategorie
 from compte.models import User
 from . import forms
 from django.contrib.auth.decorators import login_required
@@ -23,7 +23,7 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import ArticleForm, LoginForm, SignupForm
+from .forms import ArticleCategorieForm, ArticleForm, LoginForm, SignupForm
 from django.contrib.auth import login
 from django.contrib.auth import get_user_model  # Pour utiliser le modèle d'utilisateur personnalisé
 
@@ -142,7 +142,7 @@ def profile_view(request):
             if form.cleaned_data.get('nouveau_mot_de_passe'):
                 update_session_auth_hash(request, user)  # Met à jour la session pour éviter la déconnexion
             # messages.success(request, 'Profil mis à jour avec succès.')
-            return redirect('pro_commerce:homepage')
+            return redirect('compte:dashboard')
     else:
         form = forms.UserProfileForm(instance=user)
     
@@ -213,3 +213,89 @@ def article_update(request, slug=None):
         form = ArticleForm(instance=article)
 
     return render(request, 'compte/admin/article/article_update.html', {'form': form})
+######################ARTICLE CATEGORIE
+
+def article_categorie(request):
+    categorie_article=Articlecategorie.objects.all()
+    nombre_categorie_article=categorie_article.count()
+    #
+    article=Article.objects.all()
+    nombre_article=article.count()
+
+    context={
+        'article':article,
+        'categorie_article':categorie_article,
+        'nombre_article':nombre_article,
+        'nombre_categorie_article':nombre_categorie_article
+    }
+    return render(request,'compte/admin/article/article_categorie.html',context)
+#
+
+
+    return context
+@login_required
+def add_categorie_article(request):
+    if request.method == 'POST':
+        # Initialize the form with POST data and files
+        form = ArticleCategorieForm(request.POST)
+        
+        if form.is_valid():
+            # Save the main product instance without committing yet
+            categorie_article = form.save(commit=False)
+            categorie_article.user = request.user  # Assign the current user
+            
+            # Save the product instance to the database
+            categorie_article.save()  # Save product first
+
+          
+            
+            messages.success(request, " L\'article a été enregistré avec succès.")
+            return redirect('compte:article')
+        else:
+            messages.error(request, "Erreur lors de l\'enregistrement de l\'article Veuillez vérifier les informations.")
+    else:
+        form = ArticleCategorieForm()
+
+    return render(request, 'compte/admin/article/add_categorie.html', {'form': form})    
+##
+
+@login_required
+def categorie_article_delete(request, slug=None):
+    article = get_object_or_404(Articlecategorie, slug=slug)
+    
+    if request.method == 'POST':
+        article.delete()
+        messages.success(request, " La categorie a été supprimé avec succès.")
+
+        return redirect('compte:')
+        
+    # Optionally, you can render a confirmation page here if not using a modal
+        # return render(request,'compte/admin/admin.html')
+
+    return redirect('compte:article')
+#
+
+@login_required
+def categorie_article_update(request, slug=None):
+    categorie_article = get_object_or_404(Articlecategorie, slug=slug)
+    print("okk")
+    if request.method == 'POST':
+        form = ArticleCategorieForm(request.POST, request.FILES, instance=categorie_article)
+        if form.is_valid():
+            # Sauvegarde du produit, y compris la photo si un nouveau fichier est téléchargé
+            categorie_article = form.save(commit=False)
+            categorie_article.user = request.user  # Assign the current user
+            
+            # Save the product instance to the database
+            categorie_article.save()  # Save product first
+
+            messages.success(request, " L\'article a été mis à jour avec succès.")
+            return redirect('compte:article')
+        else:
+            # Ajout de messages d'erreur spécifiques pour le formulaire
+            messages.error(request, 'Une erreur s\'est produite. Veuillez vérifier les informations saisies.')
+    else:
+        form = ArticleCategorieForm(instance=categorie_article)
+
+    return render(request, 'compte/admin/article/update_categorie_article.html', {'form': form})
+#

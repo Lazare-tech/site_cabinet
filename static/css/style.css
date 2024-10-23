@@ -309,3 +309,46 @@ border-radius: 3%;
 }
 
 /* END BLOG PARTY  */
+
+/* ADMIN DASHBOARDPARTY  */
+ /* Gradient background for cards */
+ .gradient-card {
+  background: linear-gradient(135deg, #1d2671, #c33764); /* Purple to pink gradient */
+  color: #fff; /* Ensures the text is readable on the gradient */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Gradient background for the sidebar */
+.gradient-sidebar {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Dark blue to slate gradient */
+  color: #fff; /* Text color */
+}
+
+/* Gradient background for the navbar */
+.gradient-navbar {
+  background: linear-gradient(135deg, #000428, #004e92); /* Dark blue to light blue gradient */
+  color: #fff;
+}
+
+/* Navbar brand and link hover effect */
+.navbar-brand, .nav-link {
+  color: #fff;
+}
+
+.nav-link:hover {
+  color: #ffc107; /* Add a gold hover effect */
+}
+
+/* Add border to the sidebar links for a sharper look */
+.list-group-item {
+  border: none;
+  background: transparent; /* Make the sidebar links blend into the gradient */
+  color: #fff;
+}
+
+/* Hover effect for sidebar items */
+.list-group-item:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect */
+}
+

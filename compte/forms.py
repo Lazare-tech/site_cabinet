@@ -2,7 +2,8 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 
-from cabinet.models import Article  # Pour utiliser le modèle d'utilisateur personnalisé
+from cabinet.models import Article, Articlecategorie  # Pour utiliser le modèle d'utilisateur personnalisé
+from django_ckeditor_5.widgets import CKEditor5Widget
 
 User = get_user_model()  # Récupère le modèle d'utilisateur personnalisé
 
@@ -82,27 +83,25 @@ class SignupForm(forms.ModelForm):  # Utilisation de ModelForm pour se baser sur
             'password': forms.PasswordInput(attrs={'class': 'form-control'})
         }
 #####
-
 class ArticleForm(forms.ModelForm):
-    # Define the field for secondary images correctly
-
     class Meta:
         model = Article
-        fields = ['photo', 'titre','article','contenu']
+        fields = ['photo', 'titre', 'article', 'contenu']
         widgets = {
             'photo': forms.FileInput(attrs={'class': 'form-control'}),
             'titre': forms.TextInput(attrs={'class': 'form-control'}),
-            'contenu': forms.Textarea(attrs={'class': 'form-control'}),
+            'contenu': CKEditor5Widget(config_name='extends'),
+                        
+
             'article': forms.Select(attrs={'class': 'form-control'}),
-          
         }
+
     def clean_nom(self):
         titre = self.cleaned_data.get('titre')
         if len(titre) > 40:
-            raise forms.ValidationError("Le tire de l\'article ne peut pas dépasser 40 caractères.")
+            raise forms.ValidationError("Le titre de l'article ne peut pas dépasser 40 caractères.")
         return titre
-    ###
-    
+##
 class UserProfileForm(forms.ModelForm):
     nouveau_mot_de_passe = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'autocomplete': 'new-password'}),
@@ -130,3 +129,21 @@ class UserProfileForm(forms.ModelForm):
 
             
         }
+        
+class ArticleCategorieForm(forms.ModelForm):
+    # Define the field for secondary images correctly
+
+    class Meta:
+        model = Articlecategorie
+        fields = ['nom_article']
+        widgets = {
+            'nom_article': forms.TextInput(attrs={'class': 'form-control'}),
+           
+
+          
+        }
+    def clean_nom(self):
+        nom_article = self.cleaned_data.get('nom_article')
+        if len(nom_article) > 40:
+            raise forms.ValidationError("Le nom ne peut pas dépasser 40 caractères.")
+        return nom_article

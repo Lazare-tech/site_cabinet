@@ -1,0 +1,6 @@
+.ck-editor__editable {
+    color: #000000 !important; /* Ensure the text is black */
+    background-color: #ffffff; /* Ensure the background is white */
+    padding: 10px;             /* Optional padding for better readability */
+    border: 1px solid #ccc;    /* Optional border */
+}
