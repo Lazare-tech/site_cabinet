@@ -35,7 +35,7 @@
             {% endif %}
             <!-- Texte à droite et en dessous de l'image -->
             <h5 class="card-title">{{ article.titre }}</h5>
-            <p class="card-text">{{ article.contenu }}</p>
+            <p class="card-text">{{ article.contenu|safe }}</p>
             
             <!-- Contenu caché (sera déplié) -->
             {% comment %} <div id="collapseArticle" class="collapse">
@@ -76,7 +76,7 @@
                         <img src="{{ article.photo.url }}" class="card-img-top card-img-article" alt="Article Image">
                     {% else %}
                         <div class="card-img-top" style="background: linear-gradient(to right, #1A237E, #5C6BC0); height: 200px; display: flex; align-items: center; justify-content: center; color: white;">
-                            <p style="text-align: center; margin: 0;">{{ article.contenu|truncatewords:30 }}</p>
+                            <p style="text-align: center; margin: 0;">{{ article.contenu|truncatewords:10|safe }}</p>
                         </div>
                     {% endif %}
             

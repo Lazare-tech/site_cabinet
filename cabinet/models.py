@@ -33,7 +33,7 @@ class Article(models.Model):
     titre = models.CharField(max_length=255, verbose_name="Titre de l'article", null=True)
     contenu = CKEditor5Field(config_name='extends')  # Use CKEditor5Field here
     photo = models.ImageField(upload_to='article_image', verbose_name="Image de l'article", null=True, blank=True)
-    date_publie = models.DateField(verbose_name="Date de publication de l'article", auto_now=True)
+    date_publie = models.DateTimeField(verbose_name="Date de publication de l'article", auto_now=True)
 
     slug = models.SlugField(unique=True, max_length=255, blank=True)
 

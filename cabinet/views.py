@@ -30,11 +30,10 @@ def blog(request,slug=None):
 
     if slug:
         categorie = Articlecategorie.objects.all()
-
     context={
             'articles_precedents': articles_precedents,
         'article_a_la_une': article_a_la_une,  # Par exemple
-        'categorie':categorie
+        'categorie':categorie,
     }
     return render(request,'cabinet/body/blog.html',context)
 

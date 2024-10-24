@@ -202,6 +202,7 @@ CKEDITOR_5_CONFIGS = {
 
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -226,6 +227,10 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_URL='/assets/'
 #url chemin absoule du repertoire ou sont stockees ces fichiers sur le disque
 MEDIA_ROOT = os.path.join(BASE_DIR,'assets/')
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'assets/')    # For production
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

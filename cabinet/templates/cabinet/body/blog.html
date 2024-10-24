@@ -40,6 +40,7 @@
             <div class="col-lg-4">
                 <h4 class="fw-bold">Catégories</h4>
                 <ul class="list-group list-categories">
+                
                     {% for categorie in categorie_article %}
                     <a href="{% url 'cabinet:blog-categorie' categorie.slug %}#articles-precedents" class="list-group-item d-flex justify-content-between align-items-center category-article-hover">
                          {{ categorie.nom_article }}
@@ -51,7 +52,6 @@
         </div>
     </div>
 </section>
-
 <!-- Previous Articles Section -->
 <section class="previous-articles py-5" id="articles-precedents">
     <div class="container">
@@ -74,7 +74,7 @@
                     <img src="{{ article.photo.url }}" class="card-img-top card-img-article" alt="Article Image">
                    {% else %}
                    <div class="card-img-top" style="background: linear-gradient(to right, #1A237E, #5C6BC0); height: 200px; display: flex; align-items: center; justify-content: center; color: white;">
-                    <p style="text-align: center; margin: 0;">{{ article.contenu|truncatewords:30 }}</p>
+                    <p style="text-align: center; margin: 0;">{{ article.contenu|truncatewords:10|safe }}</p>
                 </div>
             {% endif %}
     

@@ -122,7 +122,7 @@ def password_reset_complete(request):
     return render(request, 'compte/password_reset_complete.html')
 #################
 def dashboard_admin(request):
-    articles=Article.objects.all()
+    articles=Article.objects.all().order_by('-date_publie')
     
     context={
         'article':articles
@@ -267,7 +267,7 @@ def categorie_article_delete(request, slug=None):
         article.delete()
         messages.success(request, " La categorie a été supprimé avec succès.")
 
-        return redirect('compte:')
+        return redirect('compte:article')
         
     # Optionally, you can render a confirmation page here if not using a modal
         # return render(request,'compte/admin/admin.html')

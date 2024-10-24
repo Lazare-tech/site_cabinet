@@ -1,4 +1,8 @@
 {% extends "../../admin/base.html" %}
+{% block header %}
+{{ form.media }}
+{% endblock header %}
+
 {% load static %}
 {% block main %}
 <div class="container mt-5">
@@ -11,7 +15,7 @@
         <div class="card-body">
           <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            
+
             <div class="row mb-3">
               <div class="col-md-6">
                 {{ form.photo.label_tag }}
