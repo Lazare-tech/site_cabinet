@@ -4,7 +4,7 @@
 {% block main %}
 
 
-<section class="mb-4 mx-5">
+<section class="mb-4 mx-0">
     <div class="card">
       <div class="card-header text-center ">
         <h5 class="mb-0 text-center" id="produit">
@@ -48,10 +48,10 @@
                       
                   <!-- Trigger button -->
                   <a href="{% url 'compte:delete_categorie_article' article.slug %}" class="btn" data-mdb-toggle="modal" data-mdb-target="#modalDelete{{ boisson.slug }}">
-                    <i class="fas fa-trash text-danger fa-2x"></i>
+                    <i class="fas fa-trash text-danger fa-1x"></i>
                   </a>
                       <a href="{% url 'compte:update_categorie_article' article.slug %}" class="btn" data-mdb-ripple-init>
-                        <i class="fas fa-pencil-alt text-primary fa-2x"></i>
+                        <i class="fas fa-pencil-alt  text-primary fa-1x"></i>
                       </a>
                     </td>
                   </tr>

@@ -1,72 +1,79 @@
 {% extends "base.html" %}
-{% block title %}Comptabilite{% endblock title %}
+{% block title %}Comptabilité{% endblock title %}
 {% block content %}
     <!-- Hero Section -->
-    <div class="hero_compta d-flex justify-content-center align-items-center">
-        <div class="hero_content text-center text-light">
-            <h1>Maîtrisez la comptabilité pour votre entreprise</h1>
-            <p>Découvrez nos services de comptabilité conçus pour optimiser la gestion financière de votre entreprise.</p>
-            <a href="#services" class="btn btn-dark">Découvrir nos services</a>
+    <div class="hero_compta d-flex justify-content-center align-items-center"> 
+        <div class="hero_content text-center text-light" style="max-width: 700px; padding: 20px;">
+            <h1 class="display-4 fw-bold mb-4" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
+                Maîtrisez la comptabilité pour votre entreprise
+            </h1>
+            <p class="lead mb-4" style="font-size: 1.2rem; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);">
+                Découvrez nos services de comptabilité conçus pour optimiser la gestion financière de votre entreprise.
+            </p>
+            <a href="#services" class="btn btn-dark btn-lg px-4 py-2" style="font-weight: bold;">
+                Découvrir nos services
+            </a>
         </div>
     </div>
-    
 
     <!-- Services Section -->
-    <section id="services" class="services-section py-5">
+    <section id="services" class="services-section py-5 bg-light">
         <div class="container">
-            <h3 class="text-center text-muted">Nos services de comptabilité</h3>
-            <div class="row gx-5">
+            <h3 class="text-center text-muted mb-5" style="font-size: 2rem; font-weight: bold;">
+                Nos services de comptabilité
+            </h3>
+            <div class="row gx-4 gy-5">
                 <!-- Service 1 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card service-card h-100">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100 text-center border-0 shadow-sm">
                         <div class="card-body">
-                            <i class="fas fa-file-invoice-dollar fa-3x mb-4"></i>
-                            <h5 class="card-title">Audit comptable</h5>
-                            <p class="card-text">Révision et analyse des états financiers de votre entreprise.</p>
+                            <i class="fas fa-file-invoice-dollar fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title fw-bold text-dark">Audit comptable</h5>
+                            <p class="card-text text-muted">Révision et analyse des états financiers de votre entreprise.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card service-card h-100">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100 text-center border-0 shadow-sm">
                         <div class="card-body">
-                            <i class="fas fa-hands-helping fa-3x mb-4"></i>
-                            <h5 class="card-title">Assistance comptable</h5>
-                            <p class="card-text">Aide à la tenue de la comptabilité et à la préparation des déclarations fiscales.</p>
+                            <i class="fas fa-hands-helping fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title fw-bold text-dark">Assistance comptable</h5>
+                            <p class="card-text text-muted">Aide à la tenue de la comptabilité et à la préparation des déclarations fiscales.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card service-card h-100">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100 text-center border-0 shadow-sm">
                         <div class="card-body">
-                            <i class="fas fa-laptop-code fa-3x mb-4"></i>
-                            <h5 class="card-title">Formation logiciel comptable</h5>
-                            <p class="card-text">Formation sur l'utilisation des logiciels de comptabilité.</p>
+                            <i class="fas fa-laptop-code fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title fw-bold text-dark">Formation logiciel comptable</h5>
+                            <p class="card-text text-muted">Formation sur l'utilisation des logiciels de comptabilité.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card service-card h-100">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100 text-center border-0 shadow-sm">
                         <div class="card-body">
-                            <i class="fas fa-cart-arrow-down fa-3x mb-4"></i>
-                            <h5 class="card-title">Vente de logiciel comptable</h5>
-                            <p class="card-text">Conseil et vente de logiciels de comptabilité adaptés à vos besoins.</p>
+                            <i class="fas fa-cart-arrow-down fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title fw-bold text-dark">Vente de logiciel comptable</h5>
+                            <p class="card-text text-muted">Conseil et vente de logiciels de comptabilité adaptés à vos besoins.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 5 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card service-card h-100">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card h-100 text-center border-0 shadow-sm">
                         <div class="card-body">
-                            <i class="fas fa-chart-line fa-3x mb-4"></i>
-                            <h5 class="card-title">Elaboration des états financiers</h5>
-                            <p class="card-text">Préparation des bilans et des états financiers conformes aux normes comptables.</p>
+                            <i class="fas fa-chart-line fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title fw-bold text-dark">Elaboration des états financiers</h5>
+                            <p class="card-text text-muted">Préparation des bilans et des états financiers conformes aux normes comptables.</p>
                         </div>
                     </div>
                 </div>
@@ -74,4 +81,4 @@
         </div>
     </section>
 
-    {% endblock content %}
+{% endblock content %}

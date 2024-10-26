@@ -149,7 +149,7 @@
                     <i class="fas fa-user-circle fa-fw me-3"></i><span>Profile</span>
                 </a>
                 <a href="{% url 'compte:article' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
-                    <i class="fas fa-map-marker-alt fa-fw me-3"></i><span>Categorie article</span>
+                  <i class="fas fa-th-list fa-w me-3"></i><span>Categorie article</span>
                 </a>
                 <a href="{% url 'compte:dashboard' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
                     <i class="fas fa-gavel fa-fw me-3"></i><span>Mes articles</span>
@@ -206,10 +206,12 @@
   <!--Main layout-->
   <main style="margin-top: 58px">
     <div class="container pt-4" class="justify-content-center">
+
       {% block stats %}
 
       {% include 'compte/admin/article/stat.html' %}
       {% endblock stats %}
+      
       {% block main %}
 
       {% endblock main %}

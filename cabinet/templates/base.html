@@ -27,7 +27,15 @@
 
 
   <title> {% block title %}{% endblock title %} </title>
+  {% block style %}{% endblock style %}
 <style>
+  .category-article-hover:hover {
+    background-color: #1a237e !important;
+    color: white !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
 /* ARTICLE PARTY */
   /* Icônes avec arrière-plan bleu et coins arrondis */
   /* Arrière-plan fluide */

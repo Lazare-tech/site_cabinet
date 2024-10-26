@@ -20,7 +20,7 @@ urlpatterns = [
         path('<slug:slug>/update/', compte.views.article_update, name='update_article'),
         path('<slug:slug>/delete/', compte.views.article_delete, name='delete_article'),
     #CATEGORIE ARTICLE
-    path('article',compte.views.article_categorie,name='article'),
+    path('categorie_article',compte.views.article_categorie,name='article'),
     path('add_categorie_article/',compte.views.add_categorie_article,name='add_categorie_article'),
     path('<slug:slug>/article_categoriedelete/', compte.views.categorie_article_delete, name='delete_categorie_article'),
     path('<slug:slug>/article_categorieupdate/', compte.views.categorie_article_update, name='update_categorie_article'),

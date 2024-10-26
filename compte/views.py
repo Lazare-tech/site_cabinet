@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth import login, authenticate,logout
 from django.conf import settings
+from django.views import View
 
 from cabinet.models import Article, Articlecategorie
 from compte.models import User
@@ -26,9 +27,11 @@ from django.contrib import messages
 from .forms import ArticleCategorieForm, ArticleForm, LoginForm, SignupForm
 from django.contrib.auth import login
 from django.contrib.auth import get_user_model  # Pour utiliser le modèle d'utilisateur personnalisé
-
+from cabinet import context_processors
 #########################
-
+from .mixins import GlobalData
+##
+    
 User = get_user_model()
 
 def login_page(request):

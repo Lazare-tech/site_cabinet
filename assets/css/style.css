@@ -160,14 +160,9 @@
 /* END FOOTER PARTY  */
 /* COMPTABILITE PAGE PARTY */
 .hero_compta  {
-    background-image: url('/assets/images/compta1.jpg'); /* Replace with your image path */
-    background-size: cover;
-    background-position: center;
-    height: 80vh; /* Adjust height as needed */
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+height: 80vh; 
+background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/compta1.jpg') center/cover no-repeat;
+
 }
 
 
@@ -184,40 +179,24 @@
 }
 /* HERO FISCALITE  */
 .hero_fiscalite {
-  background-image: url('/assets/images/fis2.jpeg'); /* Replace with your image path */
-  background-size: cover;
-  background-position: center;
-  height: 80vh; /* Adjust height as needed */
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+height: 80vh; 
+background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/fis2.jpeg') center/cover no-repeat;
+
 }
 
 
 /* HERO JURIDIQUE  */
 .hero_juridique {
-  background-image: url('/assets/images/juri2.jpeg'); /* Replace with your image path */
-  background-size: cover;
-  background-position: center;
-  height: 80vh; /* Adjust height as needed */
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ height: 100vh;
+ background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/juri2.jpeg') center/cover no-repeat;;
 }
-
 
 /* HERO MANAGEMENT */
 .hero_management {
-  background-image: url('/assets/images/compta1.jpg'); /* Replace with your image path */
-  background-size: cover;
-  background-position: center;
-  height: 80vh; /* Adjust height as needed */
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  height: 80vh; 
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/images/compta1.jpg') center/cover no-repeat;
+
 }
 
 

@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 {% block title %}Blog{% endblock title %}
-{% block content %}
+ {% block content %}
 <!-- Hero Section -->
 <section class="hero_blog">
     <div class="d-flex justify-content-center align-items-center">
@@ -8,8 +8,13 @@
             <div class="row">
                 <div class="col-lg-7 col-md-12 text-hero text-light">
                     <h1 class="display-4 fw-bold">Expertise Juridique à Votre Service</h1>
-                    <p class="lead">Découvrez les actualités, analyses et conseils pour protéger et développer votre entreprise avec une approche juridique sur mesure.</p>
-                    <button class="down-to-article"><i class="fas fa-long-arrow-alt-down"></i></button>
+                    <p class="lead">
+                        Découvrez les actualités, analyses et conseils pour protéger et
+                        développer votre entreprise avec une approche juridique sur mesure.
+                    </p>
+                    <button class="down-to-article">
+                        <i class="fas fa-long-arrow-alt-down"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -17,47 +22,41 @@
 </section>
 
 <!-- Featured Article & Categories -->
-<section class="featured-article py-5 bg-light" id="article-a-la-une">
-
-    <div class="container">
+<section class="featured-article py-5" id="article-a-la-une"
+    style="background: linear-gradient(135deg, #fdfcfb, #e2d1c3)">
+    <div class="container-fluid">
         <div class="row">
-         <!-- Featured Article (Col-6) -->
-<div class="col-lg-8">
-    {% if  article_a_la_une %}
-    <h2 class="fw-bold">Article à la Une</h2>
-    {% endif %}
-    <article class="mb-4">
-        <div class="card-body">
-            <!-- Image à gauche -->
-            {% if article.photo %}
+            <!-- Featured Article (Col-6) -->
+            <div class="col-lg-8">
+                {% if article_a_la_une %}
+                <h2 class="fw-bold">Article à la Une</h2>
+                {% endif %}
+                <article class="mb-4 shadow-sm rounded bg-white">
+                    <div class="card-body">
+                        <!-- Image à gauche -->
+                        {% if article.photo %}
 
-            <img src="{{ article.photo.url }}" class="img-fluid float-start me-3 mb-3 card-img-article-one" alt="Article Image" style="width: 300px;">
-            {% endif %}
-            <!-- Texte à droite et en dessous de l'image -->
-            <h5 class="card-title">{{ article.titre }}</h5>
-            <p class="card-text">{{ article.contenu|safe }}</p>
-            
-            <!-- Contenu caché (sera déplié) -->
-            {% comment %} <div id="collapseArticle" class="collapse">
-                <p class="card-text">{{ article_a_la_une.contenu|safe }}</p>
-            </div> {% endcomment %}
-            
-            <!-- Bouton pour déplier/replier le contenu -->
-            {% comment %} <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseArticle" role="button" aria-expanded="false" aria-controls="collapseArticle">Lire l'article</a> {% endcomment %}
-        </div>
-    </article>
-</div>
+                        <img src="{{ article.photo.url }}" class="img-fluid float-start me-3 mb-3 card-img-article-one"
+                            alt="Article Image" style="width: 300px" />
+                        {% endif %}
+                        <!-- Texte à droite et en dessous de l'image -->
+                        <h5 class="card-title">{{ article.titre }}</h5>
+                        <p class="card-text">{{ article.contenu|safe }}</p>
+                    </div>
+                </article>
+            </div>
             <div class="col-lg-4">
-                <h2 class="fw-bold">Catégories</h2>
+                <h5 class="fw-bold">Catégories</h5>
                 <ul class="list-group list-categories">
                     {% for categorie in categorie_article %}
-                        <a href="{% url 'cabinet:blog-categorie' categorie.slug %}#articles-precedents" class="list-group-item d-flex justify-content-between align-items-center category-article-hover">
-                            {{ categorie.nom_article }}
-                            <span class="badge bg-primary rounded-pill"></span>
-                        </a>
+                    <a href="{% url 'cabinet:blog-categorie' categorie.slug %}#articles-precedents"
+                        class="list-group-item d-flex justify-content-between align-items-center category-article-hover bg-light text-dark mb-2 rounded shadow-sm px-3 py-2"
+                        style="border-left: 4px solid #1a237e">
+                        {{ categorie.nom_article }}
+                        <span class="badge bg-primary rounded-pill"></span>
+                    </a>
                     {% endfor %}
                 </ul>
-                
             </div>
         </div>
     </div>
@@ -66,34 +65,47 @@
 <!-- Previous Articles Section -->
 <section class="previous-articles py-5">
     <div class="container" id="articles-precedents">
-        <h4 class="fw-bold">{% if articles_precedents %}Articles précédents{{ categorie.nom_article }}{% else %}Articles Précédents{% endif %}</h4>
+        <h5 class="fw-bold">
+            {% if articles_precedents %}Articles précédents{{ categorie.nom_article }}{% else %}Articles Précédents{% endif %}
+        </h5>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {% for article in articles_precedents %}
             <!-- Article Card -->
             <div class="col">
-                <div class="card" style="border-radius: 8px; overflow: hidden;">
+                <div class="card" style="border-radius: 8px; overflow: hidden">
                     {% if article.photo %}
-                        <img src="{{ article.photo.url }}" class="card-img-top card-img-article" alt="Article Image">
+                    <img src="{{ article.photo.url }}" class="card-img-top card-img-article" alt="Article Image" />
                     {% else %}
-                        <div class="card-img-top" style="background: linear-gradient(to right, #1A237E, #5C6BC0); height: 200px; display: flex; align-items: center; justify-content: center; color: white;">
-                            <p style="text-align: center; margin: 0;">{{ article.contenu|truncatewords:10|safe }}</p>
-                        </div>
+                    <div class="card-img-top" style="
+              background: linear-gradient(to right, #1a237e, #5c6bc0);
+              height: 200px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+            ">
+                        <p style="text-align: center; margin: 0">
+                            {{ article.contenu|truncatewords:10|safe }}
+                        </p>
+                    </div>
                     {% endif %}
-            
+
                     <div class="card-body">
                         <h6 class="card-title">{{ article.titre }}</h6>
-                        <p class="card-text"><small class="text-muted">Publié le {{ article.date_publie|date:"d F Y" }}</small></p>
-                        <a href="{% url 'cabinet:article' article.slug %}#article-a-la-une" class="btn btn-outline-primary">Lire l'article</a>
+                        <p class="card-text">
+                            <small class="text-muted">Publié le {{ article.date_publie|date:"d F Y" }}</small>
+                        </p>
+                        <a href="{% url 'cabinet:article' article.slug %}#article-a-la-une"
+                            class="btn btn-outline-primary">Lire l'article</a>
                     </div>
                 </div>
             </div>
-            
-            
+
             {% endfor %}
         </div>
     </div>
 </section>
 
-{% include 'cabinet/body/news-letter.html' %}
-{% include 'cabinet/body/partner.html' %}
+{% include 'cabinet/body/news-letter.html' %} 
+{% include 'cabinet/body/partner.html' %} 
 {% endblock content %}
