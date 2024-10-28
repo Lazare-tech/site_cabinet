@@ -352,3 +352,88 @@ border-radius: 3%;
   background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect */
 }
 
+/* RESPONSIVE HOMEPAGE  */
+
+
+.carousel-item img {
+  height: 100vh; /* Remplit toute la hauteur de la vue */
+  object-fit: cover; /* Assure que l'image couvre entièrement le conteneur */
+}
+
+@media (max-width: 405px) {
+  /* Ajustement du titre */
+  .carousel-caption h1 {
+    font-size: 1.5rem; /* Taille du texte du titre */
+    text-align: center; /* Centrer le texte */
+  }
+
+  /* Ajustement du texte de la description */
+  .carousel-caption p {
+    font-size: 0.875rem; /* Taille du texte de la description */
+    text-align: center; /* Centrer le texte */
+  }
+
+  /* Ajustement des boutons */
+  .carousel-caption .btn {
+    padding: 0.5rem ; /* Ajuster le rembourrage */
+    font-size: 10px !important; /* Taille du texte du bouton */
+  }
+}
+@media (max-width:767px){
+  .img-services-management,.img-kfc{
+    display: none;
+  }
+  #services{
+    padding-top: 0.3rem !important;
+  }
+  
+}
+@media (max-width:293px){
+  .btn-contact,span{
+    font-size: 9px;
+  }
+}
+@media (max-width:575px){
+  .article-row-display ,.fa-chart-line,.fa-users,.fa-gavel,.fa-lightbulb,.article-title{
+  text-align: center !important;
+  align-items: center !important;
+    
+  }
+}
+/* Style pour garantir une hauteur uniforme et responsive */
+.value-card {
+  
+  height: 100%; /* Pour que les cartes soient de hauteur égale */
+}
+
+.value-card img {
+  height: 200px; /* Taille fixe pour l'image */
+  object-fit: cover;
+}
+
+.value-card .card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Responsive design */
+@media (max-width: 769px) {
+  .value-card img {
+    height: 169px;
+  }
+  .value-card{
+    width: 100%;
+  }
+}
+/* news letter  */
+@media (max-width:373px){
+  .form-control-news{
+    width: 100px !important;
+  }
+  .news ,.span{
+    text-align: center;
+    font-size: 15px;
+  }
+}

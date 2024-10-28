@@ -17,7 +17,7 @@
           <div class="text-center">
             <h1 class="fw-bold text-light">KEFC GROUP CONSULTING OFFICE</h1>
             <p class="text-light lead">Votre partenaire juridique de confiance</p>
-            <a href="#contact" class="btn btn-lg mb-4 btn-hero">Contactez-nous</a>
+            <a href="#contact" class="btn btn-lg mb-4 btn-hero"><span class="text-white">Contactez-nous</span></a>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
           <div class="text-center">
             <h1 class="fw-bold text-light">Un accompagnement sur-mesure</h1>
             <p class="text-light lead">Conseil juridique, fiscal, comptable et managérial</p>
-            <a href="#services" class="btn btn-hero btn-lg mb-4">Découvrez nos services</a>
+            <a href="#services" class="btn btn-hero btn-lg mb-4"><span class="text-white">Découvrez nos services</span></a>
           </div>
         </div>
       </div>
@@ -69,8 +69,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-      <img src="assets/images/LOGO.png" style="position:relative;top:199px;left:159px;width:190px">
-        <img src="assets/images/management.jpeg" alt="Services Image" class="img-fluid rounded shadow-sm" loading="lazy" />
+      <img src="assets/images/LOGO.png" style="position:relative;top:199px;left:159px;width:190px" class="img-kfc">
+        <img src="assets/images/management.jpeg" alt="Services Image" class="img-fluid rounded shadow-sm img-services-management" loading="lazy" />
       </div>
       <div class="col-md-6 d-flex align-items-center">
         <div>
@@ -79,7 +79,7 @@
             Nous vous accompagnons dans les domaines juridique, fiscal, comptable et managérial. KEFC Group est à vos
             côtés pour structurer et faire croître vos activités de manière saine et pérenne.
           </p>
-          <a href="#contact" class="btn btn-contact mt-3">Demander une consultation</a>
+          <a href="#contact" class="btn btn-contact mt-3"><span class="text-white">Demander une consultation</span></a>
         </div>
       </div>
     </div>
@@ -168,25 +168,27 @@
     </div>
   </div>
 </section>
-
 <!-- Articles Section -->
 <section class="articles-section">
-  <div class="container  ">
-    <h4 class="pb-2 border-bottom p-5">Découvrez nos articles</h4>
+  <div class="container">
+    <h4 class="pb-2 border-bottom p-5 article-row-display">Découvrez nos articles</h4>
 
-    <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-      <div class="col d-flex flex-column align-items-start gap-2">
-        <h4 class="fw-bold text-body-emphasis">Restez informé et compétitif !</h4>
+    <div class="row g-5 py-5">
+      <!-- Introduction section: Restez informé et compétitif -->
+      <div class="col-12 d-flex flex-column align-items-start gap-2 article-row-display">
+        <h4 class="fw-bold text-body-emphasis article-title">Restez informé et compétitif !</h4>
         <p class="text-body-secondary">
           Plongez dans nos articles captivants couvrant des sujets juridiques, fiscaux et managériaux.
         </p>
         <a href="{% url 'cabinet:blog' %}" class="btn btn-outline-primary">Visitez notre blog</a>
       </div>
 
-      <div class="col">
-        <div class="row row-cols-1 row-cols-sm-2 g-4">
+      <!-- Articles section -->
+      <div class="col-12 ">
+        <!-- Suppression de l'espacement horizontal avec gx-0 -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-4 gx-0">
           <!-- Gestion fiscale -->
-          <div class="col d-flex flex-column gap-2 article-card">
+          <div class="col d-flex flex-column gap-2 article-card article-row-display">
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
               <i class="fas fa-chart-line fa-2x mb-2 text-white"></i>
             </div>
@@ -195,7 +197,7 @@
           </div>
 
           <!-- Stratégies Managériales -->
-          <div class="col d-flex flex-column gap-2 article-card">
+          <div class="col d-flex flex-column gap-2 article-card article-row-display">
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
               <i class="fas fa-users fa-2x mb-2 text-white"></i>
             </div>
@@ -204,7 +206,7 @@
           </div>
 
           <!-- Conseils juridiques -->
-          <div class="col d-flex flex-column gap-2 article-card">
+          <div class="col d-flex flex-column gap-2 article-card article-row-display">
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
               <i class="fas fa-gavel fa-2x mb-2 text-white"></i>
             </div>
@@ -212,8 +214,8 @@
             <p class="text-body-secondary">Protégez votre entreprise avec nos conseils pratiques.</p>
           </div>
 
-          <!-- Nouvel article ajouté -->
-          <div class="col d-flex flex-column gap-2 article-card">
+          <!-- Innovation d'Entreprise -->
+          <div class="col d-flex flex-column gap-2 article-card article-row-display">
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
               <i class="fas fa-lightbulb fa-2x mb-2 text-white"></i>
             </div>
@@ -226,6 +228,9 @@
   </div>
 </section>
 
+
+
+<!-- Values Section -->
 <!-- Values Section -->
 <section class="container-fluid background-section pb-5">
   <div class="container">
@@ -234,8 +239,8 @@
       <h3 class="text-white">Découvrez nos engagements</h3>
     </div>
     <div class="row pb-5">
-      <div class='col-md-4'>
-        <div class="card">
+      <div class="col-md-4 col-sm-12 mt-2">
+        <div class="card value-card">
           <img src="assets/images/values-1.png" class="card-img-top" alt="Our Mission" />
           <div class="card-body">
             <h5 class="card-title">Notre mission</h5>
@@ -243,8 +248,8 @@
           </div>
         </div>
       </div>
-      <div class='col-md-4'>
-        <div class="card">
+      <div class="col-md-4 col-sm-12 mt-2">
+        <div class="card value-card">
           <img src="assets/images/values-2.png" class="card-img-top" alt="Our Strength" />
           <div class="card-body">
             <h5 class="card-title">Notre force</h5>
@@ -252,8 +257,8 @@
           </div>
         </div>
       </div>
-      <div class='col-md-4'>
-        <div class="card">
+      <div class="col-md-4 col-sm-12 mt-2">
+        <div class="card value-card">
           <img src="assets/images/values-3.png" class="card-img-top" alt="Our Commitment" />
           <div class="card-body">
             <h5 class="card-title">Notre engagement</h5>
@@ -264,6 +269,7 @@
     </div>
   </div>
 </section>
+
 <!-- Section Nos Partenaires -->
 
 
