@@ -3,10 +3,9 @@
 
 {% block main %}
 
-
 <section class="mb-4 mx-0">
     <div class="card">
-      <div class="card-header text-center ">
+      <div class="card-header text-center">
         <h5 class="mb-0 text-center" id="produit">
           <strong>Inventaire des categories</strong>
         </h5>
@@ -18,7 +17,7 @@
                 </div>
             {% endfor %}
         </div>
-    {% endif %}
+        {% endif %}
     
         <div class="d-flex justify-content-end p-3" id="section-boisson">
           <a href="{% url 'compte:add_categorie_article' %}" class="btn btn-outline-success">
@@ -28,13 +27,11 @@
       </div>
        <div class="card-body">
         {% if categorie_article %}
-          <div class="table-responsive" >
+          <div class="table-responsive">
             <table class="table table-hover text-nowrap">
               <thead>
                 <tr>
                   <th scope="col">Categorie Article</th>
-                 
-                  
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -42,19 +39,40 @@
                 {% for article in categorie_article %}
                   <tr>
                     <th scope="row">{{ article.nom_article }}</th>
-                 
                     <td>
-                   
-                      
-                  <!-- Trigger button -->
-                  <a href="{% url 'compte:delete_categorie_article' article.slug %}" class="btn" data-mdb-toggle="modal" data-mdb-target="#modalDelete{{ boisson.slug }}">
-                    <i class="fas fa-trash text-danger fa-1x"></i>
-                  </a>
+                      <!-- Trigger button for delete modal -->
+                      <button class="btn" data-mdb-toggle="modal" data-mdb-target="#modalDelete{{ article.slug }}">
+                        <i class="fas fa-trash text-danger fa-1x"></i>
+                      </button>
                       <a href="{% url 'compte:update_categorie_article' article.slug %}" class="btn" data-mdb-ripple-init>
-                        <i class="fas fa-pencil-alt  text-primary fa-1x"></i>
+                        <i class="fas fa-pencil-alt text-primary fa-1x"></i>
                       </a>
                     </td>
                   </tr>
+
+                  <!-- Delete Confirmation Modal -->
+                  <div class="modal fade" id="modalDelete{{ article.slug }}" tabindex="-1" aria-labelledby="modalDeleteLabel{{ article.slug }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                          <h5 class="modal-title" id="modalDeleteLabel{{ article.slug }}">Confirmer la suppression</h5>
+                          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Êtes-vous sûr de vouloir supprimer la catégorie <strong>{{ article.nom_article }}</strong>? Cette action est irréversible.
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Annuler</button>
+                          <form method="POST" action="{% url 'compte:delete_categorie_article' article.slug %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End of Delete Confirmation Modal -->
+
                 {% endfor %}
               </tbody>
             </table>
@@ -65,5 +83,5 @@
       </div> 
     </div>
   </section>
-
+  
 {% endblock main %}
