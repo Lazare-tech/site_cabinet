@@ -155,9 +155,7 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .card:hover {
-      transform: scale(1.05);
-    }
+    
     .background-section{
       background: linear-gradient(135deg, #144a60, #1f6d89, #a1d3e6);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce pour effet flottant */
@@ -205,6 +203,10 @@
     transform: scale(1.1); /* Agrandir légèrement lors du survol */
     color: #1A237E;
 }
+.btn-message-sent{
+  background-color: #1A237E;
+  color:white;
+}
 
 </style>
 </head>
@@ -229,9 +231,12 @@
 </a>
 
   </main>
+  {% block news_letter %}
   {% include 'cabinet/body/news-letter.html' %}
-
+  {% endblock news_letter %}
+  {% block partner %}
   {% include 'cabinet/body/partner.html' %}
+  {% endblock partner %}
   {% include 'cabinet/footer/footer.html' %}
   
   
@@ -244,8 +249,8 @@
   <!--mdn Bootstrap links-->
   <script type="text/javascript" src={% static "js/mdb.umd.min.js" %}></script>
   <script type="text/javascript" src={% static "js/carousel-category.js" %}></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
+  {% comment %} <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script> {% endcomment %}
 
   <script type="text/javascript" src={% static "js/style.js" %}></script>
   <script type="text/javascript" src={% static "django_ckeditor_5/src/ckeditor.js" %}></script>
@@ -294,6 +299,7 @@
           });
       });
   });
+    
   
     </script>
 

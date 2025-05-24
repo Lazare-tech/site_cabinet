@@ -125,13 +125,16 @@ def password_reset_complete(request):
     return render(request, 'compte/password_reset_complete.html')
 #################
 def dashboard_admin(request):
-    articles=Article.objects.all().order_by('-date_publie')
+    if request.user.is_authenticated:
+        
+        articles=Article.objects.all().order_by('-date_publie')
     
-    context={
+        context={
         'article':articles
-    }
+        }
+    else:
+        return redirect('compte:login')
     return render(request,'compte/admin/admin.html',context)
-
 # #
 # def profile(request):
 #     return render(request,'compte/profile.html')

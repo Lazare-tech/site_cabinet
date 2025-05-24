@@ -79,7 +79,7 @@
                 </div>
             {% endif %}
     
-            <div class="card-body">
+            <div class="card-body" style="height:160px">
                 <h6 class="card-title">{{ article.titre }}</h6>
                 <p class="card-text"><small class="text-muted">Publié le {{ article.date_publie|date:"d F Y" }}</small></p>
                 <a href="{% url 'cabinet:article' article.slug %}#article-a-la-une" class="btn btn-outline-primary">Lire l'article</a>

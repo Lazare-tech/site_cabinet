@@ -183,6 +183,14 @@
     z-index: 1;
 }
 /* HERO FISCALITE  */
+.btn-services{
+  background-color: #1a237e;
+  color: white;
+}
+.btn-services:hover{
+  background-color: white;
+  color: black;
+}
 .hero_fiscalite {
   background-image: url('/assets/images/fis2.jpeg'); /* Replace with your image path */
   background-size: cover;
@@ -496,5 +504,11 @@ bottom: 40% !important;
   .sign-title{
     font-size: 13.4px;
     
+  }
+}
+/* contact  */
+@media (max-width:990px){
+  .social-card {
+    justify-content: center !important;
   }
 }

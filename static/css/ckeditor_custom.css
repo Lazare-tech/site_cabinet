@@ -4,3 +4,11 @@
     padding: 10px;             /* Optional padding for better readability */
     border: 1px solid #ccc;    /* Optional border */
 }
+.ck-editor__editable p{
+    color: #000000 !important; /* Ensure the text is black */
+ 
+}
+.ck-editor__editable p span{
+    color: #000000 !important; /* Ensure the text is black */
+ 
+}
