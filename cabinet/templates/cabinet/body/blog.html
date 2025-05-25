@@ -29,7 +29,7 @@
                         {% if article_a_la_une.photo %}
                         <img src="{{ article_a_la_une.photo.url }}" class="img-fluid float-start me-4 mb-3 rounded" alt="Article Image" style="width: 100%; max-width: 300px;">
                         {% endif %}
-                        <h5 class="card-title text-primary">{{ article_a_la_une.titre }}</h5>
+                        <h5 class="card-title">{{ article_a_la_une.titre }}</h5>
                         <p class="card-text text-muted">{{ article_a_la_une.contenu|safe }}</p>
                     </div>
                 </article>
