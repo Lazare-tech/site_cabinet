@@ -148,6 +148,13 @@
                 <a class="list-group-item list-group-item-action py-2" href="{% url 'cabinet:homepage' %}">
                <i class="fas fa-home me-3"></i><span>Acceuil</span>
                 </a>
+                <a href="#" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
+                  <i class="fas fa-th-list fa-w me-3"></i><span>Categorie service</span>
+
+              </a>
+              <a href="#" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
+                <i class="as fa-th-list fa-w me-3"></i><span>Services</span>
+            </a>
                 <a href="{% url 'compte:profile' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
                     <i class="fas fa-user-circle fa-fw me-3"></i><span>Profile</span>
                 </a>
@@ -158,8 +165,9 @@
                     <i class="fas fa-gavel fa-fw me-3"></i><span>Mes articles</span>
                 </a>
                 <a href="#adresse" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
-                    <i class="fas fa-map-marker-alt fa-fw me-3"></i><span>Addresses</span>
+                    <i class="fas fa-map-marker-alt fa-fw me-3"></i><span>Contact & addresses</span>
                 </a>
+                
                 <a href="{% url 'compte:logout' %}" class="btn btn-outline-danger mt-5" data-mdb-ripple-init>
                     <i class="fas fa-bullhorn fa-user me-3"></i><span>Deconnexion</span>
                 </a>
