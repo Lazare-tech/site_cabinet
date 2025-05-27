@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.text import Truncator
 from django.utils.html import format_html
 
-from .models import Articlecategorie,Article
+from .models import Articlecategorie,Article, categories_services, contact_information
 
 # Register your models here.
 class ArtcileCategorieAdmin(admin.ModelAdmin):
@@ -24,14 +24,14 @@ class ArticleAdmin(admin.ModelAdmin):
 
 admin.site.register(Article, ArticleAdmin)
 #######################       CONTACT
-# class ContactAdmin(admin.ModelAdmin):
-#     list_display=('numero_telephone','email','localisation')
-# admin.site.register(contact_information,ContactAdmin)
+class ContactAdmin(admin.ModelAdmin):
+    list_display=('numero_telephone','email','localisation')
+admin.site.register(contact_information,ContactAdmin)
 
 #####################    CATEGORIES SERVICES
-# class CategorieServiceAdmin(admin.ModelAdmin):
-#     list_display=('categorie_service')
-# admin.site.register(categories_services,CategorieServiceAdmin)
-#
+class CategorieServiceAdmin(admin.ModelAdmin):
+    list_display=('categorie_service',)
+admin.site.register(categories_services,CategorieServiceAdmin)
+
 # class ServicesAdmin(admin.ModelAdmin):
 #     list_display=('')

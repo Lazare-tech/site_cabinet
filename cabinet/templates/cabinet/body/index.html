@@ -43,47 +43,54 @@
 
 
  <!-- Hero Section -->
- <section class="container my-5">
+ <section class="container-fluid" id="s-group-discover">
+ 
+ </section>
+ <section class="container-fluid" id="first-group-discover">
+ <section class="container">
   <div class="row align-items-center">
     <div class="col-md-6">
-      <h2 class="fw-bold mb-4">KEFC GROUP CONSULTING OFFICE</h2>
-      <p class="text-muted">
+      <h2 class="fw-bold mb-4 text-white">KEFC GROUP CONSULTING OFFICE</h2>
+      <p class="text-white">
         Cabinet de conseil et d'audit évoluant dans le domaine juridique, fiscal, comptable et managérial. Basé à
         Ouagadougou, Burkina Faso, notre société à responsabilité limitée met à votre disposition 8 années
         d'expérience pour accompagner votre entreprise vers la réussite.
       </p>
-      <a href="#about" class="btn btn-outline-primary">En savoir plus</a>
+      <a href="#about" class="btn btn-first-discover">En savoir plus</a>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 p-4 border-4">
       <img src="assets/images/ARRIEERE SITE1.jpg" alt="Cabinet Image" class="img-fluid rounded shadow-sm" loading="lazy" />
     </div>
   </div>
 </section>
-
+</section>
 <!-- Services Section -->
-<section id="services" class="services-section my-5 py-5">
+<section class="container-fluid" id="services">
+<section class="services-section  py-5">
   <div class="container">
     <div class="row">
+    
       <div class="col-md-6">
       <img src="assets/images/LOGO.png" style="position:relative;top:199px;left:159px;width:190px" class="img-kfc">
         <img src="assets/images/management.jpeg" alt="Services Image" class="img-fluid rounded shadow-sm img-services-management" loading="lazy" />
       </div>
       <div class="col-md-6 d-flex align-items-center">
         <div>
-          <h2 class="fw-bold mb-4">Nos Services</h2>
+          <h2 class="fw-bold mb-4 second-group-discover-titre">Nos Services</h2>
           <p class="text-muted">
             Nous vous accompagnons dans les domaines juridique, fiscal, comptable et managérial. KEFC Group est à vos
             côtés pour structurer et faire croître vos activités de manière saine et pérenne.
           </p>
-          <a href="#contact" class="btn btn-contact mt-3"><span class="text-white">Demander une consultation</span></a>
+          <a href="#contact" class="btn btn-contact mt-3">Demander une consultation</a>
         </div>
       </div>
     </div>
   </div>
 </section>
+</section>
 
 <!-- Carousel Section -->
-<h5 class="border-bottom container  text-muted">Parcourez nos services</h5>
+<h5 class="border-bottom container  text-title-discover-services">Parcourez nos services</h5>
 <section class="container mt-5 position-relative">
 <div class="d-flex">
 
@@ -167,16 +174,16 @@
 <!-- Articles Section -->
 <section class="articles-section">
   <div class="container">
-    <h4 class="pb-2 border-bottom p-5 article-row-display">Découvrez nos articles</h4>
+    <h4 class="pb-2 border-bottom p-5 text-article-title">Découvrez nos articles</h4>
 
     <div class="row g-5 py-5">
       <!-- Introduction section: Restez informé et compétitif -->
       <div class="col-12 d-flex flex-column align-items-start gap-2 article-row-display">
-        <h4 class="fw-bold text-body-emphasis article-title">Restez informé et compétitif !</h4>
-        <p class="text-body-secondary">
+        <h4 class="fw-bold text-article-title article-title">Restez informé et compétitif !</h4>
+        <p class="text-article-title">
           Plongez dans nos articles captivants couvrant des sujets juridiques, fiscaux et managériaux.
         </p>
-        <a href="{% url 'cabinet:blog' %}" class="btn btn-outline-primary">Visitez notre blog</a>
+        <a href="{% url 'cabinet:blog' %}" class="btn btn-discover-blog">Visitez notre blog</a>
       </div>
 
       <!-- Articles section -->
@@ -188,8 +195,8 @@
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
               <i class="fas fa-chart-line fa-2x mb-2 text-white"></i>
             </div>
-            <h5 class="fw-semibold mb-0 text-body-emphasis">Gestion fiscale</h5>
-            <p class="text-body-secondary">Optimisez votre fiscalité et maximisez vos économies.</p>
+            <h5 class="fw-semibold mb-0 text-article-title">Gestion fiscale</h5>
+            <p class="text-article-title">Optimisez votre fiscalité et maximisez vos économies.</p>
           </div>
 
           <!-- Stratégies Managériales -->
@@ -197,8 +204,8 @@
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
               <i class="fas fa-users fa-2x mb-2 text-white"></i>
             </div>
-            <h5 class="fw-semibold mb-0 text-body-emphasis">Stratégies Managériales</h5>
-            <p class="text-body-secondary">Améliorez la gestion de votre équipe avec nos techniques.</p>
+            <h5 class="fw-semibold mb-0 text-article-title">Stratégies Managériales</h5>
+            <p class="text-article-title">Améliorez la gestion de votre équipe avec nos techniques.</p>
           </div>
 
           <!-- Conseils juridiques -->
@@ -206,8 +213,8 @@
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
               <i class="fas fa-gavel fa-2x mb-2 text-white"></i>
             </div>
-            <h5 class="fw-semibold mb-0 text-body-emphasis">Conseils juridiques</h5>
-            <p class="text-body-secondary">Protégez votre entreprise avec nos conseils pratiques.</p>
+            <h5 class="fw-semibold mb-0 text-article-title">Conseils juridiques</h5>
+            <p class="text-article-title">Protégez votre entreprise avec nos conseils pratiques.</p>
           </div>
 
           <!-- Innovation d'Entreprise -->
@@ -215,8 +222,8 @@
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
               <i class="fas fa-lightbulb fa-2x mb-2 text-white"></i>
             </div>
-            <h5 class="fw-semibold mb-0 text-body-emphasis">Innovation d'Entreprise</h5>
-            <p class="text-body-secondary">Découvrez des idées innovantes pour améliorer la performance de votre entreprise.</p>
+            <h5 class="fw-semibold mb-0 text-article-title">Innovation d'Entreprise</h5>
+            <p class="text-article-title">Découvrez des idées innovantes pour améliorer la performance de votre entreprise.</p>
           </div>
         </div>
       </div>
@@ -231,16 +238,16 @@
 <section class="container-fluid background-section pb-5">
   <div class="container">
     <div class="text-center mb-5">
-      <h5 class="text-white pt-3">Nos Valeurs</h5>
-      <h3 class="text-white">Découvrez nos engagements</h3>
+      <h5 class=" text-article-title pt-3">Nos Valeurs</h5>
+      <h3 class=" text-article-title">Découvrez nos engagements</h3>
     </div>
     <div class="row pb-5">
       <div class="col-md-4 col-sm-12 mt-2">
         <div class="card value-card">
           <img src="assets/images/values-1.png" class="card-img-top" alt="Our Mission" />
           <div class="card-body">
-            <h5 class="card-title">Notre mission</h5>
-            <p class="card-text">Accompagner le développement économique du Burkina Faso à travers un soutien structuré aux entreprises et particuliers.</p>
+            <h5 class="card-title  text-valeur-title">Notre mission</h5>
+            <p class="card-text text-valeur-title">Accompagner le développement économique du Burkina Faso à travers un soutien structuré aux entreprises et particuliers.</p>
           </div>
         </div>
       </div>
@@ -248,8 +255,8 @@
         <div class="card value-card">
           <img src="assets/images/values-2.png" class="card-img-top" alt="Our Strength" />
           <div class="card-body">
-            <h5 class="card-title">Notre force</h5>
-            <p class="card-text">Une équipe jeune et dynamique, passionnée par l'excellence et la satisfaction de nos clients, avec des compétences diversifiées.</p>
+            <h5 class="card-title  text-valeur-title">Notre force</h5>
+            <p class="card-text text-valeur-title">Une équipe jeune et dynamique, passionnée par l'excellence et la satisfaction de nos clients, avec des compétences diversifiées.</p>
           </div>
         </div>
       </div>
@@ -258,7 +265,7 @@
           <img src="assets/images/values-3.png" class="card-img-top" alt="Our Commitment" />
           <div class="card-body">
             <h5 class="card-title">Notre engagement</h5>
-            <p class="card-text">Nous nous engageons à offrir des solutions personnalisées et efficaces pour chaque client.</p>
+            <p class="card-text text-valeur-title">Nous nous engageons à offrir des solutions personnalisées et efficaces pour chaque client.</p>
           </div>
         </div>
       </div>

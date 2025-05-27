@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 
-from cabinet.models import Article, Articlecategorie  # Pour utiliser le modèle d'utilisateur personnalisé
+from cabinet.models import Article, Articlecategorie, Services,categories_services  # Pour utiliser le modèle d'utilisateur personnalisé
 from django_ckeditor_5.widgets import CKEditor5Widget
 
 User = get_user_model()  # Récupère le modèle d'utilisateur personnalisé
@@ -147,3 +147,41 @@ class ArticleCategorieForm(forms.ModelForm):
         if len(nom_article) > 40:
             raise forms.ValidationError("Le nom ne peut pas dépasser 40 caractères.")
         return nom_article
+    ########################
+    #CATEGORIES SERVICES
+class ServiceCategorieForm(forms.ModelForm):
+    # Define the field for secondary images correctly
+
+    class Meta:
+        model = categories_services
+        fields = ['categorie_service']
+        widgets = {
+            'categorie_service': forms.TextInput(attrs={'class': 'form-control'}),
+           
+
+          
+        }
+    def clean_nom(self):
+        categorie_service = self.cleaned_data.get('categorie_service')
+        if len(categorie_service) > 40:
+            raise forms.ValidationError("Le nom ne peut pas dépasser 40 caractères.")
+        return categorie_service
+    ##############################
+    #SERVICE
+class ServiceForm(forms.ModelForm):
+    class Meta:
+        model = Services
+        fields = ['image_service', 'nom_service']
+        widgets = {
+            'image_service': forms.FileInput(attrs={'class': 'form-control'}),
+                        
+
+            'nom_service': forms.Select(attrs={'class': 'form-control'}),
+        }
+
+    def clean_nom(self):
+        nom_service = self.cleaned_data.get('nom_service')
+        if len(nom_service) > 40:
+            raise forms.ValidationError("Le nom du service ne peut pas dépasser 40 caractères.")
+        return nom_service
+##

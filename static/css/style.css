@@ -361,8 +361,62 @@ border-radius: 3%;
 }
 
 /* RESPONSIVE HOMEPAGE  */
+#services{
+  background:#f2e9d8; ;
+}
+#s-group-discover{
+  background: #803c15 !important;
+  height: 45px;
+}
 
+#first-group-discover{
+  background: #f26a1e;
+}
+.btn-first-discover,.btn-contact{
+  background-color: #142f6a;;
+  color: white;
+}
+.btn-first-discover:hover{
+  background-color: #f2e9d8;
+  color: #142f6a;
+}
+.second-group-discover-titre{
+  color:#f26a1e;
 
+}
+.btn-discover-blog{
+  background: #f26a1e;
+  color:white;
+}
+.btn-discover-blog:hover{
+  background: #f2e9d8;
+  color:#142f6a;;
+}
+.text-article-title{
+  color:#f2e9d8 !important;
+}
+.footer-background{
+  background: #f26a1e;;
+}
+.bg-f{
+  background: #142f6a!important ;
+  color:#f2e9d8 ;
+}
+.text-valeur-title{
+  color: #142f6a !important;
+
+}
+.btn-contact:hover{
+  background-color: #f2e9d8 !important;
+  color: #142f6a !important;
+}
+.text-title-discover-services{
+  color:#142f6a;
+}
+.background-section{
+  background: #142f6a !important;
+  
+}
 .carousel-item img {
   height: 100vh; /* Remplit toute la hauteur de la vue */
   object-fit: cover; /* Assure que l'image couvre entièrement le conteneur */
@@ -395,7 +449,7 @@ bottom: 40% !important;
 
 
 @media (max-width:767px){
-  .img-services-management,.img-kfc{
+  .img-services-management,.fcimg-k{
     display: none;
   }
   #services{

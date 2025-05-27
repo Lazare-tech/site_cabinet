@@ -1,0 +1,63 @@
+{% extends "../../admin/base.html" %}
+{% block header %}
+{{ form.media }}
+{% endblock header %}
+
+{% load static %}
+{% block stats %}{% endblock stats %}
+{% block main %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5>Nouveau Service</h5>
+          <a href="{% url 'compte:dashboard' %}" class="btn btn-secondary btn-sm">Fermer</a>
+        </div>
+        <div class="card-body">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                {{ form.image_service.label_tag }}
+                {{ form.image_service }}
+              </div>
+             <div class="col-md-6">
+                <img id="main-image-preview" src="#" alt="Aperçu de l'image principale" style="display:none; width: 50%;height:40%;">
+             </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                {{ form.nom_service.label_tag }}
+                {{ form.nom_service }}
+              </div>
+            
+            </div>
+         
+
+            <div class="d-flex justify-content-between mt-4">
+              <a href="{% url 'compte:service' %}" class="btn btn-secondary">Fermer</a>
+              <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Affichage de l'aperçu de l'image principale
+  document.getElementById('id_image_service').onchange = function(event) {
+    const [file] = event.target.files;
+    if (file) {
+      const preview = document.getElementById('main-image-preview');
+      preview.src = URL.createObjectURL(file);
+      preview.style.display = 'block';
+    }
+  };
+</script>
+{% endblock main %}

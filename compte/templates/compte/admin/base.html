@@ -148,11 +148,11 @@
                 <a class="list-group-item list-group-item-action py-2" href="{% url 'cabinet:homepage' %}">
                <i class="fas fa-home me-3"></i><span>Acceuil</span>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
+                <a href="{% url 'compte:categorie_services'%}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
                   <i class="fas fa-th-list fa-w me-3"></i><span>Categorie service</span>
 
               </a>
-              <a href="#" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
+              <a href="{% url 'compte:service'%}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
                 <i class="fas fa-briefcase fa-w me-3"></i><span>Services</span>
             </a>
                 <a href="{% url 'compte:profile' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>

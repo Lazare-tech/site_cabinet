@@ -1,0 +1,118 @@
+{% extends "../../admin/base.html" %}
+
+<title>{% block title %} Admin page {% endblock %}</title>
+{% block main %}
+
+<section class="mb-4">
+  <div class="card">
+    <div class="card-header text-center py-3">
+      <h5 class="mb-0 text-center" id="produit">
+        <strong>Inventaire des services</strong>
+      </h5>
+       {% if messages %} 
+       {% for message in messages %}
+      <div id="alertMessage">
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+                  {{ message }}
+              </div>
+      </div>
+      {% endfor %}
+   {% endif %}
+      <div class="d-flex justify-content-end p-3">
+        <a href="{% url 'compte:add_service' %}" class="btn btn-outline-success">
+          <i class="fas fa-plus fa-fw"></i><span>Ajouter un service</span>
+        </a>
+      </div>
+    </div>
+    <div class="card-body">
+      {% if service %}
+        <div class="table-responsive">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th scope="col">Nom service</th>
+                <th scope="col">Image</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for service in service %}
+                <tr>
+                  <th scope="row">{{ service.nom_service }}</th>
+                  <td> 
+                    {% if service.image_service %} 
+                      <img src="{{ service.image_service.url }}" alt="{{ service.nom_service }}" 
+                      style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                    {% else %}
+                      -----
+                    {% endif %}
+                  </td>
+                  <td>
+                    <a href="#" class="btn" data-mdb-toggle="modal" data-mdb-target="#modalDelete{{ service.slug }}">
+                      <i class="fas fa-trash text-danger fa-1x"></i>
+                    </a>
+                    <a href="{% url 'compte:update_service' service.slug %}" class="btn" data-mdb-ripple-init>
+                      <i class="fas fa-pencil-alt fa-1x text-primary"></i>
+                    </a>
+                    <i class="far fa-eye fa-1x text-dark" data-mdb-toggle="modal" data-mdb-target="#modalDetails{{ service.slug }}" style="cursor: pointer;"   ></i>
+                  </td>
+                </tr>
+
+                <!-- Modal for displaying service details -->
+                <div class="modal fade" id="modalDetails{{ service.slug }}" tabindex="-1" aria-labelledby="detailsLabel{{ service.slug }}" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="detailsLabel{{ service.slug }}">{{ service.nom_service }}</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <h6>Categorie: {{ service.service.nom_service }}</h6>
+                        {% if service.image_service %}
+                          <img src="{{ service.image_service.url }}" alt="{{ service.nom_service }}" 
+                          style="width: 100%; height: auto; border-radius: 8px; object-fit: cover;">
+                        {% endif %}
+                      </div>
+                      <div class="modal-footer">
+                        <a href="{% url 'compte:update_service' service.slug %}" class="btn btn-primary">Modifier</a>
+                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Fermer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="text-center">Aucun service. <a href="">Ajoutez un service.</a></p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Modal de confirmation de suppression -->
+{% for service in service %}
+<div class="modal fade" id="modalDelete{{ service.slug }}" tabindex="-1" aria-labelledby="deleteLabel{{ service.slug }}" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header bg-danger">
+              <h5 class="modal-title text-white" id="deleteLabel{{ service.slug }}">Confirmer la suppression</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Êtes-vous sûr de vouloir supprimer cet service ?
+          </div>
+          <div class="modal-footer">
+              <form action="{% url 'compte:delete_service' service.slug %}" method="POST">
+                  {% csrf_token %}
+                  <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Annuler</button>
+                  <button type="submit" class="btn btn-danger">Supprimer</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+{% endfor %} 
+
+{% endblock main %}

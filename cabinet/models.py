@@ -126,7 +126,7 @@ class Services(models.Model):
         super().save(*args, **kwargs)
 
     def generate_unique_slug(self):
-        slug = slugify(self.Services)
+        slug = slugify(self.nom_service)
         unique_slug = slug
         num = 1
         while Services.objects.filter(slug=unique_slug).exists():

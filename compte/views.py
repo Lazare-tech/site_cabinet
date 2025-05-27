@@ -5,7 +5,7 @@ from django.contrib.auth import login, authenticate,logout
 from django.conf import settings
 from django.views import View
 
-from cabinet.models import Article, Articlecategorie
+from cabinet.models import Article, Articlecategorie, Services, categories_services
 from compte.models import User
 from . import forms
 from django.contrib.auth.decorators import login_required
@@ -24,7 +24,7 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import ArticleCategorieForm, ArticleForm, LoginForm, SignupForm
+from .forms import ArticleCategorieForm, ArticleForm, LoginForm, ServiceCategorieForm, ServiceForm, SignupForm
 from django.contrib.auth import login
 from django.contrib.auth import get_user_model  # Pour utiliser le modèle d'utilisateur personnalisé
 from cabinet import context_processors
@@ -227,6 +227,7 @@ def article_categorie(request):
     #
     article=Article.objects.all()
     nombre_article=article.count()
+    
 
     context={
         'article':article,
@@ -304,4 +305,163 @@ def categorie_article_update(request, slug=None):
         form = ArticleCategorieForm(instance=categorie_article)
 
     return render(request, 'compte/admin/article/update_categorie_article.html', {'form': form})
+################################################################
+#CATEGORIES SERVICES
+def service_categorie(request):
+    categorie_ser=categories_services.objects.all()
+    # #
+    article=Article.objects.all()
+    nombre_article=article.count()
+
+    context={
+        # 'article':article,
+        'categorie_service':categorie_ser,
+        'nombre_article':nombre_article,
+    }
+    return render(request,'compte/admin/service/service_categorie.html',context)
+#
+
+@login_required
+def add_categorie_service(request):
+    if request.method == 'POST':
+        # Initialize the form with POST data and files
+        form =  ServiceCategorieForm(request.POST)
+        
+        if form.is_valid():
+            # Save the main product instance without committing yet
+            categorie_service= form.save(commit=False)
+            categorie_service.user = request.user  # Assign the current user
+            
+            # Save the product instance to the database
+            categorie_service.save()  # Save product first
+
+          
+            
+            messages.success(request, " L\'article a été enregistré avec succès.")
+            return redirect('compte:categorie_services')
+        else:
+            messages.error(request, "Erreur lors de l\'enregistrement de la categorie Veuillez vérifier les informations.")
+    else:
+        form = ServiceCategorieForm()
+
+    return render(request, 'compte/admin/service/add_categorie_service.html', {'form': form})    
+##DELETE
+@login_required
+def categorie_service_delete(request, slug=None):
+    categorie_service = get_object_or_404(categories_services, slug=slug)
+    
+    if request.method == 'POST':
+        categorie_service.delete()
+        messages.success(request, " La categorie a été supprimé avec succès.")
+
+        return redirect('compte:categorie_services')
+        
+    # Optionally, you can render a confirmation page here if not using a modal
+        # return render(request,'compte/admin/admin.html')
+
+    return redirect('compte:categorie_services')
+#
+
+@login_required
+def categorie_service_update(request, slug=None):
+    categorieService = get_object_or_404(categories_services, slug=slug)
+    print("okk")
+    if request.method == 'POST':
+        form = ServiceCategorieForm(request.POST, request.FILES, instance=categorieService)
+        if form.is_valid():
+            # Sauvegarde du produit, y compris la photo si un nouveau fichier est téléchargé
+            categorieService = form.save(commit=False)
+            categorieService.user = request.user  # Assign the current user
+            
+            # Save the product instance to the database
+            categorieService.save()  # Save product first
+
+            messages.success(request, " L\'article a été mis à jour avec succès.")
+            return redirect('compte:categorie_services')
+        else:
+            # Ajout de messages d'erreur spécifiques pour le formulaire
+            messages.error(request, 'Une erreur s\'est produite. Veuillez vérifier les informations saisies.')
+    else:
+        form = ServiceCategorieForm(instance=categorieService)
+
+    return render(request, 'compte/admin/service/update_categorie_service.html', {'form': form})
+################################SERVICES
+def service(request):
+    if request.user.is_authenticated:
+        
+        services=Services.objects.all()
+        article=Article.objects.all()
+        nombre_article=article.count()
+        print("nnnn",nombre_article)
+        context={
+        'service':services,
+        'nombre_article':nombre_article,
+        }
+    else:
+        return redirect('compte:login')
+    return render(request,'compte/admin/service/service.html',context)
+@login_required
+def add_service(request):
+    if request.method == 'POST':
+        # Initialize the form with POST data and files
+        form = ServiceForm(request.POST, request.FILES)
+        
+        if form.is_valid():
+            # Save the main product instance without committing yet
+            service = form.save(commit=False)
+            service.user = request.user  # Assign the current user
+
+            # Save the product instance to the database
+            service.save()  # Save product first
+
+          
+            
+            messages.success(request, " Le service a été enregistré avec succès.")
+            return redirect('compte:service')
+        else:
+            messages.error(request, "Erreur lors de l\'enregistrement du service Veuillez vérifier les informations.")
+    else:
+        form = ServiceForm()
+
+    return render(request, 'compte/admin/service/add_service.html', {'form': form})
+##
+
+@login_required
+def service_update(request, slug=None):
+    service = get_object_or_404(Services, slug=slug)
+    
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, request.FILES, instance=service)
+        if form.is_valid():
+            # Sauvegarde du produit, y compris la photo si un nouveau fichier est téléchargé
+            service = form.save(commit=False)
+            service.user = request.user  # Assign the current user
+            
+            # Save the product instance to the database
+            service.save()  # Save product first
+
+            messages.success(request, " Le service a été mis à jour avec succès.")
+            return redirect('compte:service')
+        else:
+            # Ajout de messages d'erreur spécifiques pour le formulaire
+            messages.error(request, 'Une erreur s\'est produite. Veuillez vérifier les informations saisies.')
+    else:
+        form = ServiceForm(instance=service)
+
+    return render(request, 'compte/admin/service/service_update.html', {'form': form})
+####
+@login_required
+def service_delete(request, slug=None):
+    service = get_object_or_404(Services, slug=slug)
+    
+    if request.method == 'POST':
+        service.delete()
+        messages.success(request, " Le service a été supprimé avec succès.")
+
+        return redirect('compte:service')
+        
+    # Optionally, you can render a confirmation page here if not using a modal
+        # return render(request,'compte/admin/admin.html')
+
+    return redirect('compte:service')
 #
