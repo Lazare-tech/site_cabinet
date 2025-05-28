@@ -1,6 +1,17 @@
 /* Navbar fixe */
 
 
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+/*NAVBAR----------------------------------*/
+
 /*........................... RESPONSIVE PARTY  ......................................................*/
 
 /* HERO PARTY */
@@ -364,11 +375,23 @@ border-radius: 3%;
 #services{
   background:#f2e9d8; ;
 }
+#services-juridique-part{
+  background: #142f6a ;
+}
+.icon-services-juridiques{
+  color:#f26a1e;
+}
 #s-group-discover{
   background: #803c15 !important;
   height: 45px;
 }
-
+.text-services-juridiques{
+  color:#f2e9d8 !important;
+}
+.section-down-hero{
+  height: 40px;
+  background: #f26a1e;;
+}
 #first-group-discover{
   background: #f26a1e;
 }
@@ -384,6 +407,10 @@ border-radius: 3%;
   color:#f26a1e;
 
 }
+.line-news{
+  color:#f26a1e;
+  
+}
 .btn-discover-blog{
   background: #f26a1e;
   color:white;
@@ -395,17 +422,19 @@ border-radius: 3%;
 .text-article-title{
   color:#f2e9d8 !important;
 }
+.text-val-title {
+  color:#f26a1e !important;
+  font-weight:900;
+}
 .footer-background{
   background: #f26a1e;;
+  color:#f2e9d8 !important;
 }
 .bg-f{
   background: #142f6a!important ;
   color:#f2e9d8 ;
 }
-.text-valeur-title{
-  color: #142f6a !important;
 
-}
 .btn-contact:hover{
   background-color: #f2e9d8 !important;
   color: #142f6a !important;
@@ -449,8 +478,8 @@ bottom: 40% !important;
 
 
 @media (max-width:767px){
-  .img-services-management,.fcimg-k{
-    display: none;
+  .img-services-management{
+    /* display: none; */
   }
   #services{
     padding-top: 0.3rem !important;
@@ -497,6 +526,33 @@ bottom: 40% !important;
   }
 }
 /* news letter  */
+.news{
+background: #142f6a ;
+ }
+.btn-news-letter{
+  background: #f26a1e;
+  color:#f2e9d8;
+  font-weight:700;
+}
+.text-sign-news-letter{
+  color:#f2e9d8;
+}
+.text-label-news span{
+  color:#f2e9d8;
+
+}
+ .news ,span{
+  color: #0d4d66;
+ }
+ .btn-news-letter:hover {
+  background: #f2e9d8;;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* .news .btn-outline-primary:hover {
+  background-color: #0d4d66;
+  color: white;
+} */
 @media (max-width:373px){
   .form-control-news{
     width: 100px !important;
@@ -519,6 +575,12 @@ bottom: 40% !important;
     font-size: 8px;
     font-weight: bold;
   }
+}
+@media (max-width:765px){
+
+.card-services-scroll{
+  width: 100px;
+}
 }
 .header-title{
   background: linear-gradient(135deg, #000428, #004e92); /* Dark blue to light blue gradient */
