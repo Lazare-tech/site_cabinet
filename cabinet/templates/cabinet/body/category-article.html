@@ -51,7 +51,7 @@
                     {% for categorie in categorie_article %}
                     <a href="{% url 'cabinet:blog-categorie' categorie.slug %}#articles-precedents"
                         class="list-group-item d-flex justify-content-between align-items-center category-article-hover bg-light text-dark mb-2 rounded shadow-sm px-3 py-2"
-                        style="border-left: 4px solid #1a237e">
+                        style="border-left: 4px solid #f26a1e">
                         {{ categorie.nom_article }}
                         <span class="badge bg-primary rounded-pill"></span>
                     </a>
@@ -93,7 +93,7 @@
                     <div class="card-body" style="height:160px">
                         <h6 class="card-title">{{ article.titre }}</h6>
                         <p class="card-text">
-                            <small class="text-muted">Publié le {{ article.date_publie|date:"d F Y" }}</small>
+                            <small class="text-article-date">Publié le {{ article.date_publie|date:"d F Y" }}</small>
                         </p>
                         <a href="{% url 'cabinet:article' article.slug %}#article-a-la-une"
                             class="btn btn-outline-primary">Lire l'article</a>

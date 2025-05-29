@@ -39,7 +39,7 @@ body {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+  background-color: #f26a1e;; /* Fond noir semi-transparent */
   color: white;
   border: none;
   padding: 1px 15px;
@@ -56,19 +56,20 @@ body {
   position: relative;
   left: 50px;
   background-color: white; /* Fond blanc */
-  border: 1px solid #1A237E; /* Bordure de couleur #1A237E */
-  color: #1A237E; /* Couleur du texte et icônes */
+  border: 1px solid #142f6a; /* Bordure de couleur #1A237E */
+  color: #142f6a; /* Couleur du texte et icônes */
   padding: 10px 20px; /* Espacement autour du bouton */
   border-radius: 50%; /* Arrondir les bords légèrement */
-  font-weight: bold; /* Texte en gras */
+  font-weight: 900; /* Texte en gras */
   transition: background-color 0.3s, color 0.3s; /* Transition douce pour hover */
 }
 /* Effet au survol des boutons */
 
 .carousel-button.next:hover,
 .carousel-button.prev:hover {
-  background-color: #1A237E; /* Fond bleu foncé au survol */
-  color: white; /* Texte blanc au survol */
+  background-color: #f26a1e; /* Fond bleu foncé au survol */
+  color: #f2e9d8;; /* Texte blanc au survol */
+  border: #f26a1e;;
 }
 .carousel-container {
   overflow-x: auto;
@@ -300,6 +301,21 @@ body {
 .previous-articles .card {
   border: 1px solid #0d4d66; /* Bordure personnalisée pour les cartes */
 }
+.previous-articles{
+  background: #142f6a;
+}
+.previous-articles h5{
+  color:#f2e9d8 ;
+}
+.text-article-date{
+  color:#f26a1e;
+  font-weight: 600;
+}
+  .category-article-hover:hover {
+  background-color: #f26a1e !important;
+  color: white !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 .previous-articles .card img {
   height: 200px; /* Hauteur fixe pour les images */
@@ -382,7 +398,7 @@ border-radius: 3%;
   color:#f26a1e;
 }
 #s-group-discover{
-  background: #803c15 !important;
+  background: #f2e9d8;
   height: 45px;
 }
 .text-services-juridiques{
@@ -395,9 +411,14 @@ border-radius: 3%;
 #first-group-discover{
   background: #f26a1e;
 }
-.btn-first-discover,.btn-contact{
+.btn-first-discover{
   background-color: #142f6a;;
   color: white;
+}
+.btn-contact{
+  background: #f26a1e;
+  
+  color:#f2e9d8;
 }
 .btn-first-discover:hover{
   background-color: #f2e9d8;
@@ -440,7 +461,12 @@ border-radius: 3%;
   color: #142f6a !important;
 }
 .text-title-discover-services{
-  color:#142f6a;
+  color:#142f6a ;
+  
+}
+.text-title-discover-services-hr{
+color: #f26a1e; /* couleur de la ligne */
+
 }
 .background-section{
   background: #142f6a !important;
