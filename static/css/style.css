@@ -226,6 +226,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+.text-ctitre-services,.text-services{
+  color:#f2e9d8 ;
+}
 
 
 /* HERO MANAGEMENT */
@@ -388,18 +391,20 @@ border-radius: 3%;
 }
 
 /* RESPONSIVE HOMEPAGE  */
-#services{
-  background:#f2e9d8; ;
-}
-#services-juridique-part{
+
+.services-bg,.contact-bg{
   background: #142f6a ;
 }
-.icon-services-juridiques{
+.icon-services{
   color:#f26a1e;
 }
-#s-group-discover{
+.s-group-discover-bg{
   background: #f2e9d8;
   height: 45px;
+}
+.group-discover-bg{
+    background: #f2e9d8;
+
 }
 .text-services-juridiques{
   color:#f2e9d8 !important;
@@ -440,12 +445,20 @@ border-radius: 3%;
   background: #f2e9d8;
   color:#142f6a;;
 }
+.background-section{
+  background: linear-gradient(135deg, #144a60, #1f6d89, #a1d3e6);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce pour effet flottant */
+border-radius:4px;
+
+
+
+}
 .text-article-title{
   color:#f2e9d8 !important;
 }
 .text-val-title {
   color:#f26a1e !important;
-  font-weight:900;
+  font-weight:450;
 }
 .footer-background{
   background: #f26a1e;;
@@ -555,6 +568,18 @@ bottom: 40% !important;
 .news{
 background: #142f6a ;
  }
+ .text-news-Subscribe{
+   color:#f2e9d8;;
+ }
+ .text-footer-informa{
+   color:#142f6a ;;
+   font-weight: 400;
+ }
+ .btn-link-social{
+   background: #142f6a ;
+   color:white
+ }
+ 
 .btn-news-letter{
   background: #f26a1e;
   color:#f2e9d8;
@@ -568,7 +593,6 @@ background: #142f6a ;
 
 }
  .news ,span{
-  color: #0d4d66;
  }
  .btn-news-letter:hover {
   background: #f2e9d8;;
@@ -649,6 +673,19 @@ background: #142f6a ;
   }
 }
 /* contact  */
+.card-title-social{
+  color:#f2e9d8;
+}
+
+.btn-message-sent{
+  background-color: #1A237E;
+  color:white;
+}
+.btn-message-sent:hover{
+  background-color: #f26a1e ;
+  color:#f2e9d8;
+
+}
 @media (max-width:990px){
   .social-card {
     justify-content: center !important;

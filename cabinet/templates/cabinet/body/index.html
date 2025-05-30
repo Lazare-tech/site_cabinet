@@ -1,282 +1,425 @@
-{% extends "base.html" %}
-{% block title %}Accueil{% endblock title %}
-
+{% extends "base.html" %} {% block title %}Accueil{% endblock title %} 
 {% block content %}
 <!--CAROUSEL HERO-->
 <section>
-  <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
-  
-      <div class="carousel-inner">
-        <div class="carousel-item carousel-item-hero active">
-          <img src="assets/images/juri2.jpeg" class="d-block w-100" alt="Canyon at Night" />
-          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-            <div class="text-center">
-              <h1 class="fw-bold text-light">KEFC GROUP CONSULTING OFFICE</h1>
-              <p class="text-light lead">Votre partenaire juridique de confiance</p>
-              <a href="{% url 'cabinet:contact' %}" class="btn btn-lg mb-4 btn-hero"><span class="text-white">Contactez-nous</span></a>
-            </div>
-          </div>
-        </div>
-        <!-- Ajouté des autres images -->
-        <div class="carousel-item carousel-item-hero">
-          <img src="assets/images/juri1.jpeg" class="d-block w-100" alt="Cliff Above a Stormy Sea" />
-          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-            <div class="text-center">
-              <h1 class="fw-bold text-light">Un accompagnement sur-mesure</h1>
-              <p class="text-light lead">Conseil juridique, fiscal, comptable et managérial</p>
-              <a href="#services" class="btn btn-hero btn-lg mb-4"><span class="text-white">Découvrez nos services</span></a>
-            </div>
+  <div
+    id="carouselBasicExample"
+    class="carousel slide carousel-fade"
+    data-mdb-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item carousel-item-hero active">
+        <img
+          src="assets/images/juri2.jpeg"
+          class="d-block w-100"
+          alt="Canyon at Night"
+        />
+        <div
+          class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+        >
+          <div class="text-center">
+            <h1 class="fw-bold text-light">KEFC GROUP CONSULTING OFFICE</h1>
+            <p class="text-light lead">
+              Votre partenaire juridique de confiance
+            </p>
+            <a
+              href="{% url 'cabinet:contact' %}"
+              class="btn btn-lg mb-4 btn-hero"
+              ><span class="text-white">Contactez-nous</span></a
+            >
           </div>
         </div>
       </div>
-    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="prev">
+      <!-- Ajouté des autres images -->
+      <div class="carousel-item carousel-item-hero">
+        <img
+          src="assets/images/juri1.jpeg"
+          class="d-block w-100"
+          alt="Cliff Above a Stormy Sea"
+        />
+        <div
+          class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+        >
+          <div class="text-center">
+            <h1 class="fw-bold text-light">Un accompagnement sur-mesure</h1>
+            <p class="text-light lead">
+              Conseil juridique, fiscal, comptable et managérial
+            </p>
+            <a href="#services" class="btn btn-hero btn-lg mb-4"
+              ><span class="text-white">Découvrez nos services</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide="prev"
+    >
       <span class="carousel-control-prev-icon"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="next">
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide="next"
+    >
       <span class="carousel-control-next-icon"></span>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
 </section>
 
-
-
- <!-- Hero Section -->
- <section class="container-fluid" id="s-group-discover">
- 
- </section>
- <section class="container-fluid" id="first-group-discover">
- <section class="container">
-  <div class="row align-items-center">
-    <div class="col-md-6">
-      <h2 class="fw-bold mb-4 text-white">KEFC GROUP CONSULTING OFFICE</h2>
-      <p class="text-white">
-        Cabinet de conseil et d'audit évoluant dans le domaine juridique, fiscal, comptable et managérial. Basé à
-        Ouagadougou, Burkina Faso, notre société à responsabilité limitée met à votre disposition 8 années
-        d'expérience pour accompagner votre entreprise vers la réussite.
-      </p>
-      <a href="#about" class="btn btn-first-discover">En savoir plus</a>
+<!-- Hero Section -->
+<section class="container-fluid s-group-discover-bg"></section>
+<section class="container-fluid" id="first-group-discover">
+  <section class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2 class="fw-bold mb-4 text-white">KEFC GROUP CONSULTING OFFICE</h2>
+        <p class="text-white">
+          Cabinet de conseil et d'audit évoluant dans le domaine juridique,
+          fiscal, comptable et managérial. Basé à Ouagadougou, Burkina Faso,
+          notre société à responsabilité limitée met à votre disposition 8
+          années d'expérience pour accompagner votre entreprise vers la
+          réussite.
+        </p>
+        <a href="#about" class="btn btn-first-discover">En savoir plus</a>
+      </div>
+      <div class="col-md-6 p-4 border-4">
+        <img
+          src="assets/images/ARRIEERE SITE1.jpg"
+          alt="Cabinet Image"
+          class="img-fluid rounded shadow-sm"
+          loading="lazy"
+        />
+      </div>
     </div>
-    <div class="col-md-6 p-4 border-4">
-      <img src="assets/images/ARRIEERE SITE1.jpg" alt="Cabinet Image" class="img-fluid rounded shadow-sm" loading="lazy" />
-    </div>
-  </div>
-</section>
+  </section>
 </section>
 <!-- Services Section -->
-<section class="container-fluid" id="services">
-<section class="services-section  py-5">
-  <div class="container">
-    <div class="row">
-    
-      <div class="col-md-6  order-2">
-      <img src="assets/images/LOGO.png" style="position:relative;top:199px;left:159px;width:190px" class="">
-        <img src="assets/images/management.jpeg" alt="Services Image" class="img-fluid rounded shadow-sm img-services-management" loading="lazy" />
-      </div>
-      <div class="col-md-6 d-flex align-items-center order-1">
-        <div>
-          <h2 class="fw-bold mb-4 second-group-discover-titre">Nos Services</h2>
-          <p class="text-muted">
-            Nous vous accompagnons dans les domaines juridique, fiscal, comptable et managérial. KEFC Group est à vos
-            côtés pour structurer et faire croître vos activités de manière saine et pérenne.
-          </p>
-          <a href="#contact" class="btn btn-contact mt-3">Demander une consultation</a>
+<section class="container-fluid group-discover-bg" id="services">
+  <section class="services-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 order-2">
+          <img
+            src="assets/images/LOGO.png"
+            style="position: relative; top: 199px; left: 159px; width: 190px"
+            class=""
+          />
+          <img
+            src="assets/images/management.jpeg"
+            alt="Services Image"
+            class="img-fluid rounded shadow-sm img-services-management"
+            loading="lazy"
+          />
+        </div>
+        <div class="col-md-6 d-flex align-items-center order-1">
+          <div>
+            <h2 class="fw-bold mb-4 second-group-discover-titre">
+              Nos Services
+            </h2>
+            <p class="text-muted">
+              Nous vous accompagnons dans les domaines juridique, fiscal,
+              comptable et managérial. KEFC Group est à vos côtés pour
+              structurer et faire croître vos activités de manière saine et
+              pérenne.
+            </p>
+            <a href="#contact" class="btn btn-contact mt-3"
+              >Demander une consultation</a
+            >
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Carousel Section -->
+  <h5 class="container text-title-discover-services">Parcourez nos services</h5>
+  <hr class="container text-title-discover-services-hr" />
+  <section class="container mt-5 position-relative">
+    <div class="d-flex">
+      <button class="carousel-button prev" onclick="scrollCarousel(-1)">
+        <i class="fas fa-angle-left"></i>
+      </button>
+      <button class="carousel-button next" onclick="scrollCarousel(1)">
+        <i class="fas fa-angle-right"></i>
+      </button>
+    </div>
+    <div class="carousel-container d-flex carou">
+      <!-- Dynamic Service Categories -->
+      <div class="carousel-item mb-3">
+        <div class="card">
+          <a href="#products-section" class="text-decoration-none text-dark">
+            <img
+              src="assets/images/back1.jpg"
+              class="card-img-top"
+              alt="Category 1"
+            />
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Category 1</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item mb-3">
+        <div class="card">
+          <a href="#products-section" class="text-decoration-none text-dark">
+            <img
+              src="assets/images/back1.jpg"
+              class="card-img-top"
+              alt="Category 2"
+            />
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Category 2</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item mb-3">
+        <div class="card">
+          <a href="#products-section" class="text-decoration-none text-dark">
+            <img
+              src="assets/images/back1.jpg"
+              class="card-img-top"
+              alt="Category 3"
+            />
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Category 3</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item mb-3">
+        <div class="card">
+          <a href="#products-section" class="text-decoration-none text-dark">
+            <img
+              src="assets/images/back1.jpg"
+              class="card-img-top"
+              alt="Category 4"
+            />
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Category 4</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item mb-3">
+        <div class="card">
+          <a href="#products-section" class="text-decoration-none text-dark">
+            <img
+              src="assets/images/back1.jpg"
+              class="card-img-top"
+              alt="Category 4"
+            />
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Category 4</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item mb-3">
+        <div class="card">
+          <a href="#products-section" class="text-decoration-none text-dark">
+            <img
+              src="assets/images/back1.jpg"
+              class="card-img-top"
+              alt="Category 4"
+            />
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Category 4</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item mb-3">
+        <div class="card">
+          <a href="#products-section" class="text-decoration-none text-dark">
+            <img
+              src="assets/images/back1.jpg"
+              class="card-img-top"
+              alt="Category 4"
+            />
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Category 4</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>
 
-<!-- Carousel Section -->
-<h5 class="container  text-title-discover-services">Parcourez nos services</h5>
-<hr class="container  text-title-discover-services-hr">
-<section class="container mt-5 position-relative">
-<div class="d-flex">
-
-  <button class="carousel-button prev" onclick="scrollCarousel(-1)"><i class="fas fa-angle-left"></i></button>
-  <button class="carousel-button next" onclick="scrollCarousel(1)"><i class="fas fa-angle-right"></i></button>
-</div>
-  <div class="carousel-container d-flex carou mb-5">
-    <!-- Dynamic Service Categories -->
-    <div class="carousel-item">
-      <div class="card">
-        <a href="#products-section" class="text-decoration-none text-dark">
-          <img src="assets/images/back1.jpg" class="card-img-top" alt="Category 1" />
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Category 1</h6>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="card">
-        <a href="#products-section" class="text-decoration-none text-dark">
-          <img src="assets/images/back1.jpg" class="card-img-top" alt="Category 2" />
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Category 2</h6>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="card">
-        <a href="#products-section" class="text-decoration-none text-dark">
-          <img src="assets/images/back1.jpg" class="card-img-top" alt="Category 3" />
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Category 3</h6>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="card">
-        <a href="#products-section" class="text-decoration-none text-dark">
-          <img src="assets/images/back1.jpg" class="card-img-top" alt="Category 4" />
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Category 4</h6>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="card">
-        <a href="#products-section" class="text-decoration-none text-dark">
-          <img src="assets/images/back1.jpg" class="card-img-top" alt="Category 4" />
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Category 4</h6>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="card">
-        <a href="#products-section" class="text-decoration-none text-dark">
-          <img src="assets/images/back1.jpg" class="card-img-top" alt="Category 4" />
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Category 4</h6>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="card">
-        <a href="#products-section" class="text-decoration-none text-dark">
-          <img src="assets/images/back1.jpg" class="card-img-top" alt="Category 4" />
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Category 4</h6>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
 <!-- Articles Section -->
-<section class="articles-section">
-  <div class="container">
-    <h4 class="pb-2 border-bottom p-5 text-article-title">Découvrez nos articles</h4>
+<section class="container-fluid background-section">
+  <section class="articles-section">
+    <div class="container">
+      <h4 class="pb-2 border-bottom p-5 text-article-title">
+        Découvrez nos articles
+      </h4>
 
-    <div class="row g-5 py-5">
-      <!-- Introduction section: Restez informé et compétitif -->
-      <div class="col-12 d-flex flex-column align-items-start gap-2 article-row-display">
-        <h4 class="fw-bold text-article-title article-title">Restez informé et compétitif !</h4>
-        <p class="text-article-title">
-          Plongez dans nos articles captivants couvrant des sujets juridiques, fiscaux et managériaux.
-        </p>
-        <a href="{% url 'cabinet:blog' %}" class="btn btn-discover-blog">Visitez notre blog</a>
-      </div>
+      <div class="row g-5 py-5">
+        <!-- Introduction section: Restez informé et compétitif -->
+        <div
+          class="col-12 d-flex flex-column align-items-start gap-2 article-row-display"
+        >
+          <h4 class="fw-bold text-article-title article-title">
+            Restez informé et compétitif !
+          </h4>
+          <p class="text-article-title">
+            Plongez dans nos articles captivants couvrant des sujets juridiques,
+            fiscaux et managériaux.
+          </p>
+          <a href="{% url 'cabinet:blog' %}" class="btn btn-discover-blog"
+            >Visitez notre blog</a
+          >
+        </div>
 
-      <!-- Articles section -->
-      <div class="col-12 ">
-        <!-- Suppression de l'espacement horizontal avec gx-0 -->
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-4 gx-0">
-          <!-- Gestion fiscale -->
-          <div class="col d-flex flex-column gap-2 article-card article-row-display">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
-              <i class="fas fa-chart-line fa-2x mb-2 text-white"></i>
+        <!-- Articles section -->
+        <div class="col-12">
+          <!-- Suppression de l'espacement horizontal avec gx-0 -->
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-4 gx-0">
+            <!-- Gestion fiscale -->
+            <div
+              class="col d-flex flex-column gap-2 article-card article-row-display"
+            >
+              <div
+                class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg"
+              >
+                <i class="fas fa-chart-line fa-2x mb-2 text-white"></i>
+              </div>
+              <h5 class="fw-semibold mb-0 text-article-title">
+                Gestion fiscale
+              </h5>
+              <p class="text-article-title">
+                Optimisez votre fiscalité et maximisez vos économies.
+              </p>
             </div>
-            <h5 class="fw-semibold mb-0 text-article-title">Gestion fiscale</h5>
-            <p class="text-article-title">Optimisez votre fiscalité et maximisez vos économies.</p>
-          </div>
 
-          <!-- Stratégies Managériales -->
-          <div class="col d-flex flex-column gap-2 article-card article-row-display">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
-              <i class="fas fa-users fa-2x mb-2 text-white"></i>
+            <!-- Stratégies Managériales -->
+            <div
+              class="col d-flex flex-column gap-2 article-card article-row-display"
+            >
+              <div
+                class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg"
+              >
+                <i class="fas fa-users fa-2x mb-2 text-white"></i>
+              </div>
+              <h5 class="fw-semibold mb-0 text-article-title">
+                Stratégies Managériales
+              </h5>
+              <p class="text-article-title">
+                Améliorez la gestion de votre équipe avec nos techniques.
+              </p>
             </div>
-            <h5 class="fw-semibold mb-0 text-article-title">Stratégies Managériales</h5>
-            <p class="text-article-title">Améliorez la gestion de votre équipe avec nos techniques.</p>
-          </div>
 
-          <!-- Conseils juridiques -->
-          <div class="col d-flex flex-column gap-2 article-card article-row-display">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
-              <i class="fas fa-gavel fa-2x mb-2 text-white"></i>
+            <!-- Conseils juridiques -->
+            <div
+              class="col d-flex flex-column gap-2 article-card article-row-display"
+            >
+              <div
+                class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg"
+              >
+                <i class="fas fa-gavel fa-2x mb-2 text-white"></i>
+              </div>
+              <h5 class="fw-semibold mb-0 text-article-title">
+                Conseils juridiques
+              </h5>
+              <p class="text-article-title">
+                Protégez votre entreprise avec nos conseils pratiques.
+              </p>
             </div>
-            <h5 class="fw-semibold mb-0 text-article-title">Conseils juridiques</h5>
-            <p class="text-article-title">Protégez votre entreprise avec nos conseils pratiques.</p>
-          </div>
 
-          <!-- Innovation d'Entreprise -->
-          <div class="col d-flex flex-column gap-2 article-card article-row-display">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg">
-              <i class="fas fa-lightbulb fa-2x mb-2 text-white"></i>
+            <!-- Innovation d'Entreprise -->
+            <div
+              class="col d-flex flex-column gap-2 article-card article-row-display"
+            >
+              <div
+                class="feature-icon-small d-inline-flex align-items-center justify-content-center icon-bg"
+              >
+                <i class="fas fa-lightbulb fa-2x mb-2 text-white"></i>
+              </div>
+              <h5 class="fw-semibold mb-0 text-article-title">
+                Innovation d'Entreprise
+              </h5>
+              <p class="text-article-title">
+                Découvrez des idées innovantes pour améliorer la performance de
+                votre entreprise.
+              </p>
             </div>
-            <h5 class="fw-semibold mb-0 text-article-title">Innovation d'Entreprise</h5>
-            <p class="text-article-title">Découvrez des idées innovantes pour améliorer la performance de votre entreprise.</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-<!-- Values Section -->
-<!-- Values Section -->
-<section class="container-fluid background-section pb-5">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h5 class="text-val-title pt-3">Nos Valeurs</h5>
-      <h3 class=" text-article-title">Découvrez nos engagements</h3>
+  <!-- Values Section -->
+  <!-- Values Section -->
+  <section class="container-fluid pb-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h5 class="text-val-title pt-3">Nos Valeurs</h5>
+        <h3 class="text-article-title">Découvrez nos engagements</h3>
+      </div>
+      <div class="row pb-5">
+        <div class="col-md-4 col-sm-12 mt-2">
+          <div class="card value-card">
+            <img
+              src="assets/images/values-1.png"
+              class="card-img-top"
+              alt="Our Mission"
+            />
+            <div class="card-body">
+              <h5 class="card-title text-val-title">Notre mission</h5>
+              <p class="card-text text-valeur-title">
+                Accompagner le développement économique du Burkina Faso à
+                travers un soutien structuré aux entreprises et particuliers.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 mt-2">
+          <div class="card value-card">
+            <img
+              src="assets/images/values-2.png"
+              class="card-img-top"
+              alt="Our Strength"
+            />
+            <div class="card-body">
+              <h5 class="card-title text-val-title">Notre force</h5>
+              <p class="card-text text-valeur-title">
+                Une équipe jeune et dynamique, passionnée par l'excellence et la
+                satisfaction de nos clients, avec des compétences diversifiées.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 mt-2">
+          <div class="card value-card">
+            <img
+              src="assets/images/values-3.png"
+              class="card-img-top"
+              alt="Our Commitment"
+            />
+            <div class="card-body">
+              <h5 class="card-title text-val-title">Notre engagement</h5>
+              <p class="card-text text-valeur-title">
+                Nous nous engageons à offrir des solutions personnalisées et
+                efficaces pour chaque client.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row pb-5">
-      <div class="col-md-4 col-sm-12 mt-2">
-        <div class="card value-card">
-          <img src="assets/images/values-1.png" class="card-img-top" alt="Our Mission" />
-          <div class="card-body">
-            <h5 class="card-title  text-val-title">Notre mission</h5>
-            <p class="card-text text-valeur-title">Accompagner le développement économique du Burkina Faso à travers un soutien structuré aux entreprises et particuliers.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-12 mt-2">
-        <div class="card value-card">
-          <img src="assets/images/values-2.png" class="card-img-top" alt="Our Strength" />
-          <div class="card-body">
-            <h5 class="card-title  text-val-title">Notre force</h5>
-            <p class="card-text text-valeur-title">Une équipe jeune et dynamique, passionnée par l'excellence et la satisfaction de nos clients, avec des compétences diversifiées.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-12 mt-2">
-        <div class="card value-card">
-          <img src="assets/images/values-3.png" class="card-img-top" alt="Our Commitment" />
-          <div class="card-body">
-            <h5 class="card-title text-val-title">Notre engagement</h5>
-            <p class="card-text text-valeur-title">Nous nous engageons à offrir des solutions personnalisées et efficaces pour chaque client.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <hr class="container line-news">
-
+    <hr class="container line-news" />
+  </section>
 </section>
 <!-- Section Nos Partenaires -->
-
 
 <!-- Bootstrap JS and Dependencies -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -285,13 +428,15 @@
 <script>
   // Scroll Carousel Functionality
   function scrollCarousel(direction) {
-    const carouselContainer = document.querySelector('.carousel-container');
-    const items = document.querySelectorAll('.carousel-item');
+    const carouselContainer = document.querySelector(".carousel-container");
+    const items = document.querySelectorAll(".carousel-item");
     const firstItem = items[0];
 
-    if (direction === 1) { // Scroll right
+    if (direction === 1) {
+      // Scroll right
       carouselContainer.append(firstItem); // Move first item to the end
-    } else { // Scroll left
+    } else {
+      // Scroll left
       carouselContainer.prepend(items[items.length - 1]); // Move last item to the front
     }
   }

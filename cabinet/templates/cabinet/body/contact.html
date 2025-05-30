@@ -9,12 +9,15 @@
       <a href="#contact-form" class="btn btn-light btn-md">Contactez-nous Maintenant</a>
     </div>
   </section>
-  <section class="container text-center my-4">
-    <span style="display: inline-block; border-bottom: 1px dashed black; width: 30px; margin: 0 5px;"></span>
-    <span style="display: inline-block; border-bottom: 1px dashed black; width: 30px; margin: 0 5px;"></span>
+  <section class="container-fluid section-down-hero">
   </section>
+  <section class="container-fluid contact-bg">
 
-  <div class="container" id="contact-form">
+  <section class="container text-center">
+    <span style="display: inline-block; border-bottom: 1px dashed #f2e9d8;; width: 30px; margin: 0 5px;"></span>
+    <span style="display: inline-block; border-bottom: 1px dashed #f2e9d8;; width: 30px; margin: 0 5px;"></span>
+  </section>
+  <div class="container p-3" id="contact-form">
     <div class="row gy-3 gy-md-4 align-items-stretch">
       
       <!-- Contact Form on large screens (left), below map on small screens -->
@@ -24,7 +27,7 @@
             <div class="row gy-4 gy-xl-5">
               <div class="col-12">
                 <label for="fullname" class="form-label">Nom Complet <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="fullname" name="fullname" required placeholder="Entrez votre nom complet">
+                <input type="text" class="form-control border-input-part" id="fullname" name="fullname" required placeholder="Entrez votre nom complet">
               </div>
               <div class="col-12 col-md-6">
                 <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
@@ -88,6 +91,7 @@
       
     </div>
   </div>
+</section>
 </section>
 {% block news_letter %}{% endblock news_letter %}
 {% block partner %}{% endblock partner %}
