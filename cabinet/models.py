@@ -84,6 +84,37 @@ class contact_information(models.Model):
     
     def __str__(self):
         return self.email
+#
+class ContactMessage(models.Model):
+    nom = models.CharField(verbose_name="Nom et prénom", max_length=255)
+    objet = models.CharField(verbose_name="Objet du message", max_length=255)
+    numero_telephone = models.CharField(verbose_name="Numéro de téléphone", max_length=255)
+    email = models.EmailField(verbose_name="Email de l'entreprise")
+    contenu = models.TextField(verbose_name="Message")
+    date_envoi = models.DateTimeField(verbose_name="Date d'envoi", auto_now=True)
+
+    slug = models.SlugField(unique=True, max_length=255, blank=True)
+
+    class Meta:
+        verbose_name = 'Message'
+        verbose_name_plural = 'Messages'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self.generate_unique_slug()
+        super().save(*args, **kwargs)
+
+    def generate_unique_slug(self):
+        slug = slugify(self.email)
+        unique_slug = slug
+        num = 1
+        while ContactMessage.objects.filter(slug=unique_slug).exists():
+            unique_slug = f'{slug}-{num}'
+            num += 1
+        return unique_slug
+
+    def __str__(self):
+        return self.email
 
 ####################CATEGORIES SERVICES
 class categories_services(models.Model):

@@ -5,7 +5,7 @@ from django.contrib.auth import login, authenticate,logout
 from django.conf import settings
 from django.views import View
 
-from cabinet.models import Article, Articlecategorie, Services, categories_services
+from cabinet.models import Article, Articlecategorie, ContactMessage, Services, categories_services
 from compte.models import User
 from . import forms
 from django.contrib.auth.decorators import login_required
@@ -24,7 +24,7 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import ArticleCategorieForm, ArticleForm, LoginForm, ServiceCategorieForm, ServiceForm, SignupForm
+from .forms import ArticleCategorieForm, ArticleForm, ContactMessageForm, LoginForm, ServiceCategorieForm, ServiceForm, SignupForm
 from django.contrib.auth import login
 from django.contrib.auth import get_user_model  # Pour utiliser le modèle d'utilisateur personnalisé
 from cabinet import context_processors
@@ -464,4 +464,43 @@ def service_delete(request, slug=None):
         # return render(request,'compte/admin/admin.html')
 
     return redirect('compte:service')
+###################SENT MESSAGE
+def confirm_message(request):
+    return render(request,'cabinet/body/confirm_message.html')
 #
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import ContactMessageForm
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Votre message a bien été envoyé. Nous vous répondrons dans les meilleurs délais.')
+            return redirect('compte:confirm_message')  # Redirige vers la page contact ou une page de confirmation
+        else:
+            messages.error(request, 'Veuillez corriger les erreurs dans le formulaire.')
+    else:
+        form = ContactMessageForm()
+
+    return render(request, 'compte/admin/contact/contact.html', {'form': form})
+
+def message(request):
+   message=ContactMessage.objects.all().order_by('-date_envoi')
+   context={
+       'message':message,
+   }
+
+   return render(request, 'compte/admin/contact/message_contact.html', context)
+#
+def delete_message(request,slug=None):
+    message = get_object_or_404(ContactMessage, slug=slug)
+    
+    if request.method == 'POST':
+        message.delete()
+        messages.success(request, " Le message a été supprimé avec succès.")
+
+        return redirect('compte:message')
+        
+    

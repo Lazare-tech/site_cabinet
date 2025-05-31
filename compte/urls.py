@@ -26,18 +26,21 @@ urlpatterns = [
     path('<slug:slug>/article_categorieupdate/', compte.views.categorie_article_update, name='update_categorie_article'),
 
 #CATEGORIES SERVICES
-    path('categorie_service',compte.views.service_categorie,name='categorie_services'),
-        path('<slug:slug>/service_categoriedelete/', compte.views.categorie_service_delete, name='delete_categorie_service'),
-
-    path('add_categorie_service/',compte.views.add_categorie_service,name='add_categorie_service'),
-    path('<slug:slug>/service_categorieupdate/', compte.views.categorie_service_update, name='update_categorie_service'),
+path('categorie_service',compte.views.service_categorie,name='categorie_services'),
+path('<slug:slug>/service_categoriedelete/', compte.views.categorie_service_delete, name='delete_categorie_service'),
+path('add_categorie_service/',compte.views.add_categorie_service,name='add_categorie_service'),
+path('<slug:slug>/service_categorieupdate/', compte.views.categorie_service_update, name='update_categorie_service'),
 #SERVICES
-        path('services/', compte.views.service, name='service'),
-        path('<slug:slug>/service_update/', compte.views.service_update, name='update_service'),
-    path('<slug:slug>/service_delete/', compte.views.service_delete, name='delete_service'),
+path('services/', compte.views.service, name='service'),
+path('<slug:slug>/service_update/', compte.views.service_update, name='update_service'),
+path('<slug:slug>/service_delete/', compte.views.service_delete, name='delete_service'),
+ path('add-service/', compte.views.add_service, name='add_service'),
 
-                path('add-service/', compte.views.add_service, name='add_service'),
+#MESSAGES
+path('contact/', compte.views.contact, name='contact'),
+path('confirmation_message/', compte.views.confirm_message, name='confirm_message'),
+   path('message/', compte.views.message, name='message'),
+   path('<slug:slug>/message_delete/', compte.views.delete_message, name='delete_message'),
 
 
-        
 ]

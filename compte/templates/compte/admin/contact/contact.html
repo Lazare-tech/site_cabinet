@@ -1,0 +1,163 @@
+{% extends "base.html" %} 
+{% block title %}Contacts{% endblock title %} 
+{% block content %}
+<section class="">
+  <section
+    class="hero text-white text-center"
+    style="
+      background-image: url('../assets/images/contact.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 400px;
+    "
+  >
+    <div
+      class="container d-flex flex-column justify-content-center align-items-center h-100 pt-5"
+    >
+      <h1 class="display-5 mb-3 fw-bold">Prenez Contact avec Nous</h1>
+      <p class="lead mb-4 fw-bold">
+        Nous apprécions vos retours et sommes là pour vous aider avec toutes vos
+        questions.
+      </p>
+      <a href="#contact-form" class="btn btn-light btn-md"
+        >Contactez-nous Maintenant</a
+      >
+    </div>
+  </section>
+  <section class="container-fluid section-down-hero"></section>
+  <section class="container-fluid contact-bg">
+    <section class="container text-center">
+      <span
+        style="
+          display: inline-block;
+          border-bottom: 1px dashed #f2e9d8;
+          width: 30px;
+          margin: 0 5px;
+        "
+      ></span>
+      <span
+        style="
+          display: inline-block;
+          border-bottom: 1px dashed #f2e9d8;
+          width: 30px;
+          margin: 0 5px;
+        "
+      ></span>
+    </section>
+    <div class="container p-3" id="contact-form">
+      <div class="row gy-3 gy-md-4 align-items-stretch">
+        <!-- Contact Form on large screens (left), below map on small screens -->
+       
+<div class="col-12 col-lg-6 order-2 order-lg-1 py-5 contact-form">
+    <div class="bg-white border rounded shadow-sm p-xl-5 ">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if form.errors %}
+          <div class="alert alert-danger">
+            <ul>
+              {% for field in form %}
+                {% for error in field.errors %}
+                  <li>{{ field.label }} : {{ error }}</li>
+                {% endfor %}
+              {% endfor %}
+              {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+  
+        <div class="row mb-3">
+          <div class="col-md-6 ">
+            <label class="form-label" for="{{ form.nom.id_for_label }}">
+              <i class="fas fa-user"></i> {{ form.nom.label }} <span class="text-danger">*</span>
+            </label>
+            {{ form.nom }}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="{{ form.email.id_for_label }}">
+              <i class="fas fa-envelope"></i> {{ form.email.label }} <span class="text-danger">*</span>
+            </label>
+            {{ form.email }}
+          </div>
+        </div>
+  
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label" for="{{ form.numero_telephone.id_for_label }}">
+              <i class="fas fa-phone"></i> {{ form.numero_telephone.label }} <span class="text-danger">*</span>
+            </label>
+            {{ form.numero_telephone }}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="{{ form.objet.id_for_label }}">
+              <i class="fas fa-tag"></i> {{ form.objet.label }} <span class="text-danger">*</span>
+            </label>
+            {{ form.objet }}
+          </div>
+        </div>
+  
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <label class="form-label" for="{{ form.contenu.id_for_label }}">
+              <i class="fas fa-comment-alt"></i> {{ form.contenu.label }} <span class="text-danger">*</span>
+            </label>
+            {{ form.contenu }}
+          </div>
+        </div>
+  
+        <div class="col-12">
+          <div class="d-grid">
+            <button class="btn btn-message-sent btn-lg" type="submit">
+              <i class="fas fa-paper-plane"></i> Envoyer
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+
+        <!-- Map and Social Media Section (right on large screens, above form on small screens) -->
+        <div class="col-12 col-lg-6 order-1 order-lg-2">
+          <div class="social-card justify-content-center">
+            <h6 class="card-title card-title-social">
+              Suivez-nous sur les réseaux sociaux
+            </h6>
+            <div class="d-flex p-2">
+              <a class="btn btn-outline-primary btn-square mx-1" href="#"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a class="btn btn-outline-primary btn-square mx-1" href="#"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a class="btn btn-outline-primary btn-square mx-1" href="#"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a class="btn btn-outline-warning btn-square mx-1" href="#"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+
+          <h5 class="p-4 text-muted"></h5>
+          <div class="card mb-3">
+            <h5 class="card-title">Trouvez-nous sur la carte</h5>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15586.868723957801!2d-1.539952767526978!3d12.401856862952236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xe2e9524ab18bdbf%3A0xa4af7b9438417197!2sTangen%2C%20Ouagadougou!5e0!3m2!1sfr!2sbf!4v1711723664675!5m2!1sfr!2sbf"
+              height="290"
+              style="width: 100%; border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+{% block news_letter %}{% endblock news_letter %}
+{% block partner %}
+{% endblock partner %}
+{% endblock content %}

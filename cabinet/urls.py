@@ -12,7 +12,7 @@ urlpatterns = [
          path('gestion-comptabilite', cabinet.views.comptabilite, name='comptabilite'),
         path('gestion-juridique', cabinet.views.juridique, name='juridique'),
         path('gestion-management', cabinet.views.management, name='management'),
-        path('contact', cabinet.views.contacts, name='contact'),
+        # path('contact', cabinet.views.contacts, name='contact'),
             path('blog/', cabinet.views.blog, name='blog'),
 
     path('blog/categorie/<slug:slug>/', cabinet.views.blog_article, name='blog-categorie'),  # Pour la catégorie sélectionnée

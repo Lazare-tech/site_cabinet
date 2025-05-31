@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 
-from cabinet.models import Article, Articlecategorie, Services,categories_services  # Pour utiliser le modèle d'utilisateur personnalisé
+from cabinet.models import Article, Articlecategorie, ContactMessage, Services,categories_services  # Pour utiliser le modèle d'utilisateur personnalisé
 from django_ckeditor_5.widgets import CKEditor5Widget
 
 User = get_user_model()  # Récupère le modèle d'utilisateur personnalisé
@@ -185,3 +185,69 @@ class ServiceForm(forms.ModelForm):
             raise forms.ValidationError("Le nom du service ne peut pas dépasser 40 caractères.")
         return nom_service
 ##
+# class ContactMessageForm(forms.ModelForm):
+#     class Meta:
+#         model = ContactMessage
+#         fields = ['nom', 'email', 'numero_telephone', 'objet', 'contenu']
+#         widgets = {
+#             'nom': forms.TextInput(attrs={
+#                 'class': 'form-control border-input-part',
+#                 'id': 'nom',
+#                 'name': 'nom',
+#                 'placeholder': 'Entrez votre nom complet',
+#                 'required': 'required'
+#             }),
+#             'email': forms.EmailInput(attrs={
+#                 'class': 'form-control',
+#                 'id': 'email',
+#                 'name': 'email',
+#                 'placeholder': 'Entrez votre email',
+#                 'required': 'required'
+#             }),
+#             'numero_telephone': forms.TextInput(attrs={
+#                 'class': 'form-control',
+#                 'id': 'numero_telephone',
+#                 'name': 'numero_telephone',
+#                 'placeholder': 'Entrez votre numéro de téléphone'
+#             }),
+#             'objet': forms.TextInput(attrs={
+#                 'class': 'form-control',
+#                 'id': 'objet',
+#                 'name': 'objet',
+#                 'placeholder': "Entrez l'objet",
+#                 'required': 'required'
+#             }),
+#             'contenu': forms.Textarea(attrs={
+#                 'class': 'form-control',
+#                 'id': 'contenu',
+#                 'name': 'contenu',
+#                 'rows': '3',
+#                 'placeholder': 'Votre message',
+#                 'required': 'required'
+#             }),
+#         }
+#         labels = {
+#             'nom': 'Nom complet',
+#             'email': 'Email',
+#             'numero_telephone': 'Numéro de téléphone',
+#             'objet': 'Objet',
+#             'contenu': 'Message',
+#         }
+
+class ContactMessageForm(forms.ModelForm):
+    class Meta:
+        model = ContactMessage
+        fields = ['nom', 'email', 'numero_telephone', 'objet', 'contenu']
+        widgets = {
+            'nom': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Entrez votre nom complet'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Entrez votre email'}),
+            'numero_telephone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Entrez votre numéro de téléphone'}),
+            'objet': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Entrez l'objet du message"}),
+            'contenu': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'placeholder': "Votre message"}),
+        }
+
+    def clean_contenu(self):
+        contenu = self.cleaned_data.get('contenu')
+        if len(contenu) > 255:
+            raise forms.ValidationError("Le message ne peut pas dépasser 255 caractères.")
+        return contenu

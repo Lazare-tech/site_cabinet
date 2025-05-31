@@ -39,7 +39,7 @@ body {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #f26a1e;; /* Fond noir semi-transparent */
+  background-color: #FF7F50;;; /* Fond noir semi-transparent */
   color: white;
   border: none;
   padding: 1px 15px;
@@ -67,9 +67,9 @@ body {
 
 .carousel-button.next:hover,
 .carousel-button.prev:hover {
-  background-color: #f26a1e; /* Fond bleu foncé au survol */
+  background-color: #FF7F50;; /* Fond bleu foncé au survol */
   color: #f2e9d8;; /* Texte blanc au survol */
-  border: #f26a1e;;
+  border: #FF7F50;;;
 }
 .carousel-container {
   overflow-x: auto;
@@ -311,11 +311,11 @@ body {
   color:#f2e9d8 ;
 }
 .text-article-date{
-  color:#f26a1e;
+  color:#FF7F50;;
   font-weight: 600;
 }
   .category-article-hover:hover {
-  background-color: #f26a1e !important;
+  background-color: #FF7F50 !important;
   color: white !important;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -396,14 +396,14 @@ border-radius: 3%;
   background: #142f6a ;
 }
 .icon-services{
-  color:#f26a1e;
+  color:#FF7F50;;
 }
 .s-group-discover-bg{
-  background: #f2e9d8;
+  background: #fad6a5;;
   height: 45px;
 }
 .group-discover-bg{
-    background: #f2e9d8;
+    background: #fad6a5;
 
 }
 .text-services-juridiques{
@@ -411,17 +411,17 @@ border-radius: 3%;
 }
 .section-down-hero{
   height: 40px;
-  background: #f26a1e;;
+  background: #FF7F50;;;
 }
 #first-group-discover{
-  background: #f26a1e;
+  background: #FF7F50;;
 }
 .btn-first-discover{
   background-color: #142f6a;;
   color: white;
 }
 .btn-contact{
-  background: #f26a1e;
+  background: #FF7F50;;
   
   color:#f2e9d8;
 }
@@ -430,17 +430,32 @@ border-radius: 3%;
   color: #142f6a;
 }
 .second-group-discover-titre{
-  color:#f26a1e;
+  color:#FF7F50;;
 
 }
 .line-news{
-  color:#f26a1e;
+  color:#FF7F50;;
   
 }
 .btn-discover-blog{
-  background: #f26a1e;
+  background: #f26a1e;;;;
   color:white;
 }
+/* Style des icônes */
+.icon-bg {
+  background-color: #f26a1e;;
+  border-radius: 12px; /* Bordure arrondie pour aller avec le design fluide */
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-bg i {
+  color: white;
+}
+
 .btn-discover-blog:hover{
   background: #f2e9d8;
   color:#142f6a;;
@@ -457,12 +472,12 @@ border-radius:4px;
   color:#f2e9d8 !important;
 }
 .text-val-title {
-  color:#f26a1e !important;
+  color:#FF7F50 !important;
   font-weight:450;
 }
 .footer-background{
-  background: #f26a1e;;
-  color:#f2e9d8 !important;
+  background: #fad6a5;
+  color:#333333 !important;
 }
 .bg-f{
   background: #142f6a!important ;
@@ -478,7 +493,7 @@ border-radius:4px;
   
 }
 .text-title-discover-services-hr{
-color: #f26a1e; /* couleur de la ligne */
+color: #FF7F50;; /* couleur de la ligne */
 
 }
 .background-section{
@@ -581,7 +596,7 @@ background: #142f6a ;
  }
  
 .btn-news-letter{
-  background: #f26a1e;
+  background: #FF7F50;;
   color:#f2e9d8;
   font-weight:700;
 }
@@ -682,7 +697,7 @@ background: #142f6a ;
   color:white;
 }
 .btn-message-sent:hover{
-  background-color: #f26a1e ;
+  background-color: #FF7F50; ;
   color:#f2e9d8;
 
 }

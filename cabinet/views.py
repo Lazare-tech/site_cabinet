@@ -18,9 +18,7 @@ def juridique(request):
 def management(request):
     return render(request,'cabinet/body/management.html')
 #
-def contacts(request):
-    return render(request,'cabinet/body/contact.html')
-#
+
 #
 def blog(request,slug=None):
     article_a_la_une= Article.objects.latest('date_publie') 
