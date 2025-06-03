@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 
-from cabinet.models import Article, Articlecategorie, ContactMessage, Services,categories_services  # Pour utiliser le modèle d'utilisateur personnalisé
+from cabinet.models import Article, Articlecategorie, ContactMessage, Services,expertise  # Pour utiliser le modèle d'utilisateur personnalisé
 from django_ckeditor_5.widgets import CKEditor5Widget
 
 User = get_user_model()  # Récupère le modèle d'utilisateur personnalisé
@@ -153,19 +153,19 @@ class ServiceCategorieForm(forms.ModelForm):
     # Define the field for secondary images correctly
 
     class Meta:
-        model = categories_services
-        fields = ['categorie_service']
+        model = expertise
+        fields = ['expertise']
         widgets = {
-            'categorie_service': forms.TextInput(attrs={'class': 'form-control'}),
+            'expertise': forms.TextInput(attrs={'class': 'form-control'}),
            
 
           
         }
     def clean_nom(self):
-        categorie_service = self.cleaned_data.get('categorie_service')
-        if len(categorie_service) > 40:
+        expertise = self.cleaned_data.get('expertise')
+        if len(expertise) > 40:
             raise forms.ValidationError("Le nom ne peut pas dépasser 40 caractères.")
-        return categorie_service
+        return expertise
     ##############################
     #SERVICE
 class ServiceForm(forms.ModelForm):

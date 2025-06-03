@@ -5,7 +5,7 @@ from django.contrib.auth import login, authenticate,logout
 from django.conf import settings
 from django.views import View
 
-from cabinet.models import Article, Articlecategorie, ContactMessage, Services, categories_services
+from cabinet.models import Article, Articlecategorie, ContactMessage, Services, expertise
 from compte.models import User
 from . import forms
 from django.contrib.auth.decorators import login_required
@@ -308,63 +308,66 @@ def categorie_article_update(request, slug=None):
 ################################################################
 #CATEGORIES SERVICES
 def service_categorie(request):
-    categorie_ser=categories_services.objects.all()
+    categorie_ser=expertise.objects.all()
     # #
     article=Article.objects.all()
     nombre_article=article.count()
 
     context={
         # 'article':article,
-        'categorie_service':categorie_ser,
+        'expertise':categorie_ser,
         'nombre_article':nombre_article,
     }
     return render(request,'compte/admin/service/service_categorie.html',context)
 #
+def expertise_detail(request, slug):
+    expertise_obj = get_object_or_404(expertise, slug=slug)
+    return render(request, f"cabinet/body/{slug}.html", {"expertise": expertise_obj})
 
 @login_required
-def add_categorie_service(request):
+def add_expertise(request):
     if request.method == 'POST':
         # Initialize the form with POST data and files
         form =  ServiceCategorieForm(request.POST)
         
         if form.is_valid():
             # Save the main product instance without committing yet
-            categorie_service= form.save(commit=False)
-            categorie_service.user = request.user  # Assign the current user
+            expertise= form.save(commit=False)
+            expertise.user = request.user  # Assign the current user
             
             # Save the product instance to the database
-            categorie_service.save()  # Save product first
+            expertise.save()  # Save product first
 
           
             
             messages.success(request, " L\'article a été enregistré avec succès.")
-            return redirect('compte:categorie_services')
+            return redirect('compte:expertises')
         else:
             messages.error(request, "Erreur lors de l\'enregistrement de la categorie Veuillez vérifier les informations.")
     else:
         form = ServiceCategorieForm()
 
-    return render(request, 'compte/admin/service/add_categorie_service.html', {'form': form})    
+    return render(request, 'compte/admin/service/add_expertise.html', {'form': form})    
 ##DELETE
 @login_required
-def categorie_service_delete(request, slug=None):
-    categorie_service = get_object_or_404(categories_services, slug=slug)
+def expertise_delete(request, slug=None):
+    expertis = get_object_or_404(expertise, slug=slug)
     
     if request.method == 'POST':
-        categorie_service.delete()
+        expertis.delete()
         messages.success(request, " La categorie a été supprimé avec succès.")
 
-        return redirect('compte:categorie_services')
+        return redirect('compte:expertises')
         
     # Optionally, you can render a confirmation page here if not using a modal
         # return render(request,'compte/admin/admin.html')
 
-    return redirect('compte:categorie_services')
+    return redirect('compte:expertises')
 #
 
 @login_required
-def categorie_service_update(request, slug=None):
-    categorieService = get_object_or_404(categories_services, slug=slug)
+def expertise_update(request, slug=None):
+    categorieService = get_object_or_404(expertise, slug=slug)
     print("okk")
     if request.method == 'POST':
         form = ServiceCategorieForm(request.POST, request.FILES, instance=categorieService)
@@ -377,14 +380,14 @@ def categorie_service_update(request, slug=None):
             categorieService.save()  # Save product first
 
             messages.success(request, " L\'article a été mis à jour avec succès.")
-            return redirect('compte:categorie_services')
+            return redirect('compte:expertises')
         else:
             # Ajout de messages d'erreur spécifiques pour le formulaire
             messages.error(request, 'Une erreur s\'est produite. Veuillez vérifier les informations saisies.')
     else:
         form = ServiceCategorieForm(instance=categorieService)
 
-    return render(request, 'compte/admin/service/update_categorie_service.html', {'form': form})
+    return render(request, 'compte/admin/service/update_expertise.html', {'form': form})
 ################################SERVICES
 def service(request):
     if request.user.is_authenticated:

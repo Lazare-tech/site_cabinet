@@ -23,11 +23,9 @@
               Expertises
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{% url 'cabinet:juridique' %}">Juridique</a>
-
-                    <a class="dropdown-item" href="{% url 'cabinet:fiscalite' %}">Fiscalite</a>
-                    <a class="dropdown-item" href="{% url 'cabinet:comptabilite' %}">Comptabilte</a>
-                    <a class="dropdown-item" href="{% url 'cabinet:management' %}">Management</a>
+            {% for expertise in categorie_expertise %}
+              <li><a class="dropdown-item" href="{% url 'compte:expertise_detail' expertise.slug %}">{{ expertise.expertise }}</a></li>
+                {% endfor %}
 
                 
                   </ul>

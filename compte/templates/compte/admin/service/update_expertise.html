@@ -12,11 +12,11 @@
         
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="{{ form.categorie_service.slug_for_label }}" class="form-label text-muted">{{ form.categorie_service.label }}</label>
-                    {{ form.categorie_service|add_class:"form-control" }}
-                    {% if form.categorie_service.errors %}
+                    <label for="{{ form.expertise.slug_for_label }}" class="form-label text-muted">{{ form.expertise.label }}</label>
+                    {{ form.expertise|add_class:"form-control" }}
+                    {% if form.expertise.errors %}
                         <div class="invalid-feedback d-block">
-                            {% for error in form.categorie_service.errors %}
+                            {% for error in form.expertise.errors %}
                                 <p>{{ error }}</p>
                             {% endfor %}
                         </div>

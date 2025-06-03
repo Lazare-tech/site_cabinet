@@ -59,8 +59,8 @@
         {% if articles_precedents and not categorie %}
         <h5 class="fw-bold">Articles précedents</h5>
         {% elif categorie %}
-        <h6 class="text-muted">
-            <a href="{% url 'cabinet:blog' %}#articles-precedents">Tous les Articles</a>|{{ categorie.nom_article }}
+        <h6 class="text-muted all-articles-list">
+            <a href="{% url 'cabinet:blog' %}#articles-precedents">Tous les Articles</a><span>|{{ categorie.nom_article }}</span>
         </h6>
         {% else %}
         <h4>Aucun article disponible pour le moment</h4>
@@ -82,7 +82,7 @@
             <div class="card-body" style="height:160px">
                 <h6 class="card-title">{{ article.titre }}</h6>
                 <p class="card-text"><small class="text-article-date">Publié le {{ article.date_publie|date:"d F Y" }}</small></p>
-                <a href="{% url 'cabinet:article' article.slug %}#article-a-la-une" class="btn btn-outline-primary">Lire l'article</a>
+                <a href="{% url 'cabinet:article' article.slug %}#article-a-la-une" class="btn btn-read-article">Lire l'article</a>
             </div>
                 </div>
             </div>

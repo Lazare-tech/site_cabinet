@@ -1,5 +1,12 @@
 from django.shortcuts import render
-from .models import Article, Articlecategorie
+from .models import Article, Articlecategorie,expertise
+#
+def  expertise_processor(request):
+    categorie_expertise=expertise.objects.all()
+    context={
+        'categorie_expertise':categorie_expertise
+    }
+    return context
 #
 def articlecategorie_processor(request):
     categorie_article= Articlecategorie.objects.all()

@@ -32,105 +32,7 @@
   <!-- Custom styles -->
   <style>
    
-    
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f8f9fa;
-    }
-
-    .user-circle {
-      width: 40px;
-      height: 40px;
-      background-color: #4e73df;
-      color: #fff;
-      border-radius: 50%;
-      font-size: 18px;
-      font-weight: bold;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #sidebarMenu {
-      background-color: #343a40;
-    }
-
-    .sidebar .list-group-item {
-      color: #ddd;
-      background-color: transparent;
-      border: none;
-      transition: all 0.3s;
-    }
-
-    .sidebar .list-group-item:hover {
-      background-color: #495057;
-      color: #fff;
-    }
-
-    .sidebar .list-group-item.active {
-      background-color: #4e73df;
-      color: #fff;
-      font-weight: 500;
-    }
-
-    .navbar-brand {
-      font-weight: 700;
-      color: #4e73df;
-    }
-
-    .card {
-      border-radius: 0.75rem;
-      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-    }
-
-    .card .card-body {
-      padding: 1.5rem;
-    }
-
-    .card h3 {
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    .card p {
-      font-size: 1rem;
-      color: #6c757d;
-    }
-
-    .card i {
-      opacity: 0.7;
-    }
-
-    .navbar .nav-link {
-      color: #4e73df;
-      font-weight: 500;
-    }
-
-    .navbar .nav-link:hover {
-      color: #2e59d9;
-    }
-    .bg-admin{
-      background-color: #00353F;
-    }
-    /* ADMIN stat  */
- /* @media (max-width:945px){
-  .adm{
-    background-color: red !important;
-  }
-  .stat-icone{
-    font-size: 1rem !important;
-  }
-  .stat-title{
-    font-size:9px ! important; 
-    font-weight:bold;
-  }
   
-} */
-
-/* END ADMIN STAT  */
-
-
   </style>
 </head>
 
@@ -151,8 +53,8 @@
                 <a class="list-group-item list-group-item-action py-2 text-white" href="{% url 'compte:message' %}">
                   <i class="fas fa-comment-alt me-3"></i><span>Message</span>
                    </a>
-                <a href="{% url 'compte:categorie_services'%}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
-                  <i class="fas fa-th-list fa-w me-3"></i><span>Categorie service</span>
+                <a href="{% url 'compte:expertises'%}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
+                  <i class="fas fa-th-list fa-w me-3"></i><span>Expertises</span>
 
               </a>
               <a href="{% url 'compte:service'%}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>

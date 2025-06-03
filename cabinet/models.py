@@ -58,33 +58,33 @@ class Article(models.Model):
     def __str__(self):
         return self.titre
 #
-class contact_information(models.Model):
-    numero_telephone=models.CharField(verbose_name="Numero de telephone",max_length=255)
-    email=models.EmailField(verbose_name="Email entreprise")
-    localisation=models.CharField(verbose_name="Localisation de l\'entreprise ",max_length=255)
-    slug = models.SlugField(unique=True, max_length=255, blank=True)
+# class contact_information(models.Model):
+#     numero_telephone=models.CharField(verbose_name="Numero de telephone",max_length=255)
+#     email=models.EmailField(verbose_name="Email entreprise")
+#     localisation=models.CharField(verbose_name="Localisation de l\'entreprise ",max_length=255)
+#     slug = models.SlugField(unique=True, max_length=255, blank=True)
 
-    class Meta:
-        verbose_name = 'Informations de contacts'
-        verbose_name_plural = 'nformations de contacts'
+#     class Meta:
+#         verbose_name = 'Informations de contacts'
+#         verbose_name_plural = 'nformations de contacts'
         
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = self.generate_unique_slug()
-        super().save(*args, **kwargs)
+#     def save(self, *args, **kwargs):
+#         if not self.slug:
+#             self.slug = self.generate_unique_slug()
+#         super().save(*args, **kwargs)
 
-    def generate_unique_slug(self):
-        slug = slugify(self.email)
-        unique_slug = slug
-        num = 1
-        while contact_information.objects.filter(slug=unique_slug).exists():
-            unique_slug = f'{slug}-{num}'
-            num += 1
-        return unique_slug
+#     def generate_unique_slug(self):
+#         slug = slugify(self.email)
+#         unique_slug = slug
+#         num = 1
+#         while contact_information.objects.filter(slug=unique_slug).exists():
+#             unique_slug = f'{slug}-{num}'
+#             num += 1
+#         return unique_slug
     
-    def __str__(self):
-        return self.email
-#
+#     def __str__(self):
+#         return self.email
+# #
 class ContactMessage(models.Model):
     nom = models.CharField(verbose_name="Nom et prénom", max_length=255)
     objet = models.CharField(verbose_name="Objet du message", max_length=255)
@@ -117,13 +117,13 @@ class ContactMessage(models.Model):
         return self.email
 
 ####################CATEGORIES SERVICES
-class categories_services(models.Model):
-    categorie_service=models.CharField(max_length=255,verbose_name="Categorie du service")
+class expertise(models.Model):
+    expertise=models.CharField(max_length=255,verbose_name="Expertise")
     slug = models.SlugField(unique=True, max_length=255, blank=True)
 
     class Meta:
-        verbose_name = 'Categorie de service'
-        verbose_name_plural = 'Categorie de service'
+        verbose_name = 'Categorie d\'expertise'
+        verbose_name_plural = 'Categorie  d\'expertise'
         
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -131,20 +131,18 @@ class categories_services(models.Model):
         super().save(*args, **kwargs)
 
     def generate_unique_slug(self):
-        slug = slugify(self.categorie_service)
-        unique_slug = slug
-        num = 1
-        while categories_services.objects.filter(slug=unique_slug).exists():
-            unique_slug = f'{slug}-{num}'
-            num += 1
-        return unique_slug
+        slug = slugify(self.expertise)
+        if expertise.objects.exclude(pk=self.pk).filter(slug=slug).exists():
+            raise ValueError(f"Le slug '{slug}' existe déjà. Choisissez une autre valeur pour l'expertise.")
+        return slug
+
     
     def __str__(self):
-        return self.categorie_service
+        return self.expertise
 ##################SERVICES
 class Services(models.Model):
     image_service=models.ImageField(upload_to='Images_des_services',verbose_name="Image du service")
-    nom_service=models.ForeignKey(categories_services, verbose_name=("Nom de la categorie"), on_delete=models.CASCADE)
+    nom_service=models.ForeignKey(expertise, verbose_name=("Nom de la categorie"), on_delete=models.CASCADE)
     slug = models.SlugField(unique=True, max_length=255, blank=True)
 
     class Meta:

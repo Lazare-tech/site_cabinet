@@ -296,7 +296,17 @@ body {
   color: white;
   transform: scale(1.05); /* Légère mise en avant de la catégorie */
 }
-
+.btn-read-article{
+  color:#142f6a;
+  border-color: #142f6a;
+}
+.btn-read-article:hover{
+  background-color: #142f6a;
+  color:#f2e9d8;;
+}
+.all-articles-list,a,span{
+  color:#f2e9d8;
+}
 .category-article-hover:hover .badge {
   background-color: white; /* Changer la couleur du badge */
   color: #1A237E;
@@ -344,6 +354,31 @@ body {
   height: 267px; /* Vous pouvez ajuster cette valeur en fonction du design */
   object-fit: cover; /* Permet de maintenir le ratio des images tout en les rognant pour correspondre à la taille définie */
 border-radius: 3%;
+}
+.custom-list {
+  padding-left: 1.2rem;
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.custom-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.custom-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.custom-list li:hover {
+  color: #0056b3;
 }
 
 /* END BLOG PARTY  */
@@ -706,3 +741,107 @@ background: #142f6a ;
     justify-content: center !important;
   }
 }
+/* ADMIN  */
+  
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.user-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #4e73df;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sidebarMenu {
+  background-color: #343a40;
+}
+
+.sidebar .list-group-item {
+  color: #ddd;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s;
+}
+
+.sidebar .list-group-item:hover {
+  background-color: #495057;
+  color: #fff;
+}
+
+.sidebar .list-group-item.active {
+  background-color: #4e73df;
+  color: #fff;
+  font-weight: 500;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: #4e73df;
+}
+
+.card {
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+}
+
+.card .card-body {
+  padding: 1.5rem;
+}
+
+.card h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.card i {
+  opacity: 0.7;
+}
+
+.navbar .nav-link {
+  color: #4e73df;
+  font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+  color: #2e59d9;
+}
+.bg-admin{
+  background-color: #00353F;
+}
+/* ADMIN stat  */
+/* @media (max-width:945px){
+.adm{
+background-color: red !important;
+}
+.stat-icone{
+font-size: 1rem !important;
+}
+.stat-title{
+font-size:9px ! important; 
+font-weight:bold;
+}
+
+} */
+.text-indication-act{
+color:#142f6a
+}
+.text-indication-act:hover{
+color:#f2e9d8;
+}
+/* END ADMIN STAT  */
+

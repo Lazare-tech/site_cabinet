@@ -152,104 +152,24 @@
     </div>
     <div class="carousel-container d-flex carou">
       <!-- Dynamic Service Categories -->
+      {% for service in service %}
+
       <div class="carousel-item mb-3">
         <div class="card">
-          <a href="#products-section" class="text-decoration-none text-dark">
+          <a href="{{ service.slug }}" class="text-decoration-none text-dark">
             <img
-              src="assets/images/back1.jpg"
+              src="{{ service.image_service.url }}"
               class="card-img-top"
-              alt="Category 1"
+              alt="{{ service.nom_service }}"
             />
             <div class="card-body">
-              <h6 class="card-title fw-bold">Category 1</h6>
+              <h6 class="card-title fw-bold">{{service.nom_service}}</h6>
             </div>
           </a>
         </div>
       </div>
-      <div class="carousel-item mb-3">
-        <div class="card">
-          <a href="#products-section" class="text-decoration-none text-dark">
-            <img
-              src="assets/images/back1.jpg"
-              class="card-img-top"
-              alt="Category 2"
-            />
-            <div class="card-body">
-              <h6 class="card-title fw-bold">Category 2</h6>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="carousel-item mb-3">
-        <div class="card">
-          <a href="#products-section" class="text-decoration-none text-dark">
-            <img
-              src="assets/images/back1.jpg"
-              class="card-img-top"
-              alt="Category 3"
-            />
-            <div class="card-body">
-              <h6 class="card-title fw-bold">Category 3</h6>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="carousel-item mb-3">
-        <div class="card">
-          <a href="#products-section" class="text-decoration-none text-dark">
-            <img
-              src="assets/images/back1.jpg"
-              class="card-img-top"
-              alt="Category 4"
-            />
-            <div class="card-body">
-              <h6 class="card-title fw-bold">Category 4</h6>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="carousel-item mb-3">
-        <div class="card">
-          <a href="#products-section" class="text-decoration-none text-dark">
-            <img
-              src="assets/images/back1.jpg"
-              class="card-img-top"
-              alt="Category 4"
-            />
-            <div class="card-body">
-              <h6 class="card-title fw-bold">Category 4</h6>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="carousel-item mb-3">
-        <div class="card">
-          <a href="#products-section" class="text-decoration-none text-dark">
-            <img
-              src="assets/images/back1.jpg"
-              class="card-img-top"
-              alt="Category 4"
-            />
-            <div class="card-body">
-              <h6 class="card-title fw-bold">Category 4</h6>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="carousel-item mb-3">
-        <div class="card">
-          <a href="#products-section" class="text-decoration-none text-dark">
-            <img
-              src="assets/images/back1.jpg"
-              class="card-img-top"
-              alt="Category 4"
-            />
-            <div class="card-body">
-              <h6 class="card-title fw-bold">Category 4</h6>
-            </div>
-          </a>
-        </div>
-      </div>
+      {% endfor %}
+      
     </div>
   </section>
 </section>

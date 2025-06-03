@@ -20,13 +20,13 @@
         {% endif %}
     
         <div class="d-flex justify-content-end p-3" id="section-boisson">
-          <a href="{% url 'compte:add_categorie_service' %}" class="btn btn-outline-success">
-            <i class="fas fa-plus fa-fw"></i><span>Ajouter une categorie</span>
+          <a href="{% url 'compte:add_expertise' %}" class="btn btn-outline-success">
+            <i class="fas fa-plus fa-fw"></i><span class="text-indication-act">Ajouter une categorie</span>
           </a>
         </div>
       </div>
        <div class="card-body">
-        {% if categorie_service %}
+        {% if expertise %}
         
           <div class="table-responsive">
             <table class="table table-hover text-nowrap">
@@ -37,15 +37,15 @@
                 </tr>
               </thead>
               <tbody>
-                {% for service in categorie_service %}
+                {% for service in expertise %}
                   <tr>
-                    <th scope="row">{{ service.categorie_service }}</th>
+                    <th scope="row">{{ service.expertise }}</th>
                     <td>
                       <!-- Trigger button for delete modal -->
                       <button class="btn" data-mdb-toggle="modal" data-mdb-target="#modalDelete{{ service.slug }}">
                         <i class="fas fa-trash text-danger fa-1x"></i>
                       </button>
-                      <a href="{% url 'compte:update_categorie_service' service.slug %}" class="btn" data-mdb-ripple-init>
+                      <a href="{% url 'compte:update_expertise' service.slug %}" class="btn" data-mdb-ripple-init>
                         <i class="fas fa-pencil-alt text-primary fa-1x"></i>
                       </a>
                     </td>
@@ -60,11 +60,11 @@
                           <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          Êtes-vous sûr de vouloir supprimer la catégorie <strong>{{ service.categorie_service }}</strong>? Cette action est irréversible.
+                          Êtes-vous sûr de vouloir supprimer la catégorie <strong>{{ service.expertise }}</strong>? Cette action est irréversible.
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Annuler</button>
-                          <form method="POST" action="{% url 'compte:delete_categorie_service' service.slug %}">
+                          <form method="POST" action="{% url 'compte:delete_expertise' service.slug %}">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger">Supprimer</button>
                           </form>

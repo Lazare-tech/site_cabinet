@@ -7,15 +7,15 @@
     <div class="col-md-10">
       <div class="card">
         <div class="card-header">
-          <h5>Nouvel Categorie de service</h5>
+          <h5>Nouvel Expertise</h5>
         </div>
         <div class="card-body">
           <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="row mb-3">
               <div class="col-md-4">
-                {{ form.categorie_service.label_tag }}
-                {{ form.categorie_service }}
+                {{ form.expertise.label_tag }}
+                {{ form.expertise }}
               </div>
             </div>
             <button type="submit" class="btn btn-primary btn-block mt-3">Enregistrer</button>

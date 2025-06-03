@@ -25,11 +25,14 @@ urlpatterns = [
     path('<slug:slug>/article_categoriedelete/', compte.views.categorie_article_delete, name='delete_categorie_article'),
     path('<slug:slug>/article_categorieupdate/', compte.views.categorie_article_update, name='update_categorie_article'),
 
-#CATEGORIES SERVICES
-path('categorie_service',compte.views.service_categorie,name='categorie_services'),
-path('<slug:slug>/service_categoriedelete/', compte.views.categorie_service_delete, name='delete_categorie_service'),
-path('add_categorie_service/',compte.views.add_categorie_service,name='add_categorie_service'),
-path('<slug:slug>/service_categorieupdate/', compte.views.categorie_service_update, name='update_categorie_service'),
+#CATEGORIES EXPERTISES
+# urls.py
+path('<slug:slug>/l', compte.views.expertise_detail, name='expertise_detail'),
+
+path('expertise',compte.views.service_categorie,name='expertises'),
+path('<slug:slug>/expertise_delete/', compte.views.expertise_delete, name='delete_expertise'),
+path('add_expertise/',compte.views.add_expertise,name='add_expertise'),
+path('<slug:slug>/expertise_update/', compte.views.expertise_update, name='update_expertise'),
 #SERVICES
 path('services/', compte.views.service, name='service'),
 path('<slug:slug>/service_update/', compte.views.service_update, name='update_service'),

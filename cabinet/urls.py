@@ -8,10 +8,10 @@ app_name = "cabinet"
 
 urlpatterns = [
     path('', cabinet.views.home, name='homepage'),
-        path('gestion-fiscalite', cabinet.views.fiscalite, name='fiscalite'),
-         path('gestion-comptabilite', cabinet.views.comptabilite, name='comptabilite'),
-        path('gestion-juridique', cabinet.views.juridique, name='juridique'),
-        path('gestion-management', cabinet.views.management, name='management'),
+        path('fiscalite', cabinet.views.fiscalite, name='fiscalite'),
+         path('comptabilite', cabinet.views.comptabilite, name='comptabilite'),
+        path('juridique', cabinet.views.juridique, name='juridique'),
+        path('management', cabinet.views.management, name='management'),
         # path('contact', cabinet.views.contacts, name='contact'),
             path('blog/', cabinet.views.blog, name='blog'),
 

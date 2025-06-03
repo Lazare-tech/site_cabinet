@@ -4,7 +4,15 @@ from cabinet.models import Article, Articlecategorie
 
 # Create your views here.
 def home(request):
-    return render(request,'cabinet/body/index.html')
+    service=Services.objects.all()
+    categories_service=expertise.objects.all()
+
+    context={
+        'service':service,
+                'categorie_service':categories_service
+
+    }
+    return render(request,'cabinet/body/index.html',context)
 #
 def fiscalite(request):
     return render(request,'cabinet/body/fiscalite.html')
@@ -18,8 +26,14 @@ def juridique(request):
 def management(request):
     return render(request,'cabinet/body/management.html')
 #
+def nav(request):
+    categories_service=expertise.objects.all()
+    print("caaaaa",categories_service)
+    context={
+        'categorie_service':categories_service
+    }
+    return render(request,'cabinet/navbar/navbar.html',context)
 
-#
 def blog(request,slug=None):
     article_a_la_une= Article.objects.latest('date_publie') 
     articles_precedents = Article.objects.all().order_by('-date_publie').exclude(slug=article_a_la_une.slug)
@@ -59,7 +73,7 @@ def blog_article (request,slug=None):
     return render(request, 'cabinet/body/blog.html', context)
 #
 from django.http import JsonResponse
-from .models import Article
+from .models import Article, Services, expertise
 
 def article(request, slug=None):
 
