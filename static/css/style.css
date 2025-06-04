@@ -195,13 +195,13 @@ body {
     z-index: 1;
 }
 /* HERO FISCALITE  */
-.btn-services{
+.btn-services,.btn-hero{
   background-color: #1a237e;
   color: white;
 }
 .btn-services:hover{
   background-color: white;
-  color: black;
+  color: #142f6a;
 }
 .hero_fiscalite {
   background-image: url('/assets/images/fis2.jpeg'); /* Replace with your image path */
@@ -304,7 +304,7 @@ body {
   background-color: #142f6a;
   color:#f2e9d8;;
 }
-.all-articles-list,a,span{
+.all-articles-list{
   color:#f2e9d8;
 }
 .category-article-hover:hover .badge {
@@ -383,6 +383,47 @@ border-radius: 3%;
 
 /* END BLOG PARTY  */
 
+
+/* ARTICLE PARTY */
+  /* Icônes avec arrière-plan bleu et coins arrondis */
+  /* Arrière-plan fluide */
+  .articles-section {
+    background: #142f6a;
+      /* background: linear-gradient(to right, #142f6a, #26408b, #3c6cc2); */
+  /* background: linear-gradient(to right, #142f6a, #005792, #00b2ca); */
+  /* background: linear-gradient(to right, #142f6a, #1f3a93, #3498db); */
+  /* background: radial-gradient(circle, #142f6a, #0d1d3d); */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  }
+  
+  /* Couleur des titres et du texte */
+  .articles-section h4,
+  .articles-section h2,
+  .articles-section h5 {
+    color: #0d4d66; /* Couleur plus foncée pour un bon contraste */
+  }
+  
+  .articles-section p {
+    color: #0d4d66; /* Même couleur que les titres */
+  }
+  
+  /* Style des boutons */
+ 
+  .articles-section .btn-outline-primary:hover {
+    background-color: #0d4d66;
+    color: white;
+  }
+  
+  
+  .article-card h5 {
+    font-size: 1.2rem;
+  }
+  
+  .article-card p {
+    margin-bottom: 0;
+  }
+  
+    /* END ARTICLE PARTY */
 /* ADMIN DASHBOARDPARTY  */
  /* Gradient background for cards */
  .gradient-card {
@@ -438,8 +479,11 @@ border-radius: 3%;
   height: 45px;
 }
 .group-discover-bg{
-    background: #fad6a5;
-
+    /* background: #fad6a5; */
+    /* background: linear-gradient(to right, #fad6a5, #e8b479, #c98c55); */
+    /* background: linear-gradient(to right, #fad6a5, #f5b97a, #e07b39); */
+    background: linear-gradient(to left, #fad6a5, #ffe4cf, #ffffff);
+    /* background: linear-gradient(to right, #fad6a5, #fbbf77, #f29e50); */
 }
 .text-services-juridiques{
   color:#f2e9d8 !important;
@@ -495,14 +539,7 @@ border-radius: 3%;
   background: #f2e9d8;
   color:#142f6a;;
 }
-.background-section{
-  background: linear-gradient(135deg, #144a60, #1f6d89, #a1d3e6);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce pour effet flottant */
-border-radius:4px;
 
-
-
-}
 .text-article-title{
   color:#f2e9d8 !important;
 }
@@ -511,7 +548,9 @@ border-radius:4px;
   font-weight:450;
 }
 .footer-background{
-  background: #fad6a5;
+  /* background: #fad6a5; */
+  background: linear-gradient(135deg, #fad6a5, #f3b97f, #ec9f5c);
+
   color:#333333 !important;
 }
 .bg-f{
@@ -532,8 +571,12 @@ color: #FF7F50;; /* couleur de la ligne */
 
 }
 .background-section{
-  background: #142f6a !important;
-  
+  /* background: #142f6a !important; */
+  /* background: linear-gradient(to right, #142f6a, #26408b, #3c6cc2); */
+  /* background: linear-gradient(to right, #142f6a, #005792, #00b2ca); */
+  background: linear-gradient(to right, #142f6a, #1f3a93, #3498db);
+  /* background: radial-gradient(circle, #142f6a, #0d1d3d); */
+
 }
 .carousel-item img {
   height: 100vh; /* Remplit toute la hauteur de la vue */
@@ -559,6 +602,12 @@ bottom: 40% !important;
       padding: 0.5rem 1rem; /* Adjust button padding */
   }
   
+ 
+.btn-hero:hover{
+    background: red;
+    color:#1A237E;
+  }
+    
 .carousel-caption .btn {
   padding: 0.5rem ; /* Ajuster le rembourrage */
   font-size: 10px !important; /* Taille du texte du bouton */
@@ -805,7 +854,7 @@ body {
 
 .card p {
   font-size: 1rem;
-  color: #6c757d;
+  color: rgb(22, 17, 17);
 }
 
 .card i {

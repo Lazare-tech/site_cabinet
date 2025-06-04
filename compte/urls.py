@@ -27,7 +27,7 @@ urlpatterns = [
 
 #CATEGORIES EXPERTISES
 # urls.py
-path('<slug:slug>/l', compte.views.expertise_detail, name='expertise_detail'),
+path('gestion/<slug:slug>/', compte.views.expertise_detail, name='expertise_detail'),
 
 path('expertise',compte.views.service_categorie,name='expertises'),
 path('<slug:slug>/expertise_delete/', compte.views.expertise_delete, name='delete_expertise'),

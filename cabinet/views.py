@@ -39,9 +39,9 @@ def blog(request,slug=None):
     articles_precedents = Article.objects.all().order_by('-date_publie').exclude(slug=article_a_la_une.slug)
     #
     categorie=None
-
     if slug:
         categorie = Articlecategorie.objects.all()
+
     context={
             'articles_precedents': articles_precedents,
         'article_a_la_une': article_a_la_une,  # Par exemple
@@ -56,8 +56,10 @@ def blog_article (request,slug=None):
 
     if slug:
         categorie = get_object_or_404(Articlecategorie, slug=slug)
+
         articles_precedents = Article.objects.filter(article=categorie)
-       
+
+        print("aaaaa",articles_precedents)
     else:
             # Si aucune catégorie n'est sélectionnée, montrer les articles les plus récents
             articles_precedents = Article.objects.all().order_by('-date_publie').exclude(slug=article_a_la_une.slug)
@@ -67,7 +69,7 @@ def blog_article (request,slug=None):
     context = {
         'articles_precedents': articles_precedents,
         'article_a_la_une': article_a_la_une,  # Par exemple
-        'categorie':categorie
+        'categorie':categorie,
 
     }
     return render(request, 'cabinet/body/blog.html', context)
