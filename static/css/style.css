@@ -258,6 +258,49 @@ body {
     font-size: 1.2rem; /* Adjust as needed */
     margin-bottom: 30px;
 }
+.hero_content_compt{
+  z-index:2 !important;
+}
+.hero_content_compt h1 {
+  font-size: 3rem; /* Adjust as needed */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.hero_content_compt{
+  max-width: 700px; 
+  padding: 20px;
+}
+.hero_content_compt{
+  font-size: 3rem; /* Adjust as needed */
+  margin-bottom: 20px;
+  font-weight: bold;
+
+}
+.hero_content_compt p {
+  font-size: 1.2rem; /* Adjust as needed */
+  margin-bottom: 30px;
+}
+@media (max-width:755px) {
+  .hero_content_compt{
+    max-width: 700px; 
+    padding: 20px;
+    margin: 20px;
+  }
+  .hero_content_compt{
+    z-index:2;
+  }
+  .hero_content_compt h1 {
+    font-size: 1.9rem; /* Adjust as needed */
+    margin: 20px;
+    font-weight: bold;
+    
+  }
+  
+.hero_content_compt p {
+  font-size: 20px; /* Adjust as needed */
+  margin-bottom: 30px;
+}
+}
 /* BLOG PARTY  */
 .hero_blog  {
   background-image: url('/assets/images/question-mark-2492009_1280.jpg'); /* Replace with your image path */

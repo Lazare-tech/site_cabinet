@@ -25,7 +25,7 @@
   <link href="{% static "css/style.css" %}" rel="stylesheet">
   <link rel="stylesheet" href="{% static '  fontawesome-free/css/all.min.css' %}" />
 
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
 
   <title> {% block title %}{% endblock title %} </title>
   {% block style %}{% endblock style %}
@@ -161,8 +161,24 @@
 
   <script type="text/javascript" src={% static "js/style.js" %}></script>
   <script type="text/javascript" src={% static "django_ckeditor_5/src/ckeditor.js" %}></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
   <script>
+    const input = document.querySelector("#telephone");
+    window.intlTelInput(input, {
+      initialCountry: "auto",
+      geoIpLookup: function (callback) {
+        fetch("https://ipapi.co/json")
+          .then((res) => res.json())
+          .then((data) => callback(data.country_code))
+          .catch(() => callback("bf")); // fallback Burkina Faso
+      },
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+    });
+  </script>
+  <script>
+   
+    
     // Get the button
     let mybutton = document.getElementById("myBtn");
     

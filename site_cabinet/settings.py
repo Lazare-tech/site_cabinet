@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "compte",
     "widget_tweaks",
     'django_ckeditor_5',
+    'phonenumbers',
+
 
 
 ]

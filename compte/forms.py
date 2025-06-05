@@ -4,7 +4,8 @@ from django.contrib.auth import get_user_model
 
 from cabinet.models import Article, Articlecategorie, ContactMessage, Services,expertise  # Pour utiliser le modèle d'utilisateur personnalisé
 from django_ckeditor_5.widgets import CKEditor5Widget
-
+import phonenumbers
+from phonenumbers import NumberParseException
 User = get_user_model()  # Récupère le modèle d'utilisateur personnalisé
 
 class LoginForm(forms.Form):
@@ -232,7 +233,8 @@ class ServiceForm(forms.ModelForm):
 #             'numero_telephone': 'Numéro de téléphone',
 #             'objet': 'Objet',
 #             'contenu': 'Message',
-#         }
+#   
+from django.core.exceptions import ValidationError
 
 class ContactMessageForm(forms.ModelForm):
     class Meta:
@@ -241,7 +243,12 @@ class ContactMessageForm(forms.ModelForm):
         widgets = {
             'nom': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Entrez votre nom complet'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Entrez votre email'}),
-            'numero_telephone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Entrez votre numéro de téléphone'}),
+            'numero_telephone': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Entrez votre numéro de téléphone',
+                'id': 'telephone',  # requis par intl-tel-input
+                'type': 'tel'
+            }),
             'objet': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Entrez l'objet du message"}),
             'contenu': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'placeholder': "Votre message"}),
         }
@@ -251,3 +258,22 @@ class ContactMessageForm(forms.ModelForm):
         if len(contenu) > 255:
             raise forms.ValidationError("Le message ne peut pas dépasser 255 caractères.")
         return contenu
+
+    def clean_numero_telephone(self):
+        numero = self.cleaned_data.get('numero_telephone')
+
+        try:
+            # Analyse sans pays par défaut, car intl-tel-input envoie le numéro international complet
+            phone = phonenumbers.parse(numero, None)
+
+            # Vérifie si le numéro est valide
+            if not phonenumbers.is_valid_number(phone):
+                raise ValidationError("Numéro de téléphone invalide.")
+
+            # Formate en format E.164 : ex. +22670000000
+            numero_formatte = phonenumbers.format_number(phone, phonenumbers.PhoneNumberFormat.E164)
+            return numero_formatte
+
+        except NumberParseException:
+            raise ValidationError("Format de numéro de téléphone incorrect.")
+

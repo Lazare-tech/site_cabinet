@@ -96,7 +96,7 @@
             {{ form.objet }}
           </div>
         </div>
-  
+        
         <div class="row mb-3">
           <div class="col-md-12">
             <label class="form-label" for="{{ form.contenu.id_for_label }}">
@@ -108,9 +108,11 @@
   
         <div class="col-12">
           <div class="d-grid">
+
             <button class="btn btn-message-sent btn-lg" type="submit">
               <i class="fas fa-paper-plane"></i> Envoyer
             </button>
+            
           </div>
         </div>
       </form>
@@ -153,6 +155,17 @@
     </div>
   </section>
 </section>
+{% if form.errors %}
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    const element = document.getElementById("contact-form");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+</script>
+{% endif %}
+
 {% block news_letter %}{% endblock news_letter %}
 {% block partner %}
 {% endblock partner %}
