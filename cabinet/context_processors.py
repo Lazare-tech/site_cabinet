@@ -26,3 +26,10 @@ def categories_processor(request):
     }
 
     return context
+###
+def contact_whatsapp_processor(request):
+    context={
+        'number': "22677938213",
+        "link":"https://www.facebook.com/share/1NwES5h9Zk/"
+    }
+    return context

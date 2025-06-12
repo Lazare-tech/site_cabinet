@@ -199,6 +199,10 @@ body {
   background-color: #1a237e;
   color: white;
 }
+.btn-hero:hover{
+  background: white;
+  color:#142f6a;
+}
 .btn-services:hover{
   background-color: white;
   color: #142f6a;
@@ -300,6 +304,19 @@ body {
   font-size: 20px; /* Adjust as needed */
   margin-bottom: 30px;
 }
+}
+.uns1{
+  background-image: url('/assets/images/unsplash-photo-1.jpg');
+ 
+}
+.uns2{
+  background-image: url('/assets/images/unsplash-photo-2.jpg');
+
+}
+.card-cover {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 /* BLOG PARTY  */
 .hero_blog  {
@@ -496,7 +513,10 @@ border-radius: 3%;
 .nav-link:hover {
   color: #ffc107; /* Add a gold hover effect */
 }
-
+.brand-log-title,h6{
+  color:#e85e06;
+  font-weight: 800;
+}
 /* Add border to the sidebar links for a sharper look */
 .list-group-item {
   border: none;
@@ -573,7 +593,9 @@ border-radius: 3%;
   align-items: center;
   justify-content: center;
 }
-
+.icon-col{
+  color:#f2e9d8;
+}
 .icon-bg i {
   color: white;
 }
@@ -595,6 +617,14 @@ border-radius: 3%;
   background: linear-gradient(135deg, #fad6a5, #f3b97f, #ec9f5c);
 
   color:#333333 !important;
+}
+.btn-cwhameservices{
+  background: #142f6a;
+  color:#f2e9d8;
+}
+.btn-cwhameservices:hover{
+  background:#f2e9d8 ;
+  color:#142f6a;
 }
 .bg-f{
   background: #142f6a!important ;
@@ -720,6 +750,10 @@ background: #142f6a ;
  .btn-link-social{
    background: #142f6a ;
    color:white
+ }
+ .btn-link-social:hover{
+   color:#142f6a ;
+   background:white;
  }
  
 .btn-news-letter{

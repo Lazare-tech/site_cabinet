@@ -124,17 +124,25 @@
         <div class="col-12 col-lg-6 order-1 order-lg-2">
           <div class="social-card justify-content-center">
             <h6 class="card-title card-title-social">
-              Suivez-nous sur les réseaux sociaux
+            Contactez nous comme vous voulez !
             </h6>
             <div class="d-flex p-2">
            
-              <a class="btn btn-outline-primary btn-square mx-1" href="#"
+              {% comment %} <a class="btn btn-outline-primary btn-square  mx-1" href="{{ link }}"
                 ><i class="fab fa-facebook-f"></i
               ></a>
               <a class="btn btn-outline-primary btn-square mx-1" href="#"
                 ><i class="fab fa-linkedin-in"></i
-              ></a>
+              ></a> {% endcomment %}
              
+              <a href="https://wa.me/{{number}}?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus"
+              class="btn btn-light btn-sm d-block mt-3"
+              target="_blank"
+              rel="noopener noreferrer">
+             <i class="bi bi-whatsapp"></i>
+             Contactez-nous via WhatsApp
+           </a>
+         
             </div>
           </div>
 

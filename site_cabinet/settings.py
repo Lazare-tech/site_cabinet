@@ -74,6 +74,8 @@ TEMPLATES = [
                 'cabinet.context_processors.articlecategorie_processor',
                 'cabinet.context_processors.expertise_processor',
                 'cabinet.context_processors.categories_processor',
+                'cabinet.context_processors.contact_whatsapp_processor',
+
             ],
         },
     },

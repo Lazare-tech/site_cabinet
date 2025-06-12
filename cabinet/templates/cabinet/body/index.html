@@ -129,7 +129,7 @@
               structurer et faire croître vos activités de manière saine et
               pérenne.
             </p>
-            <a href="#contact" class="btn btn-contact mt-3"
+            <a href="{% url 'compte:contact' %}" class="btn btn-contact mt-3"
               >Demander une consultation</a
             >
           </div>
@@ -187,7 +187,7 @@
           class="col-12 d-flex flex-column align-items-start gap-2 article-row-display"
         >
           <h4 class="fw-bold text-article-title article-title">
-            Restez informé et compétitif !
+            <span class="">Restez</span> informé et compétitif !
           </h4>
           <p class="text-article-title">
             Plongez dans nos articles captivants couvrant des sujets juridiques,
@@ -197,7 +197,41 @@
             >Visitez notre blog</a
           >
         </div>
+{% if articles %}
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+  {% for article in articles %}
 
+  <div class="col">
+    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg uns1">
+<h6 class="">KEFC</h6>
+      {% comment %} <img src="{{ article.photo.url }}" class="card-img-article " alt="Article Image" /> {% endcomment %}
+
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{article.titre}}</h3>
+        <ul class="d-flex list-unstyled mt-auto">
+          <li class="me-auto">
+            {% comment %} <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white"> {% endcomment %}
+            <i class="fas fa-file-alt icon-col fa-2x"></i>
+
+          </li>
+
+        
+          <li class="d-flex align-items-center">
+            <i class="fas fa-calendar-alt fa-1x"></i>
+
+            <small>{{ article.date_publie }}</small>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  {% endfor %}
+
+ 
+</div>
+
+{% else %}
         <!-- Articles section -->
         <div class="col-12">
           <!-- Suppression de l'espacement horizontal avec gx-0 -->
@@ -272,6 +306,7 @@
             </div>
           </div>
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
