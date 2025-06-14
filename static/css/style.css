@@ -455,7 +455,14 @@ border-radius: 3%;
   /* background: radial-gradient(circle, #142f6a, #0d1d3d); */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
   }
-  
+  .text-hmeca{
+    color:#f2e9d8 !important;
+    /* #FF7F50;; */
+  }
+  .text-hmstay{
+    
+    color:#FF7F50;
+  }
   /* Couleur des titres et du texte */
   .articles-section h4,
   .articles-section h2,
@@ -593,6 +600,8 @@ border-radius: 3%;
   align-items: center;
   justify-content: center;
 }
+
+
 .icon-col{
   color:#f2e9d8;
 }

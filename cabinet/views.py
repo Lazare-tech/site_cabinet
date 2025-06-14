@@ -7,12 +7,12 @@ def home(request):
     service=Services.objects.all()
     categories_service=expertise.objects.all()
     articles=Article.objects.order_by('-date_publie')[:2]
-    print("aaaa",articles)
-
+    categorie_article=Articlecategorie.objects.all()
     context={
         'service':service,
                 'categorie_service':categories_service,
                 'articles':articles,
+                'categorie_article':categorie_article
 
     }
     return render(request,'cabinet/body/index.html',context)
