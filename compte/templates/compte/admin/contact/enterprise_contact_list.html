@@ -1,0 +1,124 @@
+{% extends "../../admin/base.html" %}
+
+<title>{% block title %} Admin page {% endblock %}</title>
+{% block main %}
+
+<section class="mb-4">
+  <div class="card">
+    <div class="card-header text-center py-3">
+      <h5 class="mb-0 text-center" id="produit">
+        <strong>Contacts</strong>
+      </h5>
+       {% if messages %} 
+       {% for entreprise_contact in messages %}
+      <div id="alertMessage">
+              <div class="alert {% if entreprise_contact.tags %}alert-{{ entreprise_contact.tags }}{% else %}alert-info{% endif %}" role="alert">
+                  {{ entreprise_contact }}
+              </div>
+      </div>
+      {% endfor %}
+   {% endif %}
+      
+    </div>
+    <div class="d-flex justify-content-end p-3" id="section-boisson">
+        <a href="{% url 'compte:contact_create' %}" class="btn btn-actpagemin">
+          <i class="fas fa-plus fa-fw"></i><span class="text-indication-act">Ajouter des infos</span>
+        </a>
+      </div>
+    <div class="card-body">
+      {% if entreprise_contact %}
+        <div class="table-responsive">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th scope="col">Nom Entreprise</th>
+                <th scope="col">Email</th>
+                <th scope="col">Numero de telephone</th>
+                <th scope="col">Localisation</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for entreprise_contact in entreprise_contact %}
+                <tr>
+
+                  <td scope="row">{{ entreprise_contact.nom_entreprise }}</td>
+                   
+                    <td scope="row">{{ entreprise_contact.email }}</td>
+
+                    <td scope="row">{{ entreprise_contact.numero_telephone }}</td>
+                    <td scope="row">{{ entreprise_contact.localisation }}</td>
+                  
+                  <td>
+                    <a href="{% url 'compte:contact_update_entreprise' entreprise_contact.slug %}" class="btn" data-mdb-ripple-init>
+                        <i class="fas fa-pencil-alt text-primary fa-1x"></i>
+                      </a>
+                    
+                    <a href="{% url 'compte:contact_delete_entreprise' entreprise_contact.slug%}" class="btn" data-mdb-toggle="modal" data-mdb-target="#modalDelete{{ entreprise_contact.slug }}">
+                      <i class="fas fa-trash text-danger fa-1x"></i>
+                    </a>
+
+                    <i class="far fa-eye fa-1x text-dark" data-mdb-toggle="modal" data-mdb-target="#modalDetails{{ entreprise_contact.slug }}" style="cursor: pointer;"   ></i>
+                  </td>
+                </tr>
+
+                <!-- Modal for displaying entreprise_contact details -->
+                <div class="modal fade" id="modalDetails{{ entreprise_contact.slug }}" tabindex="-1" aria-labelledby="detailsLabel{{ entreprise_contact.slug }}" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="detailsLabel{{ entreprise_contact.slug }}">entreprise_contact</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body text-dark">
+                        <h6>Nom: {{ entreprise_contact.nom_entreprise }}</h6>
+                        <h6>Email: {{ entreprise_contact.email }}</h6>
+                        <h6>Contact: {{ entreprise_contact.numero_telephone }}</h6>
+                        <h6>Localisation: {{ entreprise_contact.localisation }}</h6>
+
+
+                      </div>
+                   
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Fermer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="text-center">Aucun entreprise_contact.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Modal de confirmation de suppression -->
+{% for entreprise_contact in entreprise_contact %}
+<div class="modal fade" id="modalDelete{{ entreprise_contact.slug }}" tabindex="-1" aria-labelledby="deleteLabel{{ entreprise_contact.slug }}" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header bg-danger">
+              <h5 class="modal-title text-white" id="deleteLabel{{ entreprise_contact.slug }}">Confirmer la suppression</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Êtes-vous sûr de vouloir supprimer cet contact de l'entreprise ?
+          </div>
+          <div class="modal-footer">
+              <form action="{% url 'compte:contact_delete_entreprise' entreprise_contact.slug %}" method="POST">
+                  {% csrf_token %}
+                  <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Annuler</button>
+                  <button type="submit" class="btn btn-danger">Supprimer</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+{% endfor %} 
+
+{% endblock main %}

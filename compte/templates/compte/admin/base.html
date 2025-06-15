@@ -69,7 +69,7 @@
                 <a href="{% url 'compte:dashboard' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
                     <i class="fas fa-gavel fa-fw me-3"></i><span>Mes articles</span>
                 </a>
-                <a href="#adresse" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
+                <a href="{% url 'compte:contact_list' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
                     <i class="fas fa-map-marker-alt fa-fw me-3"></i><span>Contact & addresses</span>
                 </a>
                 
@@ -90,6 +90,10 @@
             <h5 class="text-light me-auto px-4">
                 Dashboard Admin
             </h5>
+            <h5 class="me-auto px-4 justify-content-center fw-bold" style="color:#FF7F50;">
+              KEFC GROUP CONSULTING OFFICE SARL
+               
+          </h5>
             <div class="d-flex align-items-center">
                 {% if user.is_authenticated %}
                 <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">

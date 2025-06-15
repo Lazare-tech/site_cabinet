@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 
-from cabinet.models import Article, Articlecategorie, ContactMessage, Services,expertise  # Pour utiliser le modèle d'utilisateur personnalisé
+from cabinet.models import Article, Articlecategorie, ContactMessage, Services, contact_information,expertise  # Pour utiliser le modèle d'utilisateur personnalisé
 from django_ckeditor_5.widgets import CKEditor5Widget
 import phonenumbers
 from phonenumbers import NumberParseException
@@ -277,3 +277,21 @@ class ContactMessageForm(forms.ModelForm):
         except NumberParseException:
             raise ValidationError("Format de numéro de téléphone incorrect.")
 
+######
+class enterprise_contactForm(forms.ModelForm):
+      class Meta:
+        model = contact_information
+        fields = ['nom_entreprise', 'email', 'numero_telephone', 'localisation']
+        widgets = {
+            'nom_entreprise': forms.TextInput(attrs={'class': 'form-control border', 'placeholder': 'Entrez le nom de l\'entreprise '}),
+
+            'localisation': forms.TextInput(attrs={'class': 'form-control border', 'placeholder': 'Entrez votre localisation'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control border', 'placeholder': 'Entrez votre email'}),
+            'numero_telephone': forms.TextInput(attrs={
+                'class': 'form-control border',
+                'placeholder': 'Entrez votre numéro de téléphone',
+                'id': 'telephone',  # requis par intl-tel-input
+                'type': 'tel'
+            }),
+                }
+    

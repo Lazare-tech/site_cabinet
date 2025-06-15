@@ -494,7 +494,10 @@ border-radius: 3%;
 /* ADMIN DASHBOARDPARTY  */
  /* Gradient background for cards */
  .gradient-card {
-  background: linear-gradient(135deg, #1d2671, #c33764); /* Purple to pink gradient */
+  background: radial-gradient(circle, #142f6a, #0d1d3d);
+ 
+  /* background: linear-gradient(135deg, #1d2671, #c33764); */
+   /* Purple to pink gradient */
   color: #fff; /* Ensures the text is readable on the gradient */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -520,7 +523,7 @@ border-radius: 3%;
 .nav-link:hover {
   color: #ffc107; /* Add a gold hover effect */
 }
-.brand-log-title,h6{
+.brand-log-title-h6{
   color:#e85e06;
   font-weight: 800;
 }
@@ -958,25 +961,21 @@ body {
 .bg-admin{
   background-color: #00353F;
 }
-/* ADMIN stat  */
-/* @media (max-width:945px){
-.adm{
-background-color: red !important;
-}
-.stat-icone{
-font-size: 1rem !important;
-}
-.stat-title{
-font-size:9px ! important; 
-font-weight:bold;
-}
-
-} */
+/* 
 .text-indication-act{
 color:#142f6a
 }
 .text-indication-act:hover{
 color:#f2e9d8;
+} */
+.btn-actpagemin:hover{
+  background:   #00353F;
+color:#f2e9d8;
+transition: 0.5s;
 }
+.btn-actpagemin{
+  border-color: #00353F;
+}
+
 /* END ADMIN STAT  */
 

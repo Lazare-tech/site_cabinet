@@ -5,7 +5,7 @@ from django.contrib.auth import login, authenticate,logout
 from django.conf import settings
 from django.views import View
 
-from cabinet.models import Article, Articlecategorie, ContactMessage, Services, expertise
+from cabinet.models import Article, Articlecategorie, ContactMessage, Services, contact_information, expertise
 from compte.models import User
 from . import forms
 from django.contrib.auth.decorators import login_required
@@ -16,7 +16,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
-
+from django.core.mail import send_mail
 # Create your views here.def login_page(request):
 ##################
 
@@ -24,7 +24,7 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import ArticleCategorieForm, ArticleForm, ContactMessageForm, LoginForm, ServiceCategorieForm, ServiceForm, SignupForm
+from .forms import ArticleCategorieForm, ArticleForm, ContactMessageForm, LoginForm, ServiceCategorieForm, ServiceForm, SignupForm, enterprise_contactForm
 from django.contrib.auth import login
 from django.contrib.auth import get_user_model  # Pour utiliser le modèle d'utilisateur personnalisé
 from cabinet import context_processors
@@ -490,7 +490,8 @@ def contact(request):
     return render(request, 'compte/admin/contact/contact.html', {'form': form})
 
 def message(request):
-   message=ContactMessage.objects.all().order_by('-date_envoi')
+   message = ContactMessage.objects.all().order_by('repondu', '-date_envoi')  # Les non-répondus en haut
+
    context={
        'message':message,
    }
@@ -507,3 +508,58 @@ def delete_message(request,slug=None):
         return redirect('compte:message')
         
 ###
+def answer_message(request, slug):
+    message_obj = get_object_or_404(ContactMessage, slug=slug)
+    
+    if request.method == 'POST':
+        contenu = request.POST.get('reponse')
+        sujet = f"Réponse à votre message: {message_obj.objet}"
+        
+        try:
+            send_mail(
+                sujet,
+                contenu,
+                'ton@email.com',  # remplace par ton email pro
+                [message_obj.email],
+                fail_silently=False
+            )
+            message_obj.repondu = True
+            message_obj.save()
+            messages.success(request, f"Message envoyé à {message_obj.email}")
+        except Exception as e:
+            messages.error(request, f"Erreur lors de l'envoi: {e}")
+    
+    return redirect('compte:admin_messages')  # ou ton nom de vue principale
+####
+def contact_list(request):
+    contacts =contact_information.objects.all()
+    return render(request, 'compte/admin/contact/enterprise_contact_list.html', {'entreprise_contact': contacts})
+#
+def contact_create(request):
+    form = enterprise_contactForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('compte:contact_list')
+    return render(request, 'compte/admin/contact/enterprise_create_contact.html', {'form': form})
+#
+
+def contact_update(request, slug):
+    contact = get_object_or_404(contact_information, slug=slug)
+    form = enterprise_contactForm(request.POST or None, instance=contact)
+    if form.is_valid():
+        form.save()
+        messages.success(request, " Le contact a été mis à jour avec succès.")
+
+        return redirect('compte:contact_list')
+    return render(request, 'compte/admin/contact/enterprise_update_contact.html', {'form': form})
+
+###
+def contact_delete(request, slug):
+    contact = get_object_or_404(contact_information, slug=slug)
+    if request.method == 'POST':
+        contact.delete()
+        messages.success(request, " Le contact a été supprimer avec succès.")
+
+        return redirect('compte:contact_list')
+    
+    

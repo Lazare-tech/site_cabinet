@@ -8,6 +8,15 @@
 {% block main %}
 <div class="container mt-2">
     <h4 class="text-center mb-4">Mettre à jour l'article </h4>
+    {% if messages %}
+    <div id="alertMessage">
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
     <div class="justify-content-center">
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}

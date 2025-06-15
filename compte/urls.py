@@ -44,6 +44,10 @@ path('contact/', compte.views.contact, name='contact'),
 path('confirmation_message/', compte.views.confirm_message, name='confirm_message'),
    path('message/', compte.views.message, name='message'),
    path('<slug:slug>/message_delete/', compte.views.delete_message, name='delete_message'),
-
-
+path('repondre/<slug:slug>/', compte.views.answer_message, name='repondre_message'),
+#CONTACTS
+path('contacts/', compte.views.contact_list, name='contact_list'),
+path('contacts/add/', compte.views.contact_create, name='contact_create'),
+    path('contacts/<slug:slug>/delete/', compte.views.contact_delete, name='contact_delete_entreprise'),
+        path('contacts/<slug:slug>/update/', compte.views.contact_update, name='contact_update_entreprise'),
 ]

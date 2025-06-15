@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Article, Articlecategorie,expertise
+from .models import Article, Articlecategorie, ContactMessage,expertise
 #
 def  expertise_processor(request):
     categorie_expertise=expertise.objects.all()
@@ -31,5 +31,12 @@ def contact_whatsapp_processor(request):
     context={
         'number': "22677938213",
         "link":"https://www.facebook.com/share/1NwES5h9Zk/"
+    }
+    return context
+####
+def messagerepondu_processor(request):
+    message_non_repondu=ContactMessage.objects.filter(repondu=False).count()
+    context={
+        'nombre_message':message_non_repondu,
     }
     return context

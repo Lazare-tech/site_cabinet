@@ -58,32 +58,34 @@ class Article(models.Model):
     def __str__(self):
         return self.titre
 #
-# class contact_information(models.Model):
-#     numero_telephone=models.CharField(verbose_name="Numero de telephone",max_length=255)
-#     email=models.EmailField(verbose_name="Email entreprise")
-#     localisation=models.CharField(verbose_name="Localisation de l\'entreprise ",max_length=255)
-#     slug = models.SlugField(unique=True, max_length=255, blank=True)
+class contact_information(models.Model):
+    nom_entreprise=models.CharField(verbose_name="Nom de l\'entreprise ",max_length=255)
 
-#     class Meta:
-#         verbose_name = 'Informations de contacts'
-#         verbose_name_plural = 'nformations de contacts'
+    numero_telephone=models.CharField(verbose_name="Numero de telephone",max_length=255)
+    email=models.EmailField(verbose_name="Email entreprise")
+    localisation=models.CharField(verbose_name="Localisation de l\'entreprise ",max_length=255)
+    slug = models.SlugField(unique=True, max_length=255, blank=True)
+
+    class Meta:
+        verbose_name = 'Informations de contacts'
+        verbose_name_plural = 'nformations de contacts'
         
-#     def save(self, *args, **kwargs):
-#         if not self.slug:
-#             self.slug = self.generate_unique_slug()
-#         super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self.generate_unique_slug()
+        super().save(*args, **kwargs)
 
-#     def generate_unique_slug(self):
-#         slug = slugify(self.email)
-#         unique_slug = slug
-#         num = 1
-#         while contact_information.objects.filter(slug=unique_slug).exists():
-#             unique_slug = f'{slug}-{num}'
-#             num += 1
-#         return unique_slug
+    def generate_unique_slug(self):
+        slug = slugify(self.email)
+        unique_slug = slug
+        num = 1
+        while contact_information.objects.filter(slug=unique_slug).exists():
+            unique_slug = f'{slug}-{num}'
+            num += 1
+        return unique_slug
     
-#     def __str__(self):
-#         return self.email
+    def __str__(self):
+        return self.email
 # #
 class ContactMessage(models.Model):
     nom = models.CharField(verbose_name="Nom et prénom", max_length=255)
@@ -92,7 +94,7 @@ class ContactMessage(models.Model):
     email = models.EmailField(verbose_name="Email de l'entreprise")
     contenu = models.TextField(verbose_name="Message")
     date_envoi = models.DateTimeField(verbose_name="Date d'envoi", auto_now=True)
-
+    repondu = models.BooleanField(verbose_name="Message répondu ?", default=False)  # 
     slug = models.SlugField(unique=True, max_length=255, blank=True)
 
     class Meta:

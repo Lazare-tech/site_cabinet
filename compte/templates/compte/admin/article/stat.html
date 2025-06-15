@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between px-md-1">
                         <div class="align-self-center stat-icon">
-                            <i class="fas fa-th-list text-warning fa-3x stat-icone"></i>
+                            <i class="fas fa-th-list text-info fa-3x stat-icone"></i>
                         </div>
                         <div class="text-end">
                             {% if categorie_article %}
@@ -41,17 +41,35 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Third Card -->
+        <!--third card-->
         <div class="col-xl-3 col-sm-3 col-4 mb-4">
             <div class="card h-100 gradient-card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between px-md-1">
                         <div class="align-self-center stat-icon">
-                            <i class="fas fa-map-marker-alt text-danger fa-3x stat-icone"></i>
+                            <i class="fas fa-envelope text-info fa-3x stat-icone"></i>
                         </div>
                         <div class="text-end">
-                            <h6>Addresses</h6>
+                            {% if nombre_message %}
+                            <h3 class="mb-0 text-white">{{ nombre_message }}</h3>
+                            {% endif %}
+                            <h6 class="text-white">Messages non repondu</h6>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Thourth Card -->
+        <div class="col-xl-3 col-sm-3 col-4 mb-4">
+            <div class="card h-100 gradient-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between px-md-1">
+                        <div class="align-self-center stat-icon">
+                            <i class="fas fa-map-marker-alt text-info fa-3x stat-icone"></i>
+                        </div>
+                        <div class="text-end">
+                            <h6 class="text-white">Addresses</h6>
                             <h6 class="mb-0 text-muted">{{ addresses.contact }}</h6>
                         </div>
                     </div>

@@ -18,11 +18,7 @@
       </div>
       {% endfor %}
    {% endif %}
-      <div class="d-flex justify-content-end p-3">
-        <a href="{% url 'compte:add_service' %}" class="btn btn-outline-success">
-          <i class="fas fa-plus fa-fw"></i><span class="text-indication-act">Repondre a un message</span>
-        </a>
-      </div>
+      
     </div>
     <div class="card-body">
       {% if message %}
@@ -37,6 +33,7 @@
                 <th scope="col">Numero de telephone</th>
                 <th scope="col">Objet</th>
                 <th scope="col">Contenu</th>
+                <th scope="col">Repondu ?</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -52,8 +49,18 @@
                     <td scope="row">{{ message.numero_telephone }}</td>
                     <td scope="row">{{ message.objet }}</td>
                     <td scope="row">{{ message.contenu }}</td>
-
+                    <td scope="row">
+                      {% if message.repondu %}
+                        <i class="fas fa-check-circle text-success" title="Répondu"></i>
+                      {% else %}
+                        <i class="fas fa-times-circle text-danger" title="Non répondu"></i>
+                      {% endif %}
+                    </td>
                   <td>
+                    <a href="#" class="btn" data-mdb-toggle="modal" data-mdb-target="#modalReply{{ message.slug }}">
+                      <i class="fas fa-reply text-primary fa-1x" title="Repondre"></i>
+                    </a>
+                    
                     <a href="#" class="btn" data-mdb-toggle="modal" data-mdb-target="#modalDelete{{ message.slug }}">
                       <i class="fas fa-trash text-danger fa-1x"></i>
                     </a>
@@ -87,6 +94,35 @@
                     </div>
                   </div>
                 </div>
+                <!--modal for answer a message -->
+                <div class="modal fade" id="modalReply{{ message.slug }}" tabindex="-1" aria-labelledby="replyLabel{{ message.slug }}" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <form method="POST" action="{% url 'compte:repondre_message' message.slug %}">
+                        {% csrf_token %}
+                        <div class="modal-header bg-primary text-white">
+                          <h5 class="modal-title" id="replyLabel{{ message.slug }}">Répondre à {{ message.nom }}</h5>
+                          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" value="{{ message.email }}" readonly>
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label">Réponse</label>
+                            <textarea name="reponse" class="form-control" rows="5" placeholder="Tapez votre réponse ici..." required></textarea>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-primary">Envoyer</button>
+                          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Annuler</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                
               {% endfor %}
             </tbody>
           </table>

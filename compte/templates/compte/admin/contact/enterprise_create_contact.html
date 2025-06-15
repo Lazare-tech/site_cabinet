@@ -1,0 +1,86 @@
+{% extends "../../admin/base.html" %}
+{% block title %}Contacts entreprise{% endblock title %} 
+{% block main %}
+<section class="row justify-content-center">
+  <h4 class="text-center">Saisir les informations de l'entreprise</h4>
+<div class="col-12 col-lg-6 order-2 order-lg-1 py-3 contact-form">
+    <div class="bg-white border rounded shadow-sm p-xl-5 ">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if form.errors %}
+          <div class="alert alert-danger">
+            <ul>
+              {% for field in form %}
+                {% for error in field.errors %}
+                  <li>{{ field.label }} : {{ error }}</li>
+                {% endfor %}
+              {% endfor %}
+              {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+  
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label class="form-label" for="{{ form.nom_entreprise.id_for_label }}">
+                  <i class="fas fa-user"></i> {{ form.nom_entreprise.label }} <span class="text-danger">*</span>
+                </label>
+                {{ form.nom_entreprise }}
+              </div>
+          <div class="col-md-12">
+            <label class="form-label" for="{{ form.localisation.id_for_label }}">
+              <i class="fas fa-user"></i> {{ form.localisation.label }} <span class="text-danger">*</span>
+            </label>
+            {{ form.localisation }}
+          </div>
+          
+          <div class="col-md-12">
+            <label class="form-label" for="{{ form.email.id_for_label }}">
+              <i class="fas fa-envelope"></i> {{ form.email.label }} <span class="text-danger">*</span>
+            </label>
+            {{ form.email }}
+          </div>
+        </div>
+  
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <label class="form-label" for="{{ form.numero_telephone.id_for_label }}">
+              <i class="fas fa-phone-alt"></i> {{ form.numero_telephone.label }} <span class="text-danger">*</span>
+            </label>
+            {{ form.numero_telephone }}
+          </div>
+        
+        </div>
+        
+  
+        <div class="col-12">
+          <div class="d-grid">
+
+            <button class="btn btn-message-sent btn-lg" type="submit">
+              <i class="fas fa-paper-plane"></i> Envoyer
+            </button>
+            
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+      </div>
+    </div>
+  </section>
+</section>
+{% if form.errors %}
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    const element = document.getElementById("contact-form");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+</script>
+{% endif %}
+
+{% endblock main %}
