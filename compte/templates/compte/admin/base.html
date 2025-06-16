@@ -87,12 +87,15 @@
             <button class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars text-white"></i>
             </button>
+         
+            <div class="d-block px-4 me-auto">
+              <a class="navbar-brand me-2 brand-log-title" href="{{ link }}">
+                <img src="{% static '../assets/images/LOGO.png' %}" alt="logo">
+             
+              </a>
+            </div>
             <h5 class="text-light me-auto px-4">
-                Dashboard Admin
-            </h5>
-            <h5 class="me-auto px-4 justify-content-center fw-bold" style="color:#FF7F50;">
-              KEFC GROUP CONSULTING OFFICE SARL
-               
+              Dashboard Admin
           </h5>
             <div class="d-flex align-items-center">
                 {% if user.is_authenticated %}

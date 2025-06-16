@@ -48,6 +48,6 @@ path('repondre/<slug:slug>/', compte.views.answer_message, name='repondre_messag
 #CONTACTS
 path('contacts/', compte.views.contact_list, name='contact_list'),
 path('contacts/add/', compte.views.contact_create, name='contact_create'),
-    path('contacts/<slug:slug>/delete/', compte.views.contact_delete, name='contact_delete_entreprise'),
-        path('contacts/<slug:slug>/update/', compte.views.contact_update, name='contact_update_entreprise'),
+path('contacts/<slug:slug>/delete/', compte.views.contact_delete, name='contact_delete_entreprise'),
+path('contacts/<slug:slug>/update/', compte.views.contact_update, name='contact_update_entreprise'),
 ]

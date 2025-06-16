@@ -514,13 +514,13 @@ def answer_message(request, slug):
     if request.method == 'POST':
         contenu = request.POST.get('reponse')
         sujet = f"Réponse à votre message: {message_obj.objet}"
-        
+        print("email",message_obj.email)
         try:
             send_mail(
                 sujet,
                 contenu,
-                'ton@email.com',  # remplace par ton email pro
-                [message_obj.email],
+                from_email='django@demomailtrap.co',
+                recipient_list=[message_obj.email],
                 fail_silently=False
             )
             message_obj.repondu = True
@@ -529,7 +529,7 @@ def answer_message(request, slug):
         except Exception as e:
             messages.error(request, f"Erreur lors de l'envoi: {e}")
     
-    return redirect('compte:admin_messages')  # ou ton nom de vue principale
+    return redirect('compte:message')  # ou ton nom de vue principale
 ####
 def contact_list(request):
     contacts =contact_information.objects.all()

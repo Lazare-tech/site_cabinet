@@ -100,7 +100,7 @@
                     <div class="modal-content">
                       <form method="POST" action="{% url 'compte:repondre_message' message.slug %}">
                         {% csrf_token %}
-                        <div class="modal-header bg-primary text-white">
+                        <div class="modal-header bg-respmessuse text-white">
                           <h5 class="modal-title" id="replyLabel{{ message.slug }}">Répondre à {{ message.nom }}</h5>
                           <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -115,7 +115,7 @@
                           </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="submit" class="btn btn-primary">Envoyer</button>
+                          <button type="submit" class="btn bg-respmessuse text-white">Envoyer</button>
                           <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Annuler</button>
                         </div>
                       </form>

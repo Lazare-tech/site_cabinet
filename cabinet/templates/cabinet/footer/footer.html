@@ -60,29 +60,31 @@
 <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4">
 
   <!-- Texte d'introduction -->
-  <div class="me-5 text-center d-lg-block mb-3">
+  <div class="text-center mb-3">
     <span class="text-footer-informa">Suivez-nous sur les réseaux sociaux :</span>
   </div>
 
-  <!-- Bouton Facebook -->
-  <!-- Bouton Facebook arrondi -->
-<a class="btn btn-link-social rounded-circle d-inline-flex justify-content-center align-items-center"
-href="{{ link }}"
-style="width: 40px; height: 40px;">
-<i class="fab fa-facebook-f"></i>
-</a>
+  <!-- Icônes sociales -->
+  <div class="d-flex justify-content-center gap-2">
+    <!-- Facebook -->
+    <a href="{{ link }}"
+       class="bg-primary text-white rounded-circle d-inline-flex justify-content-center align-items-center text-decoration-none"
+       style="width: 40px; height: 40px;"
+       target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-facebook-f"></i>
+    </a>
 
-
-  <!-- Bouton WhatsApp en dessous avec un espace -->
-  <a href="https://wa.me/{{number}}?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus"
-     class="btn btn-cwhameservices btn-sm d-block mt-3"
-     target="_blank"
-     rel="noopener noreferrer">
-    <i class="bi bi-whatsapp"></i>
-    Contactez via WhatsApp
-  </a>
+    <!-- WhatsApp -->
+    <a href="https://wa.me/{{ number }}?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus"
+       class="bg-success text-white rounded-circle d-inline-flex  text-decoration-none justify-content-center align-items-center"
+       style="width: 40px; height: 40px;"
+       target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
 
 </div>
+
 
           <!-- Grid column -->
         </div>

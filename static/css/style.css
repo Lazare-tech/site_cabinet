@@ -502,7 +502,10 @@ border-radius: 3%;
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
+.bg-respmessuse {
+  background: radial-gradient(circle, #142f6a, #0d1d3d);
 
+}
 /* Gradient background for the sidebar */
 .gradient-sidebar {
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Dark blue to slate gradient */
