@@ -167,3 +167,30 @@ class Services(models.Model):
     
     def __str__(self):
         return self.nom_service
+#
+class News_letter(models.Model):
+    slug = models.SlugField(unique=True, max_length=255, blank=True)
+    email = models.EmailField(verbose_name="Email de l'utilisateur",unique=True)
+    created_at = models.DateTimeField(auto_now_add=True,verbose_name='Date d\inscription de l\'utilisateur ')
+    
+    class Meta:
+        verbose_name = 'News letter'
+        verbose_name_plural = 'News letter'
+        
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self.generate_unique_slug()
+        super().save(*args, **kwargs)
+
+    def generate_unique_slug(self):
+        slug = slugify(self.email)
+        unique_slug = slug
+        num = 1
+        while News_letter.objects.filter(slug=unique_slug).exists():
+            unique_slug = f'{slug}-{num}'
+            num += 1
+        return unique_slug
+    
+    def __str__(self):
+        return self.email
+#

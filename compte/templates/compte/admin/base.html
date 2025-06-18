@@ -50,9 +50,7 @@
                 <a class="list-group-item list-group-item-action py-2 text-white" href="{% url 'cabinet:homepage' %}">
                <i class="fas fa-home me-3"></i><span>Acceuil</span>
                 </a>
-                <a class="list-group-item list-group-item-action py-2 text-white" href="{% url 'compte:message' %}">
-                  <i class="fas fa-comment-alt me-3"></i><span>Message</span>
-                   </a>
+            
                 <a href="{% url 'compte:expertises'%}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
                   <i class="fas fa-th-list fa-w me-3"></i><span>Expertises</span>
 
@@ -69,6 +67,12 @@
                 <a href="{% url 'compte:dashboard' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
                     <i class="fas fa-gavel fa-fw me-3"></i><span>Mes articles</span>
                 </a>
+                <a class="list-group-item list-group-item-action py-2 text-white" href="{% url 'compte:message' %}">
+                  <i class="fas fa-comment-alt me-3"></i><span>Message</span>
+                   </a>
+                <a href="{% url 'compte:newsletter_list' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
+                  <i class="fas fa-envelope-open fa-fw me-3"></i><span>News Letters</span>
+              </a>
                 <a href="{% url 'compte:contact_list' %}" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
                     <i class="fas fa-map-marker-alt fa-fw me-3"></i><span>Contact & addresses</span>
                 </a>
@@ -148,8 +152,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="text/javascript" src="{% static 'django_ckeditor_5/dist/bundle.js' %}" />
-
   <script>
+    // Cacher automatiquement les alertes après 5 secondes (5000 ms)
+    setTimeout(function () {
+      let alerts = document.querySelectorAll('.alert');
+      alerts.forEach(function (alert) {
+        alert.classList.remove('show');
+        alert.classList.add('fade');
+      });
+    }, 5000);
+  </script>
+  
+  <script>
+  
     document.addEventListener("DOMContentLoaded", function () {
       // Automatically close the alert after 5 seconds
       setTimeout(function () {

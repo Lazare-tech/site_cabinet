@@ -1,22 +1,49 @@
+from pyexpat.errors import messages
 from django.shortcuts import get_object_or_404, redirect, render
 
 from cabinet.models import Article, Articlecategorie
+from cabinet.forms import NewsLetterForm
 
 # Create your views here.
-def home(request):
-    service=Services.objects.all()
-    categories_service=expertise.objects.all()
-    articles=Article.objects.order_by('-date_publie')[:2]
-    categorie_article=Articlecategorie.objects.all()
-    context={
-        'service':service,
-                'categorie_service':categories_service,
-                'articles':articles,
-                'categorie_article':categorie_article
+from django.contrib import messages
+from django.db import IntegrityError
 
+def home(request):
+    service = Services.objects.all()
+    categories_service = expertise.objects.all()
+    articles = Article.objects.order_by('-date_publie')[:2]
+    categorie_article = Articlecategorie.objects.all()
+
+    # if request.method == 'POST':
+    #     form = NewsLetterForm(request.POST)
+    #     if form.is_valid():
+    #         email = form.cleaned_data['email']
+    #         print("Email reçu :", email)
+
+    #         try:
+    #             form.save()
+    #             messages.success(request, "✅ Merci pour votre inscription à la newsletter !")
+    #         except IntegrityError:
+    #             messages.error(request, "⚠️ Cette adresse email est déjà inscrite.")
+    #         return redirect(request.path + '#newsletter')
+    #     else:
+    #         if form.errors.get('email'):
+    #             messages.error(request, f"❌ Erreur sur le champ email : {form.errors['email'][0]}")
+    #         else:
+    #             messages.error(request, "❌ Une erreur est survenue. Veuillez vérifier le formulaire.")
+    # else:
+    #     form = NewsLetterForm()
+
+    context = {
+        'service': service,
+        'categorie_service': categories_service,
+        'articles': articles,
+        'categorie_article': categorie_article,
+        # 'form': form
     }
-    return render(request,'cabinet/body/index.html',context)
-#
+
+    return render(request, 'cabinet/body/index.html', context)
+
 def fiscalite(request):
     return render(request,'cabinet/body/fiscalite.html')
 #
@@ -95,4 +122,25 @@ def article(request, slug=None):
         'article_a_la_une':article_a_la_une
     }
     return render(request,'cabinet/body/category-article.html',context)
-    
+##
+def newsletter_signup(request):
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            print("Email reçu :", email)
+
+            try:
+                form.save()
+                messages.success(request, "✅ Merci pour votre inscription à la newsletter !")
+            except IntegrityError:
+                messages.error(request, "⚠️ Cette adresse email est déjà inscrite.")
+            return redirect(request.path + '#newsletter')
+        else:
+            if form.errors.get('email'):
+                messages.error(request, f"❌ Erreur sur le champ email : {form.errors['email'][0]}")
+            else:
+                messages.error(request, "❌ Une erreur est survenue. Veuillez vérifier le formulaire.")
+    else:
+        form = NewsLetterForm()
+    return render(request, 'cabinet/body/news-letter.html', {'form': form})   

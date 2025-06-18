@@ -1,0 +1,112 @@
+{% extends "../../admin/base.html" %}
+
+<title>{% block title %} Admin page {% endblock %}</title>
+{% block main %}
+
+<section class="mb-4">
+  <div class="card">
+    <div class="card-header text-center py-3">
+      <h5 class="mb-0 text-center" id="produit">
+        <strong>Utilisateur(s) inscrits  à la news netters</strong>
+      </h5>
+       {% if messages %} 
+       {% for news in messages %}
+      <div id="alertMessage">
+              <div class="alert {% if news.tags %}alert-{{ news.tags }}{% else %}alert-info{% endif %}" role="alert">
+                  {{ news }}
+              </div>
+      </div>
+      {% endfor %}
+   {% endif %}
+      
+    </div>
+   
+    <div class="card-body">
+      {% if news %}
+        <div class="table-responsive">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Date d'inscription</th>
+
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for news in news %}
+                <tr>
+
+                  <td scope="row">{{ forloop.counter }}</td>
+                  <td scope="row">{{ news.created_at }}</td>
+
+                    <td scope="row">{{ news.email }}</td>
+
+                  
+                  <td>
+                    
+                    <a href="" class="btn" data-mdb-toggle="modal" data-mdb-target="#modalDelete{{ news.slug }}">
+                      <i class="fas fa-trash text-danger fa-1x"></i>
+                    </a>
+
+                    <i class="far fa-eye fa-1x text-dark" data-mdb-toggle="modal" data-mdb-target="#modalDetails{{ news.slug }}" style="cursor: pointer;"   ></i>
+                  </td>
+                </tr>
+
+                <!-- Modal for displaying news details -->
+                <div class="modal fade" id="modalDetails{{ news.slug }}" tabindex="-1" aria-labelledby="detailsLabel{{ news.slug }}" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="detailsLabel{{ news.slug }}">Utilisateur</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body text-dark">
+                        <h6>Email: {{ news.email }}</h6>
+
+                      </div>
+                   
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Fermer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="text-center">Aucun news.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Modal de confirmation de suppression -->
+{% for news in news %}
+<div class="modal fade" id="modalDelete{{ news.slug }}" tabindex="-1" aria-labelledby="deleteLabel{{ news.slug }}" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header bg-danger">
+              <h5 class="modal-title text-white" id="deleteLabel{{ news.slug }}">Confirmer la suppression</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Êtes-vous sûr de vouloir supprimer cet email ?
+          </div>
+          <div class="modal-footer">
+              <form action="" method="POST">
+                  {% csrf_token %}
+                  <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Annuler</button>
+                  <button type="submit" class="btn btn-danger">Supprimer</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+{% endfor %} 
+
+{% endblock main %}

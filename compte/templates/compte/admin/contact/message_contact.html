@@ -57,10 +57,11 @@
                       {% endif %}
                     </td>
                   <td>
+                  {% if not message.repondu %}
                     <a href="#" class="btn" data-mdb-toggle="modal" data-mdb-target="#modalReply{{ message.slug }}">
                       <i class="fas fa-reply text-primary fa-1x" title="Repondre"></i>
                     </a>
-                    
+                    {% endif %}
                     <a href="#" class="btn" data-mdb-toggle="modal" data-mdb-target="#modalDelete{{ message.slug }}">
                       <i class="fas fa-trash text-danger fa-1x"></i>
                     </a>

@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR=os.path.join(BASE_DIR,'templates')
@@ -76,6 +78,8 @@ TEMPLATES = [
                 'cabinet.context_processors.categories_processor',
                 'cabinet.context_processors.contact_whatsapp_processor',
                 'cabinet.context_processors.messagerepondu_processor',
+                                'cabinet.context_processors.newsletter_form',
+
             ],
         },
     },
@@ -96,16 +100,25 @@ DATABASES = {
        'PORT': '5432',
    }
 }
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'live.smtp.mailtrap.io'
+
+# EMAIL_HOST_USER = 'api'
+
+# EMAIL_HOST_PASSWORD = 'ad52fe26dd22fafc51f5282f02a4abf1'
+
+# EMAIL_PORT = '587'
+# EMAIL_USE_TLS=True,
+# EMAIL_USE_SSL=False
+######
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'live.smtp.mailtrap.io'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = 'api'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
-EMAIL_HOST_PASSWORD = 'ad52fe26dd22fafc51f5282f02a4abf1'
-
-EMAIL_PORT = '587'
-EMAIL_USE_TLS=True,
-EMAIL_USE_SSL=False
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

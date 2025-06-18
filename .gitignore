@@ -21,7 +21,7 @@ env/
 # Configuration locale
 *.local
 *.log
-
+.env
 # Fichiers de cache
 *.db
 *.sqlite3

@@ -18,6 +18,7 @@ urlpatterns = [
     path('blog/categorie/<slug:slug>/', cabinet.views.blog_article, name='blog-categorie'),  # Pour la catégorie sélectionnée
 
         path('blog/article/<slug:slug>/', cabinet.views.article, name='article'),
+path('newsletter/', cabinet.views.newsletter_signup, name='newsletters_signup'),
 
 
  

@@ -5,7 +5,8 @@ from django.contrib.auth import login, authenticate,logout
 from django.conf import settings
 from django.views import View
 
-from cabinet.models import Article, Articlecategorie, ContactMessage, Services, contact_information, expertise
+from cabinet.forms import NewsLetterForm
+from cabinet.models import Article, Articlecategorie, ContactMessage, News_letter, Services, contact_information, expertise
 from compte.models import User
 from . import forms
 from django.contrib.auth.decorators import login_required
@@ -508,19 +509,19 @@ def delete_message(request,slug=None):
         return redirect('compte:message')
         
 ###
+
 def answer_message(request, slug):
     message_obj = get_object_or_404(ContactMessage, slug=slug)
-    
+
     if request.method == 'POST':
         contenu = request.POST.get('reponse')
         sujet = f"Réponse à votre message: {message_obj.objet}"
-        print("email",message_obj.email)
         try:
             send_mail(
                 sujet,
                 contenu,
-                from_email='django@demomailtrap.co',
-                recipient_list=[message_obj.email],
+                settings.EMAIL_HOST_USER,  # expéditeur (tu dois l'importer depuis settings si pas dans ce fichier)
+                [message_obj.email],  # destinataire
                 fail_silently=False
             )
             message_obj.repondu = True
@@ -528,8 +529,9 @@ def answer_message(request, slug):
             messages.success(request, f"Message envoyé à {message_obj.email}")
         except Exception as e:
             messages.error(request, f"Erreur lors de l'envoi: {e}")
-    
-    return redirect('compte:message')  # ou ton nom de vue principale
+
+    return redirect('compte:message')
+  # ou ton nom de vue principale
 ####
 def contact_list(request):
     contacts =contact_information.objects.all()
@@ -561,5 +563,14 @@ def contact_delete(request, slug):
         messages.success(request, " Le contact a été supprimer avec succès.")
 
         return redirect('compte:contact_list')
+#
+#
+ 
     
-    
+
+def newsletter_list(request):
+    new=News_letter.objects.all()
+    context={
+        'news':new
+    }
+    return render(request,'compte/admin/newsletter/list_news.html',context)

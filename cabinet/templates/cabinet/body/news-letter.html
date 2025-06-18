@@ -1,36 +1,46 @@
 <section class="container-fluid background-section py-5 d-flex justify-content-center align-items-center">
   <section class="container text-center">
-    <h4 class="text-news-Subscribe mb-4">Suivez notre newsletter<br>restez informer des evolutions juridiques majeurs</h4>
-    
-    <form action="">
+    <h4 class="text-news-Subscribe mb-4">
+      Suivez notre newsletter<br>
+      Restez informé des évolutions juridiques majeures
+    </h4>
+
+    <form method="post" action="{% url 'cabinet:newsletters_signup' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      {% if messages %}
+      <div class="container mt-3">
+        <div class="row justify-content-center">
+          <div class="col-6">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
       <div class="row justify-content-center align-items-center">
-        
-        <div class="col-auto mb-3">
-          <p class="pt-2">
+        <div class="col-md-auto mb-3">
+          <p class="pt-2 mb-0">
             <span class="text-sign-news-letter">Inscrivez-vous à notre newsletter</span>
           </p>
         </div>
-        
+
         <div class="col-md-5 col-12 mb-3">
-          <div class="form">
-            <input
-              type="email"
-              id="form5Example22"
-              class="form-control"
-              placeholder="Votre adresse email"
-            />
+          <div class="form-group mb-0 d-flex align-items-center">
+            {{ newsletter_form.email }}
           </div>
         </div>
-        
-        <div class="col-auto mb-3">
-          <button
-            type="submit"
-            class="btn btn-news-letter"
-          >
+
+        <div class="col-md-auto mb-3">
+          <button type="submit" class="btn btn-news-letter">
             S'abonner
           </button>
         </div>
-        
       </div>
     </form>
   </section>

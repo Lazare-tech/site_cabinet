@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 
-from cabinet.models import Article, Articlecategorie, ContactMessage, Services, contact_information,expertise  # Pour utiliser le modèle d'utilisateur personnalisé
+from cabinet.models import Article, Articlecategorie, ContactMessage, News_letter, Services, contact_information,expertise  # Pour utiliser le modèle d'utilisateur personnalisé
 from django_ckeditor_5.widgets import CKEditor5Widget
 import phonenumbers
 from phonenumbers import NumberParseException
@@ -186,53 +186,7 @@ class ServiceForm(forms.ModelForm):
             raise forms.ValidationError("Le nom du service ne peut pas dépasser 40 caractères.")
         return nom_service
 ##
-# class ContactMessageForm(forms.ModelForm):
-#     class Meta:
-#         model = ContactMessage
-#         fields = ['nom', 'email', 'numero_telephone', 'objet', 'contenu']
-#         widgets = {
-#             'nom': forms.TextInput(attrs={
-#                 'class': 'form-control border-input-part',
-#                 'id': 'nom',
-#                 'name': 'nom',
-#                 'placeholder': 'Entrez votre nom complet',
-#                 'required': 'required'
-#             }),
-#             'email': forms.EmailInput(attrs={
-#                 'class': 'form-control',
-#                 'id': 'email',
-#                 'name': 'email',
-#                 'placeholder': 'Entrez votre email',
-#                 'required': 'required'
-#             }),
-#             'numero_telephone': forms.TextInput(attrs={
-#                 'class': 'form-control',
-#                 'id': 'numero_telephone',
-#                 'name': 'numero_telephone',
-#                 'placeholder': 'Entrez votre numéro de téléphone'
-#             }),
-#             'objet': forms.TextInput(attrs={
-#                 'class': 'form-control',
-#                 'id': 'objet',
-#                 'name': 'objet',
-#                 'placeholder': "Entrez l'objet",
-#                 'required': 'required'
-#             }),
-#             'contenu': forms.Textarea(attrs={
-#                 'class': 'form-control',
-#                 'id': 'contenu',
-#                 'name': 'contenu',
-#                 'rows': '3',
-#                 'placeholder': 'Votre message',
-#                 'required': 'required'
-#             }),
-#         }
-#         labels = {
-#             'nom': 'Nom complet',
-#             'email': 'Email',
-#             'numero_telephone': 'Numéro de téléphone',
-#             'objet': 'Objet',
-#             'contenu': 'Message',
+
 #   
 from django.core.exceptions import ValidationError
 
@@ -294,4 +248,4 @@ class enterprise_contactForm(forms.ModelForm):
                 'type': 'tel'
             }),
                 }
-    
+###
