@@ -98,7 +98,7 @@
               Êtes-vous sûr de vouloir supprimer cet email ?
           </div>
           <div class="modal-footer">
-              <form action="" method="POST">
+              <form action="{% url 'compte:delete_news' news.slug%}" method="POST">
                   {% csrf_token %}
                   <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Annuler</button>
                   <button type="submit" class="btn btn-danger">Supprimer</button>

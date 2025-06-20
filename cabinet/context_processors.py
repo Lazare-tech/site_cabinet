@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Article, Articlecategorie, ContactMessage,expertise
+from .models import Article, Articlecategorie, ContactMessage, contact_information,expertise
 #
 from .forms import NewsLetterForm
 
@@ -48,5 +48,13 @@ def messagerepondu_processor(request):
 def newsletter_form(request):
     context= {
         'newsletter_form': NewsLetterForm()
+    }
+    return context
+#
+def contact_entreprise_processor(request):
+    contact=contact_information.objects.all()
+    print("cccc",contact)
+    context = {
+        'entreprise_contact':contact
     }
     return context

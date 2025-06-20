@@ -1,19 +1,10 @@
 {% extends "base.html" %} 
 {% block title %}Contacts{% endblock title %} 
 {% block content %}
-<section class="">
-  <section
-    class="hero text-white text-center"
-    style="
-      background-image: url('../assets/images/contact.jpg');
-      background-size: cover;
-      background-position: center;
-      min-height: 400px;
-    "
-  >
-    <div
-      class="container d-flex flex-column justify-content-center align-items-center h-100 pt-5"
-    >
+  <div class="hero_contact d-flex justify-content-center align-items-center"> 
+
+    <div class="hero_content_compt text-center text-light">
+
       <h1 class="display-5 mb-3 fw-bold">Prenez Contact avec Nous</h1>
       <p class="lead mb-4 fw-bold">
         Nous apprécions vos retours et sommes là pour vous aider avec toutes vos
@@ -23,7 +14,7 @@
         >Contactez-nous Maintenant</a
       >
     </div>
-  </section>
+  </div>
   <section class="container-fluid section-down-hero"></section>
   <section class="container-fluid contact-bg">
     <section class="container text-center">

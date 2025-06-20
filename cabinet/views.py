@@ -144,3 +144,7 @@ def newsletter_signup(request):
     else:
         form = NewsLetterForm()
     return render(request, 'cabinet/body/news-letter.html', {'form': form})   
+
+
+
+##

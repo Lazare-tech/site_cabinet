@@ -12,6 +12,10 @@ from . import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 #
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import ContactMessageForm
+
 
 # from dotenv import load_dotenv
 from django.utils import timezone
@@ -61,26 +65,6 @@ def login_page(request):
         form = LoginForm()
 
     return render(request, 'compte/login.html', {'form': form})
-######################
-def signup_page(request):
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            email = form.cleaned_data.get('email')
-            password = form.cleaned_data.get('password')
-            print("email:",email,"username:",username)
-            # Créer l'utilisateur avec un mot de passe haché
-            # Création manuelle de l'utilisateur avec hachage du mot de passe
-            user = User(username=username, email=email)
-            user.set_password(password)  # Hacher manuellement le mot de passe
-            user.save()
-            
-            return redirect('compte:login')
-    else:
-        form = SignupForm()
-
-    return render(request, 'compte/signup.html', {'form': form})
 
 ##################
 def logout_user(request):
@@ -122,8 +106,6 @@ def delete_account(request):
     return redirect('compte:profile')
 
 ##################
-def password_reset_complete(request):
-    return render(request, 'compte/password_reset_complete.html')
 #################
 def dashboard_admin(request):
     if request.user.is_authenticated:
@@ -195,8 +177,6 @@ def add_article(request):
 
     return render(request, 'compte/admin/article/add_article.html', {'form': form})
 ##
-
-
 @login_required
 def article_update(request, slug=None):
     article = get_object_or_404(Article, slug=slug)
@@ -472,9 +452,6 @@ def service_delete(request, slug=None):
 def confirm_message(request):
     return render(request,'cabinet/body/confirm_message.html')
 #
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from .forms import ContactMessageForm
 
 def contact(request):
     if request.method == 'POST':
@@ -489,7 +466,7 @@ def contact(request):
         form = ContactMessageForm()
 
     return render(request, 'compte/admin/contact/contact.html', {'form': form})
-
+@login_required
 def message(request):
    message = ContactMessage.objects.all().order_by('repondu', '-date_envoi')  # Les non-répondus en haut
 
@@ -499,6 +476,7 @@ def message(request):
 
    return render(request, 'compte/admin/contact/message_contact.html', context)
 #
+@login_required
 def delete_message(request,slug=None):
     message = get_object_or_404(ContactMessage, slug=slug)
     
@@ -509,7 +487,7 @@ def delete_message(request,slug=None):
         return redirect('compte:message')
         
 ###
-
+@login_required
 def answer_message(request, slug):
     message_obj = get_object_or_404(ContactMessage, slug=slug)
 
@@ -537,6 +515,7 @@ def contact_list(request):
     contacts =contact_information.objects.all()
     return render(request, 'compte/admin/contact/enterprise_contact_list.html', {'entreprise_contact': contacts})
 #
+@login_required
 def contact_create(request):
     form = enterprise_contactForm(request.POST or None)
     if form.is_valid():
@@ -544,7 +523,7 @@ def contact_create(request):
         return redirect('compte:contact_list')
     return render(request, 'compte/admin/contact/enterprise_create_contact.html', {'form': form})
 #
-
+@login_required
 def contact_update(request, slug):
     contact = get_object_or_404(contact_information, slug=slug)
     form = enterprise_contactForm(request.POST or None, instance=contact)
@@ -556,6 +535,7 @@ def contact_update(request, slug):
     return render(request, 'compte/admin/contact/enterprise_update_contact.html', {'form': form})
 
 ###
+@login_required
 def contact_delete(request, slug):
     contact = get_object_or_404(contact_information, slug=slug)
     if request.method == 'POST':
@@ -564,13 +544,23 @@ def contact_delete(request, slug):
 
         return redirect('compte:contact_list')
 #
-#
- 
-    
-
+@login_required
 def newsletter_list(request):
     new=News_letter.objects.all()
     context={
         'news':new
     }
     return render(request,'compte/admin/newsletter/list_news.html',context)
+##
+@login_required
+def delete_news(request, slug):
+    news = get_object_or_404(News_letter, slug=slug)
+
+    if request.method == 'POST':
+        news.delete()
+        messages.success(request, f"L'email {news.email} a été supprimé avec succès.")
+        return redirect('compte:newsletter_list')  # adapte cette URL à celle qui liste les emails
+    else:
+        messages.error(request, "Méthode non autorisée.")
+        return redirect('compte:newsletter_list')
+#

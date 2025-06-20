@@ -12,3 +12,13 @@
     color: #000000 !important; /* Ensure the text is black */
  
 }
+
+.ck-content p {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.5;
+    
+}
+.ck-content {
+    color: #000 !important;
+}

@@ -10,7 +10,6 @@ import compte.views
 app_name= "compte"
 urlpatterns = [
     path('login/',compte.views.login_page,name='login'),
-    path('signup/',compte.views.signup_page,name='signup'),
     path('logout/',compte.views.logout_user,name='logout'),
     path('delete_account',compte.views.delete_account,name='delete_account'),
     path('profile',compte.views.profile_view,name='profile'),
@@ -52,6 +51,6 @@ path('contacts/<slug:slug>/delete/', compte.views.contact_delete, name='contact_
 path('contacts/<slug:slug>/update/', compte.views.contact_update, name='contact_update_entreprise'),
 ##
 path('newsletter_list/', compte.views.newsletter_list, name='newsletter_list'),
-
+    path('newsletter/delete/<slug:slug>/', compte.views.delete_news, name='delete_news'),
 
 ]

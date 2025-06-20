@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django_ckeditor_5.fields import CKEditor5Field  # Correct import for CKEditor 5
-
+from bs4 import BeautifulSoup
 # Modèle pour les catégories d'articles
 class Articlecategorie(models.Model):
     nom_article = models.CharField(max_length=255, verbose_name="Nom de l'article")
@@ -41,6 +41,17 @@ class Article(models.Model):
         verbose_name = 'Article'
         verbose_name_plural = 'Articles'
         
+    def clean_styles(html_content):
+        soup = BeautifulSoup(html_content, "html.parser")
+        for tag in soup.find_all(True):
+            if tag.has_attr("style"):
+                styles = tag["style"].split(";")
+                filtered_styles = [s for s in styles if not s.strip().startswith("color")]
+                tag["style"] = ";".join(filtered_styles).strip()
+                if not tag["style"]:
+                    del tag["style"]
+        return str(soup)
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = self.generate_unique_slug()
@@ -144,7 +155,7 @@ class expertise(models.Model):
 ##################SERVICES
 class Services(models.Model):
     image_service=models.ImageField(upload_to='Images_des_services',verbose_name="Image du service")
-    nom_service=models.ForeignKey(expertise, verbose_name=("Nom de la categorie"), on_delete=models.CASCADE)
+    nom_service=models.ForeignKey(expertise, verbose_name=("Nom de l\'expertise "), on_delete=models.CASCADE)
     slug = models.SlugField(unique=True, max_length=255, blank=True)
 
     class Meta:

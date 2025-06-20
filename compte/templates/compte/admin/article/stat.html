@@ -68,9 +68,13 @@
                         <div class="align-self-center stat-icon">
                             <i class="fas fa-map-marker-alt text-info fa-3x stat-icone"></i>
                         </div>
-                        <div class="text-end">
+                        <div class="text-left">
                             <h6 class="text-white">Addresses</h6>
-                            <h6 class="mb-0 text-muted">{{ addresses.contact }}</h6>
+                            {% for contact in entreprise_contact %}
+                            <h6 class="mb-0 text-white">{{ contact.numero_telephone}}</h6>
+                            <h6 class="mb-0 text-white text-left"></h6>
+
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

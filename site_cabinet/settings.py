@@ -78,7 +78,8 @@ TEMPLATES = [
                 'cabinet.context_processors.categories_processor',
                 'cabinet.context_processors.contact_whatsapp_processor',
                 'cabinet.context_processors.messagerepondu_processor',
-                                'cabinet.context_processors.newsletter_form',
+                 'cabinet.context_processors.newsletter_form',
+                 'cabinet.context_processors.contact_entreprise_processor',
 
             ],
         },
@@ -165,66 +166,34 @@ customColorPalette = [
         },
     ]
 CKEDITOR_5_CONFIGS = {
-    'comment': {
-        'toolbar': ['heading', '|', 'bold', 'italic', 'link',
-                    'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
-        'height': '300px',  # Optional, setting the editor height
-        'width': '100%',  
-
-    },
     'extends': {
         'blockToolbar': [
             'paragraph', 'heading1', 'heading2', 'heading3',
-            '|',
-            'bulletedList', 'numberedList',
-            '|',
-            'blockQuote',
-            
+            '|', 'bulletedList', 'numberedList', '|', 'blockQuote',
         ],
-        'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough',
-        'code','subscript', 'superscript', 'highlight', '|', 'codeBlock', 'sourceEditing', 'insertImage',
-                    'bulletedList', 'numberedList', 'todoList', '|',  'blockQuote', 'imageUpload', '|',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
-                    'insertTable',],
-            'removeFormatOnPaste': True,
-        'image': {
-            'toolbar': ['imageTextAlternative', '|', 'imageStyle:alignLeft',
-                        'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side',  '|'],
-            'styles': [
-                'full',
-                'side',
-                'alignLeft',
-                'alignRight',
-                'alignCenter',
-            ]
-
+        'toolbar': [
+            'heading', '|', 'bold', 'italic', 'underline', 'link',
+            '|', 'bulletedList', 'numberedList', 'todoList',
+            '|', 'blockQuote', 'removeFormat',
+            '|', 'insertImage', 'mediaEmbed', 'insertTable',
+            '|', 'sourceEditing', 'undo', 'redo'
+        ],
+        'removeFormatOnPaste': True,
+        'style': {
+            'definitions': []
         },
-        'table': {
-            'contentToolbar': [ 'tableColumn', 'tableRow', 'mergeTableCells',
-            'tableProperties', 'tableCellProperties' ],
-            'tableProperties': {
-                'borderColors': customColorPalette,
-                'backgroundColors': customColorPalette
-            },
-            'tableCellProperties': {
-                'borderColors': customColorPalette,
-                'backgroundColors': customColorPalette
-            }
-        },
-        'heading' : {
+        'heading': {
             'options': [
-                { 'model': 'paragraph', 'title': 'Paragraph', 'class': 'ck-heading_paragraph' },
-                { 'model': 'heading1', 'view': 'h1', 'title': 'Heading 1', 'class': 'ck-heading_heading1' },
-                { 'model': 'heading2', 'view': 'h2', 'title': 'Heading 2', 'class': 'ck-heading_heading2' },
-                { 'model': 'heading3', 'view': 'h3', 'title': 'Heading 3', 'class': 'ck-heading_heading3' }
+                { 'model': 'paragraph', 'title': 'Paragraphe', 'class': 'ck-heading_paragraph' },
+                { 'model': 'heading1', 'view': 'h1', 'title': 'Titre 1', 'class': 'ck-heading_heading1' },
+                { 'model': 'heading2', 'view': 'h2', 'title': 'Titre 2', 'class': 'ck-heading_heading2' },
+                { 'model': 'heading3', 'view': 'h3', 'title': 'Titre 3', 'class': 'ck-heading_heading3' },
             ]
-        }
-    },
-    'list': {
-        'properties': {
-            'styles': 'true',
-            'startIndex': 'true',
-            'reversed': 'true',
+        },
+        'htmlSupport': {
+            'allow': [
+                { 'name': '/.*/', 'attributes': True, 'classes': True, 'styles': False }
+            ]
         }
     }
 }

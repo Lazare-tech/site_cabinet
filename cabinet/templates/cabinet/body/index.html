@@ -20,7 +20,7 @@
         >
           <div class="text-center">
             <h1 class="fw-bold text-light">KEFC GROUP CONSULTING OFFICE</h1>
-            <p class="text-light lead">
+            <p class="text-light fw-bold lead">
               Votre partenaire juridique de confiance
             </p>
             <a
@@ -103,14 +103,14 @@
 </section>
 <!-- Services Section -->
 <section class="container-fluid group-discover-bg" id="services">
-  <section class="services-section py-5">
+  <section class="services-section">
     <div class="container">
       <div class="row">
         <div class="col-md-6 order-2">
           <img
             src="assets/images/LOGO.png"
-            style="position: relative; top: 199px; left: 159px; width: 190px"
-            class=""
+            
+            class="logk-brand"
           />
           <img
             src="assets/images/management.jpeg"
@@ -130,7 +130,7 @@
               structurer et faire croître vos activités de manière saine et
               pérenne.
             </p>
-            <a href="{% url 'compte:contact' %}" class="btn btn-contact mt-3"
+            <a href="{% url 'compte:contact' %}" class="btn btn-contact mt-3 fw-bold"
               >Demander une consultation</a
             >
           </div>
@@ -178,11 +178,11 @@
 <!-- Articles Section -->
   <section class="container-fluid articles-section">
     <div class="container">
-      <h4 class="pb-2 border-bottom p-5 text-article-title">
+      <h4 class="pb-2 border-bottom pt-4 text-article-title">
         Découvrez nos articles
       </h4>
 
-      <div class="row g-5 py-5">
+      <div class="row g-5 py-4">
         <!-- Introduction section: Restez informé et compétitif -->
         <div
           class="col-12 d-flex flex-column align-items-start gap-2 article-row-display"
@@ -199,7 +199,7 @@
           >
         </div>
 {% if articles %}
-<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5 justify-content-center">
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-3 justify-content-center">
   <!-- Categories -->
    <div class="col-lg-4">
     <h5 class="fw-bold text-hmeca mb-3">Catégories</h5>
@@ -231,8 +231,8 @@
   
         <!-- Pied de carte : icônes et bouton -->
         <div class="pt-5 d-flex justify-content-between align-items-center mt-auto">
-          <div class="d-flex align-items-center">
-            <i class="fas fa-calendar-alt me-1"></i>
+          <div class="d-flex align-items-left">
+            <i class="fas fa-calendar-alt"></i>
             <small>{{ article.date_publie|date:"j F Y" }}</small>
           </div>
           
@@ -333,7 +333,7 @@
   <!-- Values Section -->
   <!-- Values Section -->
   <section class="container-fluid background-section">
-  <section class="container-fluid pb-5">
+  <section class="container-fluid pb-1">
     <div class="container">
       <div class="text-center mb-5">
         <h5 class="text-val-title pt-3">Nos Valeurs</h5>
@@ -390,7 +390,6 @@
         </div>
       </div>
     </div>
-    <hr class="container line-news" />
   </section>
 </section>
 <!-- Section Nos Partenaires -->

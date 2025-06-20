@@ -181,10 +181,20 @@ body {
     justify-content: center;
     align-items: center;
 }
+.hero_contact{
+  background-image: url('/assets/images/emailcontactus.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 80vh; /* Adjust height as needed */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
 
 
-
-.hero_compta::before,.hero_juridique::before,.hero_fiscalite::before,.hero_management::before {
+.hero_compta::before,.hero_juridique::before,.hero_fiscalite::before,.hero_management::before,.hero_contact::before{
     content: '';
     position: absolute;
     top: 0;
@@ -320,7 +330,7 @@ body {
 }
 /* BLOG PARTY  */
 .hero_blog  {
-  background-image: url('/assets/images/question-mark-2492009_1280.jpg'); /* Replace with your image path */
+  background-image: url('/assets/images/hblogo.jpeg'); /* Replace with your image path */
   background-size: cover;
   background-position: center;
   height: 80vh; /* Adjust height as needed */
@@ -328,6 +338,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.hero_blog::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Adds a dark overlay for better text visibility */
+  z-index: 1;
 }
 .down-to-article {
   position: relative;
@@ -551,14 +571,14 @@ border-radius: 3%;
   color:#FF7F50;;
 }
 .s-group-discover-bg{
-  background: #fad6a5;;
+  /* background: #f2e9d8; */
   height: 45px;
 }
 .group-discover-bg{
     /* background: #fad6a5; */
     /* background: linear-gradient(to right, #fad6a5, #e8b479, #c98c55); */
     /* background: linear-gradient(to right, #fad6a5, #f5b97a, #e07b39); */
-    background: linear-gradient(to left, #fad6a5, #ffe4cf, #ffffff);
+    /* background: linear-gradient(to left, #fad6a5, #ffe4cf, #ffffff); */
     /* background: linear-gradient(to right, #fad6a5, #fbbf77, #f29e50); */
 }
 .text-services-juridiques{
@@ -566,7 +586,7 @@ border-radius: 3%;
 }
 .section-down-hero{
   height: 40px;
-  background: #FF7F50;;;
+  background: white;;
 }
 #first-group-discover{
   background: #FF7F50;;
@@ -629,7 +649,7 @@ border-radius: 3%;
 }
 .footer-background{
   /* background: #fad6a5; */
-  background: linear-gradient(135deg, #fad6a5, #f3b97f, #ec9f5c);
+  /* background: linear-gradient(135deg, #fad6a5, #f3b97f, #ec9f5c); */
 
   color:#333333 !important;
 }
@@ -675,6 +695,21 @@ color: #FF7F50;; /* couleur de la ligne */
 bottom: 40% !important;
   }
  
+}
+.logk-brand{
+  position: relative;
+   top: 199px; 
+   left: 159px; 
+   width: 190px
+}
+@media (max-width:371px){
+  .logk-brand{
+    position: relative;
+
+   top: 199px; 
+   left: 107px !important; 
+   width: 190px
+  }
 }
 /* Style for small screens to make text occupy full width */
 @media (max-width: 576px) {
@@ -756,7 +791,9 @@ bottom: 40% !important;
 background: #142f6a ;
  }
  .text-news-Subscribe{
-   color:#f2e9d8;;
+   color:#142f6a ;
+   font-weight: 400;
+
  }
  .text-footer-informa{
    color:#142f6a ;;
@@ -772,12 +809,13 @@ background: #142f6a ;
  }
  
 .btn-news-letter{
-  background: #FF7F50;;
+  background: #142f6a ;;;
+
   color:#f2e9d8;
   font-weight:700;
 }
 .text-sign-news-letter{
-  color:#f2e9d8;
+  color:#142f6a ;
 }
 .text-label-news span{
   color:#f2e9d8;
@@ -946,7 +984,6 @@ body {
 
 .card p {
   font-size: 1rem;
-  color: rgb(22, 17, 17);
 }
 
 .card i {
