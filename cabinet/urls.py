@@ -20,7 +20,7 @@ urlpatterns = [
         path('blog/article/<slug:slug>/', cabinet.views.article, name='article'),
 path('newsletter/', cabinet.views.newsletter_signup, name='newsletters_signup'),
 
-
+path('nav',cabinet.views.navb,name="navbar")
  
 ]
 

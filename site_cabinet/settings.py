@@ -101,16 +101,7 @@ DATABASES = {
        'PORT': '5432',
    }
 }
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'live.smtp.mailtrap.io'
 
-# EMAIL_HOST_USER = 'api'
-
-# EMAIL_HOST_PASSWORD = 'ad52fe26dd22fafc51f5282f02a4abf1'
-
-# EMAIL_PORT = '587'
-# EMAIL_USE_TLS=True,
-# EMAIL_USE_SSL=False
 ######
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -226,9 +217,12 @@ MEDIA_URL='/assets/'
 #url chemin absoule du repertoire ou sont stockees ces fichiers sur le disque
 MEDIA_ROOT = os.path.join(BASE_DIR,'assets/')
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'assets/')    # For production
-
-
+# For production
+#DEBUG=False
+# STATIC_URL = "/static/"
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Dossier de sortie pour production
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -10,9 +10,56 @@ body {
   font-variation-settings:
     "wdth" 100;
 }
+
+  /*  BTN HERO */
+
+/*    END BTN HERO */
+.carousel-button.prev {
+  left: 0;
+}
+
+.carousel-button.next {
+  right: 0;
+}
+
+
+.card {
+  transition: transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+#myBtn {
+display: none; /* Masqué par défaut */
+position: fixed; /* Reste en place lors du défilement */
+bottom: 20px; /* Espacement depuis le bas de la page */
+right: 30px; /* Espacement depuis le côté droit de la page */
+z-index: 99; /* Assure que le bouton est au-dessus d'autres éléments */
+font-size: 18px; /* Taille de la police */
+border: none; /* Pas de bordure */
+outline: none; /* Pas de contour */
+background-color: #1A237E; /* Couleur de fond personnalisée */
+color: white; /* Couleur du texte */
+cursor: pointer; /* Curseur en forme de main lors du survol */
+padding: 15px; /* Espacement interne */
+border-radius: 15px 15px 0 0; /* Coins arrondis en haut */
+transition: background-color 0.3s, transform 0.3s; /* Transition fluide pour les effets */
+border:1px solid #1A237E;
+
+}
+
+#myBtn:hover {
+background-color: white; /* Couleur de fond lors du survol */
+transform: scale(1.1); /* Agrandir légèrement lors du survol */
+color: #1A237E;
+}
+
 /*NAVBAR----------------------------------*/
 
-/*........................... RESPONSIVE PARTY  ......................................................*/
+/*........................... RESPONSIVE PARTY  ........................................*/
 
 /* HERO PARTY */
 .carousel-inner img {
@@ -192,8 +239,26 @@ body {
   align-items: center;
 
 }
-
-
+.hero_icontentgpe{
+  background-image: url('/assets/images/juri2.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 80vh; /* Adjust height as needed */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero_icontentgpe::before{
+  background-color: rgba(0, 0, 0, 0.6); /* Adds a dark overlay for better text visibility */
+  z-index: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .hero_compta::before,.hero_juridique::before,.hero_fiscalite::before,.hero_management::before,.hero_contact::before{
     content: '';
     position: absolute;
@@ -257,9 +322,14 @@ body {
   align-items: center;
 }
 
+.hpagehcontent {
+  z-index: 2;
 
+}
 .hero_content {
     z-index: 2;
+    max-width: 800px; 
+    padding: 20px;
 }
 
 .hero_content h1 {

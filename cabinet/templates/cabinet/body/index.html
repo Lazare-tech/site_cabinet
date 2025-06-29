@@ -1,22 +1,19 @@
-{% extends "base.html" %} {% block title %}Accueil{% endblock title %} 
+{% extends "base.html" %} 
+{% block title %}Accueil{% endblock title %} 
 {% load static %}
 {% block content %}
 <!--CAROUSEL HERO-->
-<section>
+<section class="">
   <div
     id="carouselBasicExample"
     class="carousel slide carousel-fade"
     data-mdb-ride="carousel"
   >
     <div class="carousel-inner">
-      <div class="carousel-item carousel-item-hero active">
-        <img
-          src="assets/images/juri2.jpeg"
-          class="d-block w-100"
-          alt="Canyon at Night"
-        />
+      <div class="carousel-item carousel-item-hero active hero_icontentgpe">
+      
         <div
-          class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+          class="carousel-caption d-flex flex-column align-items-center justify-content-center hpagehcontent"
         >
           <div class="text-center">
             <h1 class="fw-bold text-light">KEFC GROUP CONSULTING OFFICE</h1>
@@ -68,7 +65,7 @@
       data-mdb-target="#carouselBasicExample"
       data-mdb-slide="next"
     >
-      <span class="carousel-control-next-icon"></span>
+          <span class="carousel-control-next-icon"></span>
       <span class="visually-hidden">Next</span>
     </button>
   </div>

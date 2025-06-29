@@ -1,5 +1,6 @@
 <!-- Upper Navbar -->
 {% load static %}
+
   <!-- Main Navbar -->
   <nav class="navbar  navbar-expand-lg  navbar-custom mt-0 mb-0 py-3 shadow-4" id="mainNavbar" style="background-color: #142f6a">
     <div class="container">
@@ -19,20 +20,23 @@
           <li class="nav-item">
             <a class="nav-link nav-link-home text-white fw-bold" href="{% url 'cabinet:homepage' %}">Acceuil</a>
           </li>
-          <!-- Navbar dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-              Expertises
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            {% for expertise in categorie_expertise %}
-              <li><a class="dropdown-item" href="{% url 'compte:expertise_detail' expertise.slug %}">{{ expertise.expertise }}</a></li>
-                {% endfor %}
+<!-- Navbar dropdown -->
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle text-white fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Expertises
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    {% for expertise in categorie_expertise %}
+      <li>
+        <a class="dropdown-item" href="{% url 'compte:expertise_detail' expertise.slug %}">
+          {{ expertise.expertise }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</li>
+    
 
-                
-                  </ul>
-          </li>
           <li class="nav-item">
             <a class="nav-link text-white fw-bold" href="{% url 'cabinet:blog' %}">Blog</a>
           </li>

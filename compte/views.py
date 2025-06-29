@@ -523,6 +523,7 @@ def contact_create(request):
         return redirect('compte:contact_list')
     return render(request, 'compte/admin/contact/enterprise_create_contact.html', {'form': form})
 #
+
 @login_required
 def contact_update(request, slug):
     contact = get_object_or_404(contact_information, slug=slug)

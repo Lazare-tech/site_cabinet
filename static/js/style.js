@@ -1,12 +1,61 @@
-// fixer le menu lors du defilement
-// window.onscroll = function() {
-//     var navbar = document.getElementById("mainNavbar");
-//     if (window.pageYOffset > 50) { // Vous pouvez ajuster ce chiffre
-//         navbar.classList.add("fixed-top", "shadow"); // Ajoute la classe fixe et l'ombre
-//     } else {
-//         navbar.classList.remove("fixed-top", "shadow"); // Supprime la classe fixe et l'ombre
-//     }
-// };
+
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      const articleButtons = document.querySelectorAll(".read-article-btn");
+  
+      articleButtons.forEach(button => {
+          button.addEventListener("click", function(event) {
+              event.preventDefault();
+              const articleId = this.getAttribute("data-article-id");
+  
+              // Fetch article content via AJAX (Using Django URL pattern)
+              fetch(`/get-article-content/${articleId}/`)
+                  .then(response => response.json())
+                  .then(data => {
+                      // Update the Featured Article section with the clicked article's content
+                      document.getElementById("featured-article-img").src = data.photo_url;
+                      document.getElementById("featured-article-title").innerText = data.title;
+                      document.getElementById("featured-article-text").innerText = data.truncated_content;
+                      document.getElementById("featured-article-full-content").innerHTML = `<p>${data.full_content}</p>`;
+                  })
+                  .catch(error => console.error("Error fetching article content:", error));
+          });
+      });
+  });
+    
+//tel
+const input = document.querySelector("#telephone");
+    window.intlTelInput(input, {
+      initialCountry: "auto",
+      geoIpLookup: function (callback) {
+        fetch("https://ipapi.co/json")
+          .then((res) => res.json())
+          .then((data) => callback(data.country_code))
+          .catch(() => callback("bf")); // fallback Burkina Faso
+      },
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+    });
 
 // SLIDE IMAGE MINIATURE CATEGORY
 const track = document.querySelector('.carousel-track');

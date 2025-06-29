@@ -145,6 +145,7 @@ def newsletter_signup(request):
         form = NewsLetterForm()
     return render(request, 'cabinet/body/news-letter.html', {'form': form})   
 
-
+def navb(request):
+    return render(request,'cabinet/navbar/bar.html')
 
 ##

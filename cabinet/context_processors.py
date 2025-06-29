@@ -53,7 +53,6 @@ def newsletter_form(request):
 #
 def contact_entreprise_processor(request):
     contact=contact_information.objects.all()
-    print("cccc",contact)
     context = {
         'entreprise_contact':contact
     }
