@@ -205,3 +205,12 @@ class News_letter(models.Model):
     def __str__(self):
         return self.email
 #
+class  HeroImage (models.Model):
+    page=models.CharField(max_length=100,unique=True)
+    image=models.ImageField(upload_to='hero_images/')
+    alt_text=models.CharField(max_length=255,blank=True)
+    titre=models.CharField(max_length=255,blank=True,null=True)
+    text_hero=models.TextField(blank=True,null=True)
+    
+    def __str_(self):
+        return f"Hero pour {self.page}"

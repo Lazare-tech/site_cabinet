@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.text import Truncator
 from django.utils.html import format_html
 
-from .models import Articlecategorie,Article, ContactMessage, News_letter, Services, expertise, expertise
+from .models import Articlecategorie,Article, ContactMessage, News_letter, Services, expertise, expertise,HeroImage
 
 # Register your models here.
 class ArtcileCategorieAdmin(admin.ModelAdmin):
@@ -59,3 +59,7 @@ class ContactMessageAdmin(admin.ModelAdmin):
     readonly_fields = ('slug', 'date_envoi')
     list_editable = ('repondu',)
     ordering = ('-date_envoi',)
+    #
+class HeroimageAdmin(admin.ModelAdmin):
+    list_display=('page','image','alt_text','titre','text_hero')
+admin.site.register(HeroImage,HeroimageAdmin)

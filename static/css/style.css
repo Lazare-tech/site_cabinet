@@ -241,6 +241,7 @@ color: #1A237E;
 }
 .hero_icontentgpe{
   background-image: url('/assets/images/juri2.jpeg');
+
   background-size: cover;
   background-position: center;
   height: 80vh; /* Adjust height as needed */

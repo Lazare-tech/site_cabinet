@@ -45,6 +45,11 @@ def home(request):
     return render(request, 'cabinet/body/index.html', context)
 
 def fiscalite(request):
+    # hero=HeroImage.objects.filter(page='fiscalite').first()
+    print("hero,hero.titre")
+    # context={
+    #     'hero':hero
+    # }
     return render(request,'cabinet/body/fiscalite.html')
 #
 def comptabilite(request):
@@ -56,6 +61,7 @@ def juridique(request):
 def management(request):
     return render(request,'cabinet/body/management.html')
 #
+
 def nav(request):
     categories_service=expertise.objects.all()
     print("caaaaa",categories_service)
@@ -105,7 +111,7 @@ def blog_article (request,slug=None):
     return render(request, 'cabinet/body/blog.html', context)
 #
 from django.http import JsonResponse
-from .models import Article, Services, expertise
+from .models import Article, HeroImage, Services, expertise
 
 def article(request, slug=None):
 
