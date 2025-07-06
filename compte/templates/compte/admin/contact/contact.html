@@ -1,7 +1,11 @@
 {% extends "base.html" %} 
-{% block title %}Contacts{% endblock title %} 
+{% block title %}Contact | KEFC Group Consulting Office à Ouagadougou{% endblock title %}
+
 {% block content %}
-  <div class="hero_contact d-flex justify-content-center align-items-center"> 
+  <div class="hero_contact d-flex justify-content-center align-items-center"
+  {% if hero %}
+  style="background-image: url('{{ hero.image.url }}');"
+  {% endif %}>
 
     <div class="hero_content_compt text-center text-light">
 

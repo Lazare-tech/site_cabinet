@@ -1,8 +1,22 @@
 {% extends "base.html" %}
-{% block title %}Blog{% endblock title %}
+{% load static %}
+
+{% block title %}Blog juridique – Conseils et actualité | KEFC GROUP{% endblock title %}
+{% block meta_description %}
+Explorez notre blog juridique pour suivre l’actualité, obtenir des conseils stratégiques et rester informé des réformes légales au Burkina Faso.
+{% endblock meta_description %}
+{% block og_title %}Blog juridique – KEFC GROUP CONSULTING OFFICE{% endblock og_title %}
+{% block og_description %}
+Le blog de KEFC GROUP vous accompagne dans la compréhension du droit des affaires, fiscalité et réglementation pour entreprises, ONG et institutions.
+{% endblock og_description %}
+
+
 {% block content %}
 <!-- Hero Section -->
-<section class="hero_blog">
+<section class="hero_blog"
+{% if hero %}
+style="background-image: url('{{ hero.image.url }}');"
+{% endif %}>
     <div class="d-flex justify-content-center align-items-center">
         <div class="container hero_content">
             <div class="row">

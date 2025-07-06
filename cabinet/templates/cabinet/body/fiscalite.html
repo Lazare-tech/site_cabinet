@@ -1,12 +1,27 @@
 {% extends "base.html" %} 
+
+{% block title %}Services de Fiscalité – KEFC GROUP CONSULTING OFFICE{% endblock title %}
+
+{% block meta_description %}
+Découvrez les services de fiscalité de KEFC GROUP CONSULTING OFFICE : assistance fiscale, audit, agrément, contentieux et conseils pour optimiser la gestion fiscale de votre entreprise.
+{% endblock meta_description %}
+
+{% block meta_keywords %}
+services fiscaux Burkina Faso, fiscalité d’entreprise, audit fiscal, contentieux fiscal, agrément code investissement, KEFC GROUP, fiscalité ONG, optimisation fiscale
+{% endblock meta_keywords %}
+
+{% block og_title %}Fiscalité d’entreprise – KEFC GROUP CONSULTING OFFICE{% endblock og_title %}
+{% block og_description %}
+KEFC GROUP CONSULTING OFFICE vous accompagne avec ses services en fiscalité : assistance, analyse, conseil, litiges, agréments, pour les entreprises, associations, ONG.
+{% endblock og_description %}
 {% block content %}
 <!-- Hero Section -->
 <!-- Hero Section -->
-<div class="hero_fiscalite d-flex justify-content-center align-items-center">
-  <div
-    class="hero_content text-center text-light"
-    
-  >
+<div class="hero_fiscalite d-flex justify-content-center align-items-center"
+     {% if hero %}
+     style="background-image: url('{{ hero.image.url }}');"
+     {% endif %}>
+  <div class="hero_content text-center text-light">
     <h1 class="display-4 fw-bold mb-4 text-ctitre-services">
       Maîtrisez la fiscalité pour optimiser vos finances
     </h1>
@@ -15,15 +30,12 @@
       notre expertise peut faire une réelle différence dans la gestion de vos
       affaires financières.
     </p>
-    <a
-      href="#services"
-      class="btn btn-md btn-services px-4 py-2"
-      style="font-weight: bold"
-    >
+    <a href="#services" class="btn btn-md btn-services px-4 py-2" style="font-weight: bold">
       Découvrir nos services
     </a>
   </div>
 </div>
+
 <section class="container-fluid section-down-hero"></section>
 <!-- Services Section -->
 <section class="services-section py-5 services-bg">

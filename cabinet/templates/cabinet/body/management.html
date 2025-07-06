@@ -1,7 +1,26 @@
 {% extends "base.html" %}
+
+{% block title %}Services de gestion et de management – KEFC GROUP CONSULTING OFFICE{% endblock title %}
+
+{% block meta_description %}
+KEFC GROUP CONSULTING OFFICE propose des services de gestion stratégique, RH externalisée, audit de compétences, recouvrement de créances, plans d’affaires et accompagnement administratif.
+{% endblock meta_description %}
+
+{% block meta_keywords %}
+services de management Burkina Faso, gestion RH, audit personnel, plan d'affaires, recouvrement de créances, recrutement, KEFC GROUP, accompagnement entreprises
+{% endblock meta_keywords %}
+
+{% block og_title %}Gestion et Management – KEFC GROUP CONSULTING OFFICE{% endblock og_title %}
+{% block og_description %}
+Optimisez votre entreprise avec nos services en gestion des ressources humaines, montage d’agrément, documents techniques, plans d’affaires et recouvrement de créances.
+{% endblock og_description %}
 {% block content %}
     <!-- Hero Section -->
-    <div class="hero_management d-flex justify-content-center align-items-center">
+    <div class="hero_management d-flex justify-content-center align-items-center"
+    {% if hero %}
+    style="background-image: url('{{ hero.image.url }}');"
+    {% endif %}>
+  
         <div class="hero_content text-center text-light" style="max-width: 700px; padding: 20px;">
             <h1 class="display-4 fw-bold mb-4 text-ctitre-services">
                 Services de gestion et management

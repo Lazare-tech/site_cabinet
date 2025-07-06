@@ -23,8 +23,7 @@ TEMPLATES_DIR=os.path.join(BASE_DIR,'templates')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-sj+t%g%wt6b_f4v9q^@o1nhmb**_!8t+f(c+$!%a!swwc3+h_b"
-
+SECRET_KEY=config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -213,16 +212,14 @@ STATIC_URL = "/static/"
 # STATICFILES_DIRS=['static']
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 #ULR de la base donnee pour vos fichiers dimages
-MEDIA_URL='/assets/'
 #url chemin absoule du repertoire ou sont stockees ces fichiers sur le disque
-MEDIA_ROOT = os.path.join(BASE_DIR,'assets/')
 
 # For production
 #DEBUG=False
 # STATIC_URL = "/static/"
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Dossier de sortie pour production
-# MEDIA_URL = "/media/"
-# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

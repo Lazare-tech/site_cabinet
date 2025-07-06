@@ -206,7 +206,7 @@ class News_letter(models.Model):
         return self.email
 #
 class  HeroImage (models.Model):
-    page=models.CharField(max_length=100,unique=True)
+    page=models.CharField(max_length=100)
     image=models.ImageField(upload_to='hero_images/')
     alt_text=models.CharField(max_length=255,blank=True)
     titre=models.CharField(max_length=255,blank=True,null=True)

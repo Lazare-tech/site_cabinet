@@ -2,155 +2,158 @@
 <!-- Footer -->
 <footer class="text-center text-lg-start  text-muted footer-background">
 
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-      <!-- Left -->
-
-     
-      <!-- Left -->
-  
-      <!-- Right -->
-      <div>
-        
-      </div>
-      <!-- Right -->
-    </section>
-<!--News letter -->  
-    <section class="">
-      <section class="container-fluid py-0 d-flex justify-content-center align-items-center">
-        <section class="container text-center">
-          <h6 class="text-news-Subscribe mb-4">
-            Suivez notre newsletter<br>
-            Restez informé des évolutions juridiques majeures
-          </h6>
-      
-          <form method="post" action="{% url 'cabinet:newsletters_signup' %}" enctype="multipart/form-data">
-            {% csrf_token %}
-      
-            {% if messages %}
-            <div class="container mt-3">
-              <div class="row justify-content-center">
-                <div class="col-6">
-                  {% for message in messages %}
-                  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-            {% endif %}
-      
-            <div class="row justify-content-center align-items-center">
-              <div class="col-md-auto mb-3">
-                <p class="pt-2 mb-0">
-                  <span class="text-sign-news-letter">Inscrivez-vous à notre newsletter</span>
-                </p>
-              </div>
-      
-              <div class="col-md-5 col-12 mb-3">
-                <div class="form-group mb-0 d-flex align-items-center">
-                  {{ newsletter_form.email }}
-                </div>
-              </div>
-      
-              <div class="col-md-auto mb-3">
-                <button type="submit" class="btn btn-news-letter">
-                  S'abonner
-                </button>
-              </div>
-            </div>
-          </form>
-        </section>
-      </section>
-      <!--end news letter -->
-      <div class="text-center text-md-start mt-5">
-        <!-- Grid row -->
-        <div class="row mt-3">
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
-            <!-- Content -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              <img src="{% static '../assets/images/LOGO.png' %}" alt="logo">
-            </h6>
-            <p>
-              KEFC GROUP CONSULTING OFFICE est un cabinet de conseils et d'audit,
-              qui accompagne les petites,moyennes et grandes structures(Institutions,
-                                                                        Entreprises,Associations,ONG....)
-            </p>
-          </div>
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4">
-            <!-- Links -->
-            {% for contact in entreprise_contact %}
-            <h6 class="text-uppercase mb-4 text-footer-informa">Contact</h6>
-          
-            <p><i class="fas fa-map-marker-alt me-2"></i>{{contact.localisation}}</p>
-          
-            <p><i class="fas fa-envelope me-2"></i>{{contact.email}}</p>
-          
-          
-            <p>
-              <i class="fas fa-phone-alt  me-2"></i> {{contact.numero_telephone}}<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (+226) 77938213<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (+226) 78483111
-            </p>
-          </div>
-          {% endfor %}
-       <!-- Grid column -->
-<div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4">
-
-  <!-- Texte d'introduction -->
-  <div class="text-center mb-3">
-    <span class="text-footer-informa">Suivez-nous sur les réseaux sociaux :</span>
-  </div>
-
-  <!-- Icônes sociales -->
-  <div class="d-flex justify-content-center gap-2">
-    <!-- Facebook -->
-    <a href="{{ link }}"
-       class="text-white rounded d-inline-flex justify-content-center align-items-center text-decoration-none"
-       style="width: 40px; height: 40px;background-color: #0A66C2;"
-       target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-facebook-f" style="color: white; font-size: 18px;"></i>
-    </a>
-    <a href="{{ linkedin_link }}"
-    class="rounded d-inline-flex justify-content-center align-items-center text-decoration-none"
-    style="width: 40px; height: 40px; background-color: #0A66C2;"
-    target="_blank" rel="noopener noreferrer">
-   <i class="fab fa-linkedin-in" style="color: white; font-size: 18px;"></i>
- </a>
- 
- 
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/{{ number }}?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus"
-       class="bg-success text-white rounded d-inline-flex  text-decoration-none justify-content-center align-items-center"
-       style="width: 40px; height: 40px;"
-       target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-  </div>
-
-</div>
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
 
 
-          <!-- Grid column -->
-        </div>
-        </div>
-        
-      
-        <!-- Grid row -->
-      </div>
-    </section>
-    <!-- Section: Links  -->
-  
-    <!-- Copyright -->
-    <div class="text-center p-4 bg-f">
-      © 2025 Copyright:
-      <a class="text-reset text-decoration-none fw-bold" href="https://mdbootstrap.com/">KEFC GROUP CONSULTING OFFICE</a>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+
     </div>
-    <!-- Copyright -->
-  </footer>
-  <!-- Footer -->
+    <!-- Right -->
+  </section>
+  <!--News letter -->
+  <section class="">
+    <section class="container-fluid py-0 d-flex justify-content-center align-items-center">
+      <section class="container text-center">
+        <h6 class="text-news-Subscribe mb-4">
+          Suivez notre newsletter<br>
+          Restez informé des évolutions juridiques majeures
+        </h6>
+
+        <form method="post" action="{% url 'cabinet:newsletters_signup' %}" enctype="multipart/form-data" id="newsletter">
+          {% csrf_token %}
+
+          {% if messages %}
+          <div class="container mt-3">
+            <div class="row justify-content-center">
+              <div class="col-6">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+          <div class="row justify-content-center align-items-center">
+            <div class="col-md-auto mb-3">
+              <p class="pt-2 mb-0">
+                <span class="text-sign-news-letter">Inscrivez-vous à notre newsletter</span>
+              </p>
+            </div>
+
+            <div class="col-md-5 col-12 mb-3">
+              <div class="form-group mb-0 d-flex align-items-center">
+                {{ newsletter_form.email }}
+              </div>
+            </div>
+
+            <div class="col-md-auto mb-3">
+              <button type="submit" class="btn btn-news-letter">
+                S'abonner
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </section>
+    <!--end news letter -->
+    <div class="text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="container">
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <img src="{% static '../media/images/LOGO.png' %}" alt="logo" class="img-fluid">
+          </h6>
+          <p>
+            KEFC GROUP CONSULTING OFFICE est un cabinet de conseils et d'audit,
+            qui accompagne les petites,moyennes et grandes structures(Institutions,
+            Entreprises,Associations,ONG....)
+          </p>
+        </div>
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          {% for contact in entreprise_contact %}
+          <h6 class="text-uppercase mb-4 text-footer-informa">Contact</h6>
+
+          <p><i class="fas fa-map-marker-alt me-2"></i>{{contact.localisation}}</p>
+
+
+          <p class="d-flex align-items-center mb-1">
+            <i class="fas fa-envelope me-2"></i>
+            <span>{{ contact.email }}</span>
+          </p>
+          
+          <p>
+            <i class="fas fa-phone-alt  me-2"></i> {{contact.numero_telephone}}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (+226) 77938213<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (+226) 78483111
+          </p>
+        </div>
+        {% endfor %}
+        <!-- Grid column -->
+
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4">
+
+          <!-- Texte d'introduction -->
+          <div class="text-center mb-3">
+            <span class="text-footer-informa">Suivez-nous sur les réseaux sociaux :</span>
+          </div>
+
+          <!-- Icônes sociales -->
+          <div class="d-flex justify-content-center gap-2">
+            <!-- Facebook -->
+            <a href="{{ link }}"
+              class="text-white rounded d-inline-flex justify-content-center align-items-center text-decoration-none"
+              style="width: 40px; height: 40px;background-color: #0A66C2;" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-facebook-f" style="color: white; font-size: 18px;"></i>
+            </a>
+            <a href="{{ linkedin_link }}"
+              class="rounded d-inline-flex justify-content-center align-items-center text-decoration-none"
+              style="width: 40px; height: 40px; background-color: #0A66C2;" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin-in" style="color: white; font-size: 18px;"></i>
+            </a>
+
+
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/{{ number }}?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus"
+              class="bg-success text-white rounded d-inline-flex  text-decoration-none justify-content-center align-items-center"
+              style="width: 40px; height: 40px;" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+
+        </div>
+
+
+        <!-- Grid column -->
+      </div>
+    </div>
+    </div>
+
+
+    <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4 bg-f">
+    © 2025 Copyright:
+    <a class="text-reset text-decoration-none fw-bold" href="https://mdbootstrap.com/">KEFC GROUP CONSULTING OFFICE</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

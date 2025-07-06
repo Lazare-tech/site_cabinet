@@ -1,20 +1,28 @@
 {% extends "base.html" %} 
-{% block title %}Blog{% endblock title %}
+<title>{% block title %}Blog Juridique – KEFC GROUP CONSULTING OFFICE{% endblock title %}</title>
+<meta name="description" content="{% block meta_description %}Retrouvez toute l’actualité juridique, des conseils stratégiques et des analyses pour les entreprises, ONG et institutions au Burkina Faso.{% endblock meta_description %}">
+<meta name="keywords" content="blog juridique, actualité juridique, droit des affaires, Burkina Faso, KEFC GROUP, cabinet juridique, fiscalité, entreprise">
+<meta name="author" content="KEFC GROUP CONSULTING OFFICE">
+<meta property="og:title" content="{% block og_title %}Blog juridique – KEFC GROUP{% endblock %}">
+<meta property="og:description" content="{% block og_description %}Analyses, conseils et actualités juridiques pour entrepreneurs et dirigeants au Burkina Faso.{% endblock %}">
+<meta property="og:image" content="{% block og_image %}{% static '../media/images/LOGO.png' %}{% endblock %}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+
  {% block content %}
 <!-- Hero Section -->
-<section class="hero_blog">
+<section class="hero_blog"
+{% if hero %}
+style="background-image: url('{{ hero.image.url }}');"
+{% endif %}>
     <div class="d-flex justify-content-center align-items-center">
         <div class="container hero_content">
             <div class="row">
                 <div class="col-lg-7 col-md-12 text-hero text-light">
-                    <h1 class="display-4 fw-bold">Expertise Juridique à Votre Service</h1>
-                    <p class="lead">
-                        Découvrez les actualités, analyses et conseils pour protéger et
-                        développer votre entreprise avec une approche juridique sur mesure.
-                    </p>
-                    <button class="down-to-article">
-                        <i class="fas fa-long-arrow-alt-down"></i>
-                    </button>
+                    <h1 class="display-3 fw-bold">Restez informer de l'actualité juridique</h1>
+                    <p class="lead">Decouvrez les Actualités, analyses et conseils pour protéger et développer votre entreprise avec
+                    une approche juridique sur mesure.</p>
+                    <a href="#article-a-la-une"><button class="down-to-article"><i class="fas fa-long-arrow-alt-down"></i></button></a>
                 </div>
             </div>
         </div>

@@ -1,8 +1,26 @@
 {% extends "base.html" %}
-{% block title %}Comptabilité{% endblock title %}
+
+{% block title %}Comptabilité – Conseil & audit financier | KEFC GROUP{% endblock title %}
+
+{% block meta_description %}
+Services de comptabilité pour entreprises, fondations et ONG : audit, assistance, formation et vente de logiciels comptables à Ouagadougou et dans toute l’Afrique de l’Ouest.
+{% endblock meta_description %}
+
+{% block meta_keywords %}
+comptabilité Burkina Faso, logiciel comptable, audit financier, états financiers, assistance comptable ONG, KEFC GROUP
+{% endblock meta_keywords %}
+
+{% block og_title %}Comptabilité – Services sur mesure pour votre organisation | KEFC GROUP{% endblock og_title %}
+{% block og_description %}
+Découvrez les services de comptabilité du cabinet KEFC GROUP : audit, assistance, formation et logiciels pour une gestion financière optimisée.
+{% endblock og_description %}
+
 {% block content %}
     <!-- Hero Section -->
-    <div class="hero_compta d-flex justify-content-center align-items-center"> 
+    <div class="hero_compta d-flex justify-content-center align-items-center" 
+        {% if hero %}
+        style="background-image: url('{{ hero.image.url }}');"
+        {% endif %}>
         <div class="hero_content_compt text-center text-light">
             <h1 class="display-4 fw-bold mb-4 text-ctitre-services">
                 Maîtrisez la comptabilité pour votre entreprise

@@ -1,7 +1,25 @@
 {% extends "base.html" %}
+{% block title %}Services Juridiques – KEFC GROUP CONSULTING OFFICE{% endblock title %}
+
+{% block meta_description %}
+KEFC GROUP propose des services juridiques spécialisés : rédaction d’actes, gestion de contrats, conseil en droit du travail et assistance légale pour les entreprises, ONG et fondations.
+{% endblock meta_description %}
+
+{% block meta_keywords %}
+services juridiques Burkina Faso, conseil juridique, droit des affaires, rédaction d'actes, contrat, droit du travail, ONG, entreprises, KEFC GROUP
+{% endblock meta_keywords %}
+
+{% block og_title %}Nos services juridiques – KEFC GROUP{% endblock og_title %}
+{% block og_description %}
+Faites confiance à notre cabinet juridique pour l'accompagnement légal, la rédaction de vos contrats et la conformité de votre entreprise.
+{% endblock og_description %}
 {% block content %}
     <!-- Hero Section -->
-    <div class="hero_juridique d-flex justify-content-center align-items-center" >
+    <div class="hero_juridique d-flex justify-content-center align-items-center"
+    {% if hero %}
+    style="background-image: url('{{ hero.image.url }}');"
+    {% endif %}>
+  
     <div class="hero_content text-center text-light">
         <h1 class="display-4  mb-4 text-ctitre-services" >
             Services juridiques de qualité

@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title> {% block title %}Admin Dashboard{% endblock %}</title>
-
-  <!-- Font Awesome -->
-  {% comment %} <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" /> {% endcomment %}
-  <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-  <!-- MDB -->
-  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-  <!-- Custom styles -->
-  <link rel="stylesheet" href="{% static 'css/ckeditor_custom.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/admin.css' %}" />
-  <link rel="stylesheet" href="{% static 'fontawesome-free/css/all.min.css' %}" />
-  <link rel="stylesheet" href="{% static 'django_ckeditor_5/dist/style.css' %}" />
-
-  <!-- Chart.js -->
-  <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.css" /> 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
-    integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
-    crossorigin="anonymous"></script> 
-
-  <!-- Custom styles -->
-  <style>
-   
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
   
-  </style>
-</head>
-
+    <!-- SEO Meta Tags -->
+    <title>{% block title %}Tableau de bord | KEFC GROUP CONSULTING OFFICE{% endblock %}</title>
+    <meta name="description" content="Interface d’administration du cabinet juridique KEFC GROUP CONSULTING OFFICE. Gérez les contenus, les articles, les newsletters et les services.">
+    <meta name="keywords" content="admin, dashboard, KEFC, cabinet juridique, gestion de contenu, backend">
+    <meta name="author" content="KEFC GROUP CONSULTING OFFICE">
+    <meta name="robots" content="noindex, nofollow"> {# on empêche l'indexation du tableau de bord #}
+  
+    <!-- Open Graph (facultatif mais bon pour preview lien privé ou intra) -->
+    <meta property="og:title" content="Admin | KEFC GROUP CONSULTING OFFICE">
+    <meta property="og:description" content="Espace de gestion du site et des contenus.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{% static 'images/logo_kefc.png' %}">
+  
+    <!-- Google Fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  
+    <!-- CSS Frameworks -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+  
+    <!-- Icônes & FontAwesome -->
+    <link rel="stylesheet" href="{% static 'fontawesome-free/css/all.min.css' %}" />
+  
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/ckeditor_custom.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}" />
+    <link rel="stylesheet" href="{% static 'django_ckeditor_5/dist/style.css' %}" />
+  
+    <!-- CKEditor Styles (version CDN) -->
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.css" />
+  
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+      integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+      crossorigin="anonymous"></script> 
+  
+    {% block style %}{% endblock style %}
+  </head>
+  
 <body>
 {% block header %}{% endblock header %}
   <!--Main Navigation-->
@@ -95,7 +105,7 @@
          
             <div class="d-block px-4 me-auto">
               <a class="navbar-brand me-2 brand-log-title" href="{{ link }}">
-                <img src="{% static '../assets/images/LOGO.png' %}" alt="logo">
+                <img src="{% static '../media/images/LOGO.png' %}" alt="logo">
              
               </a>
             </div>
@@ -153,34 +163,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="text/javascript" src="{% static 'django_ckeditor_5/dist/bundle.js' %}" />
-  <script>
-    // Cacher automatiquement les alertes après 5 secondes (5000 ms)
-    setTimeout(function () {
-      let alerts = document.querySelectorAll('.alert');
-      alerts.forEach(function (alert) {
-        alert.classList.remove('show');
-        alert.classList.add('fade');
-      });
-    }, 5000);
-  </script>
   
-  <script>
-  
-    document.addEventListener("DOMContentLoaded", function () {
-      // Automatically close the alert after 5 seconds
-      setTimeout(function () {
-        var alertMessage = document.getElementById("alertMessage");
-        if (alertMessage) {
-          alertMessage.style.transition = "opacity 1s ease";
-          alertMessage.style.opacity = "0";
-
-          setTimeout(function () {
-            alertMessage.remove(); // Removes the alert from the DOM after fade out
-          }, 1000); // Match this time with the fade-out time
-        }
-      }, 5000); // 5 seconds
-    });
-  </script>
 </body>
 
 </html>

@@ -9,6 +9,8 @@ class ArtcileCategorieAdmin(admin.ModelAdmin):
     list_display=('nom_article','slug')
 admin.site.register(Articlecategorie,ArtcileCategorieAdmin)
 ###
+from django.utils.html import format_html, strip_tags
+from django.utils.text import Truncator
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('titre', 'afficher_contenu_extrait', 'photo', 'date_publie', 'slug')
@@ -16,11 +18,14 @@ class ArticleAdmin(admin.ModelAdmin):
     search_fields = ('titre', 'slug')
 
     def afficher_contenu_extrait(self, obj):
-        # Limiter à 30 mots ou à 150 caractères si tu préfères
-        extrait = Truncator(obj.contenu).words(7, truncate='...')
-        return format_html('<span title="{}">{}</span>', obj.contenu, extrait)
+        # Nettoyer les balises HTML
+        contenu_sans_html = strip_tags(obj.contenu)
+        # Limiter à 7 mots
+        extrait = Truncator(contenu_sans_html).words(7, truncate='...')
+        return format_html('<span title="{}">{}</span>', contenu_sans_html, extrait)
 
     afficher_contenu_extrait.short_description = 'Extrait de Contenu'
+
 
 admin.site.register(Article, ArticleAdmin)
 

@@ -1,75 +1,55 @@
 {% extends "base.html" %} 
-{% block title %}Accueil{% endblock title %} 
+{% block title %}Conseil & Audit à Ouagadougou | KEFC Group Consulting Office{% endblock title %}
+
+
+
 {% load static %}
 {% block content %}
 <!--CAROUSEL HERO-->
-<section class="">
-  <div
-    id="carouselBasicExample"
-    class="carousel slide carousel-fade"
-    data-mdb-ride="carousel"
-  >
-    <div class="carousel-inner">
-      <div class="carousel-item carousel-item-hero active hero_icontentgpe">
-        {% comment %} <img src="{% static iherigemage %%}" alt="Symbole juridique"> {% endcomment %}
-        <div
-          class="carousel-caption d-flex flex-column align-items-center justify-content-center hpagehcontent"
-        >
-          <div class="text-center">
-            <h1 class="fw-bold text-light">KEFC GROUP CONSULTING OFFICE</h1>
-            <p class="text-light fw-bold lead">
-              Votre partenaire juridique de confiance
-            </p>
-            <a
-              href="{% url 'compte:contact' %}"
-              class="btn btn-md mb-4 btn-hero"
-              >Contactez-nous</a
-            >
-          </div>
-        </div>
-      </div>
-      <!-- Ajouté des autres images -->
-      <div class="carousel-item carousel-item-hero">
-        <img
-          src="assets/images/juri1.jpeg"
-          class="d-block w-100"
-          alt="Cliff Above a Stormy Sea"
-        />
-        <div
-          class="carousel-caption d-flex flex-column align-items-center justify-content-center hpagehcontent"
-        >
-          <div class="text-center">
-            <h1 class="fw-bold text-light">Un accompagnement sur-mesure</h1>
-            <p class="text-light lead">
-              Conseil juridique, fiscal, comptable et managérial
-            </p>
-            <a href="#services" class="btn btn-hero btn-lg mb-4"
-              ><span class="text-white">Découvrez nos services</span></a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-mdb-target="#carouselBasicExample"
-      data-mdb-slide="prev"
-    >
-      <span class="carousel-control-prev-icon"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-mdb-target="#carouselBasicExample"
-      data-mdb-slide="next"
-    >
-          <span class="carousel-control-next-icon"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+<!-- Carousel wrapper -->
+<div id="carouselMaterialStyle" class="carousel slide carousel-fade" data-mdb-ride="carousel" data-mdb-carousel-init>
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+    {% for hero in heros %}
+      <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="{{ forloop.counter0 }}"
+        class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" aria-label="Slide {{ forloop.counter }}"></button>
+    {% endfor %}
   </div>
-</section>
+
+  <!-- Inner -->
+  <div class="carousel-inner">
+    {% for hero in heros %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %} hero_icontentgpe">
+        <img src="{{ hero.image.url }}" class="d-block w-100 hero-img" alt="{{ hero.alt_text }}">
+        <div class="carousel-caption d-flex flex-column align-items-center justify-content-start">
+          <div class="text-center hero-caption">
+            <h1 class="fw-bold text-light">{{ hero.titre }}</h1>
+            <p class="text-light fw-bold lead">{{ hero.text_hero }}</p>
+            <a href="{% url 'compte:contact' %}" class="btn btn-md mb-4 btn-hero">Contactez-nous</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <!-- Inner -->
+
+  <!-- Controls -->
+ <!-- Bouton Précédent -->
+<button class="btn btn-light carousel-btn custom-prev" type="button"
+data-mdb-target="#carouselMaterialStyle" data-mdb-slide="prev">
+<i class="fas fa-chevron-left"></i>
+</button>
+
+<!-- Bouton Suivant -->
+<button class="btn btn-light carousel-btn custom-next" type="button"
+data-mdb-target="#carouselMaterialStyle" data-mdb-slide="next">
+<i class="fas fa-chevron-right"></i>
+</button>
+
+  
+</div>
+
+<!-- Carousel wrapper -->
 
 <!-- Hero Section -->
 <section class="container-fluid s-group-discover-bg"></section>
@@ -89,7 +69,7 @@
       </div>
       <div class="col-md-6 p-4 border-4">
         <img
-          src="assets/images/ARRIEERE SITE1.jpg"
+          src="media/images/ARRIEERE SITE1.jpg"
           alt="Cabinet Image"
           class="img-fluid rounded shadow-sm"
           loading="lazy"
@@ -105,12 +85,12 @@
       <div class="row">
         <div class="col-md-6 order-2">
           <img
-            src="assets/images/LOGO.png"
+            src="media/images/LOGO.png"
             
             class="logk-brand"
           />
           <img
-            src="assets/images/management.jpeg"
+            src="media/images/management.jpeg"
             alt="Services Image"
             class="img-fluid rounded shadow-sm img-services-management"
             loading="lazy"
@@ -209,6 +189,7 @@
         {% endfor %}
     </ul>
 </div>
+{% if articles %}
   {% for article in articles %}
   <div class="col">
     <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg uns1 text-white"
@@ -220,7 +201,7 @@
         <!-- Logo en haut à droite, discret -->
         <div class="d-flex justify-content-between align-items-start mb-4">
           <h6 class="mb-0">KEFC</h6>
-          {% comment %} <img src="assets/images/LOGO.png" alt="logo" style="height: 40px;"> {% endcomment %}
+          {% comment %} <img src="media/images/LOGO.png" alt="logo" style="height: 40px;"> {% endcomment %}
         </div>
   
         <!-- Titre principal -->
@@ -244,7 +225,7 @@
   
   {% endfor %}
 
- 
+ {% endif %}
 </div>
 
 {% else %}
@@ -340,7 +321,7 @@
         <div class="col-md-4 col-sm-12 mt-2">
           <div class="card value-card">
             <img
-              src="assets/images/values-1.png"
+              src="media/valeur/values-1.png"
               class="card-img-top"
               alt="Our Mission"
             />
@@ -356,7 +337,7 @@
         <div class="col-md-4 col-sm-12 mt-2">
           <div class="card value-card">
             <img
-              src="assets/images/values-2.png"
+              src="media/valeur/values-2.png"
               class="card-img-top"
               alt="Our Strength"
             />
@@ -372,7 +353,7 @@
         <div class="col-md-4 col-sm-12 mt-2">
           <div class="card value-card">
             <img
-              src="assets/images/values-3.png"
+              src="media/valeur/values-3.png"
               class="card-img-top"
               alt="Our Commitment"
             />

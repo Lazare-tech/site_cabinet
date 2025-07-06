@@ -8,11 +8,10 @@ app_name = "cabinet"
 
 urlpatterns = [
     path('', cabinet.views.home, name='homepage'),
-        path('fiscalite', cabinet.views.fiscalite, name='fiscalite'),
-         path('comptabilite', cabinet.views.comptabilite, name='comptabilite'),
-        path('juridique', cabinet.views.juridique, name='juridique'),
-        path('management', cabinet.views.management, name='management'),
-        # path('contact', cabinet.views.contacts, name='contact'),
+        path('fiscalite/', cabinet.views.fiscalite, name='fiscalite'),
+         path('comptabilite/', cabinet.views.comptabilite, name='comptabilite'),
+        path('juridique/', cabinet.views.juridique, name='juridique'),
+        path('management/', cabinet.views.management, name='management'),
             path('blog/', cabinet.views.blog, name='blog'),
 
     path('blog/categorie/<slug:slug>/', cabinet.views.blog_article, name='blog-categorie'),  # Pour la catégorie sélectionnée
@@ -20,11 +19,10 @@ urlpatterns = [
         path('blog/article/<slug:slug>/', cabinet.views.article, name='article'),
 path('newsletter/', cabinet.views.newsletter_signup, name='newsletters_signup'),
 
-path('nav',cabinet.views.navb,name="navbar")
  
 ]
 
 # Serve static and media files during development
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
+    # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)

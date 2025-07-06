@@ -6,7 +6,7 @@ from django.conf import settings
 from django.views import View
 
 from cabinet.forms import NewsLetterForm
-from cabinet.models import Article, Articlecategorie, ContactMessage, News_letter, Services, contact_information, expertise
+from cabinet.models import Article, Articlecategorie, ContactMessage, HeroImage, News_letter, Services, contact_information, expertise
 from compte.models import User
 from . import forms
 from django.contrib.auth.decorators import login_required
@@ -303,7 +303,13 @@ def service_categorie(request):
 #
 def expertise_detail(request, slug):
     expertise_obj = get_object_or_404(expertise, slug=slug)
-    return render(request, f"cabinet/body/{slug}.html", {"expertise": expertise_obj})
+
+    hero=HeroImage.objects.filter(page=slug).first()
+    context={
+        'hero':hero,
+        'expertise':expertise_obj
+    }
+    return render(request, f"cabinet/body/{slug}.html", context)
 
 @login_required
 def add_expertise(request):
@@ -454,6 +460,8 @@ def confirm_message(request):
 #
 
 def contact(request):
+    hero=HeroImage.objects.filter(page='contact').first()
+    print("ccccc",hero.image)
     if request.method == 'POST':
         form = ContactMessageForm(request.POST)
         if form.is_valid():
@@ -465,7 +473,7 @@ def contact(request):
     else:
         form = ContactMessageForm()
 
-    return render(request, 'compte/admin/contact/contact.html', {'form': form})
+    return render(request, 'compte/admin/contact/contact.html', {'form': form,'hero':hero})
 @login_required
 def message(request):
    message = ContactMessage.objects.all().order_by('repondu', '-date_envoi')  # Les non-répondus en haut

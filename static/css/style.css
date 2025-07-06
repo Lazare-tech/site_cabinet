@@ -11,6 +11,7 @@ body {
     "wdth" 100;
 }
 
+
   /*  BTN HERO */
 
 /*    END BTN HERO */
@@ -62,6 +63,7 @@ color: #1A237E;
 /*........................... RESPONSIVE PARTY  ........................................*/
 
 /* HERO PARTY */
+/* Images dans le carousel */
 .carousel-inner img {
   width: 100%;
   height: 100%;
@@ -69,66 +71,104 @@ color: #1A237E;
   object-position: center;
 }
 
+/* Position du texte dans le carrousel */
+.carousel-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carousel-btn:hover {
+  background-color: #FF7F50;
+  color: #f2e9d8;
+  border-color: #FF7F50;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.custom-prev {
+  left: 20px;
+}
+
+.custom-next {
+  right: 20px;
+}
+
 .carousel-caption {
   bottom: 20%;
 }
 
+/* Slide de type hero */
 .carousel-item-hero {
-  height: 80vh; /* Full viewport height */
-  min-height: 300px; /* Minimum height to avoid issues with very small viewports */
+  height: 80vh;
 }
-/* defilement image des categories  */
- 
- /* Style pour les boutons du carrousel */
 
- 
- .carousel-button {
+/* Boutons personnalisés du carrousel */
+.carousel-button {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #FF7F50;;; /* Fond noir semi-transparent */
+  background-color: #FF7F50;
   color: white;
   border: none;
   padding: 1px 15px;
   cursor: pointer;
-  font-size: 24px; /* Taille de la flèche */
+  font-size: 24px;
   border-radius: 50%;
-  /* z-index: 10; */
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
-/* Positionnement du bouton précédent */
+/* Boutons suivant/précédent */
 .carousel-button.next,
 .carousel-button.prev {
   position: relative;
   left: 50px;
-  background-color: white; /* Fond blanc */
-  border: 1px solid #142f6a; /* Bordure de couleur #1A237E */
-  color: #142f6a; /* Couleur du texte et icônes */
-  padding: 10px 20px; /* Espacement autour du bouton */
-  border-radius: 50%; /* Arrondir les bords légèrement */
-  font-weight: 900; /* Texte en gras */
-  transition: background-color 0.3s, color 0.3s; /* Transition douce pour hover */
+  background-color: white;
+  border: 1px solid #142f6a;
+  color: #142f6a;
+  padding: 10px 20px;
+  border-radius: 50%;
+  font-weight: 900;
+  transition: background-color 0.3s, color 0.3s;
 }
-/* Effet au survol des boutons */
 
+/* Hover des boutons */
 .carousel-button.next:hover,
 .carousel-button.prev:hover {
-  background-color: #FF7F50;; /* Fond bleu foncé au survol */
-  color: #f2e9d8;; /* Texte blanc au survol */
-  border: #FF7F50;;;
+  background-color: #FF7F50;
+  color: #f2e9d8;
+  border-color: #FF7F50;
 }
+
+/* Conteneur carrousel horizontal (défilement horizontal, type mini-catégories) */
 .carousel-container {
   overflow-x: auto;
   white-space: nowrap;
   scroll-behavior: smooth;
   position: relative;
 }
+
+/* Carousel horizontal pour les catégories */
 .carou .carousel-item {
   display: inline-block;
-  width: 200px; /* Ajustez la largeur des éléments */
-  margin-right: 15px; /* Espacement entre les éléments */
+  width: 200px;
+  margin-right: 15px;
 }
+
+/* Images du carousel horizontal */
+.carou .carousel-item img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+
 @media (max-width:360px){
   .carousel-item img {
     width: 100% !important;
@@ -138,13 +178,7 @@ color: #1A237E;
 
   }
 }
-.carou .carousel-item img {
-  width: 200px;
-  height: 200px;
 
-  object-fit: cover;
-
-}
 @media (max-width:359px){
   .carou .carousel-item img {
     width: 127px !important;
@@ -219,7 +253,6 @@ color: #1A237E;
 /* END FOOTER PARTY  */
 /* COMPTABILITE PAGE PARTY */
 .hero_compta  {
-    background-image: url('/assets/images/compta1.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     height: 80vh; /* Adjust height as needed */
@@ -229,7 +262,6 @@ color: #1A237E;
     align-items: center;
 }
 .hero_contact{
-  background-image: url('/assets/images/emailcontactus.jpg');
   background-size: cover;
   background-position: center;
   height: 80vh; /* Adjust height as needed */
@@ -239,16 +271,14 @@ color: #1A237E;
   align-items: center;
 
 }
-.hero_icontentgpe{
-  background-image: url('/assets/images/juri2.jpeg');
 
-  background-size: cover;
-  background-position: center;
-  height: 80vh; /* Adjust height as needed */
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.hero_icontentgpe{
+  background-color: rgba(0, 0, 0, 0.6); /* Adds a dark overlay for better text visibility */
+
+  content: '';
+  height: 100vh;
+    position: relative;
+
 }
 .hero_icontentgpe::before{
   background-color: rgba(0, 0, 0, 0.6); /* Adds a dark overlay for better text visibility */
@@ -259,6 +289,10 @@ color: #1A237E;
   left: 0;
   right: 0;
   bottom: 0;
+}
+.hero-caption {
+  padding-bottom: 5rem !important; /* place le texte vers le haut mais pas collé */
+  z-index: 2;
 }
 .hero_compta::before,.hero_juridique::before,.hero_fiscalite::before,.hero_management::before,.hero_contact::before{
     content: '';
@@ -284,7 +318,6 @@ color: #1A237E;
   color: #142f6a;
 }
 .hero_fiscalite {
-  background-image: url('/assets/images/fis2.jpeg'); /* Replace with your image path */
   background-size: cover;
   background-position: center;
   height: 80vh; /* Adjust height as needed */
@@ -297,7 +330,6 @@ color: #1A237E;
 
 /* HERO JURIDIQUE  */
 .hero_juridique {
-  background-image: url('/assets/images/juri2.jpeg'); /* Replace with your image path */
   background-size: cover;
   background-position: center;
   height: 80vh; /* Adjust height as needed */
@@ -313,7 +345,6 @@ color: #1A237E;
 
 /* HERO MANAGEMENT */
 .hero_management {
-  background-image: url('/assets/images/compta1.jpg'); /* Replace with your image path */
   background-size: cover;
   background-position: center;
   height: 80vh; /* Adjust height as needed */
@@ -401,7 +432,6 @@ color: #1A237E;
 }
 /* BLOG PARTY  */
 .hero_blog  {
-  background-image: url('/assets/images/hblogo.jpeg'); /* Replace with your image path */
   background-size: cover;
   background-position: center;
   height: 80vh; /* Adjust height as needed */
