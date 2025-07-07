@@ -25,7 +25,7 @@ TEMPLATES_DIR=os.path.join(BASE_DIR,'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY=config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -209,14 +209,12 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-# STATICFILES_DIRS=['static']
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 #ULR de la base donnee pour vos fichiers dimages
 #url chemin absoule du repertoire ou sont stockees ces fichiers sur le disque
 
 # For production
 #DEBUG=False
-# STATIC_URL = "/static/"
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Dossier de sortie pour production
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
