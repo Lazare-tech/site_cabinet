@@ -210,13 +210,14 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 # STATICFILES_DIRS=['static']
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 #ULR de la base donnee pour vos fichiers dimages
 #url chemin absoule du repertoire ou sont stockees ces fichiers sur le disque
 
 # For production
 #DEBUG=False
 # STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Dossier de sortie pour production
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Dossier de sortie pour production
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
@@ -226,9 +227,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = 'compte.User'
 LOGIN_REDIRECT_URL= 'compte:login'
-#
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
