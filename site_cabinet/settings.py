@@ -25,7 +25,7 @@ TEMPLATES_DIR=os.path.join(BASE_DIR,'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY=config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -226,3 +226,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = 'compte.User'
 LOGIN_REDIRECT_URL= 'compte:login'
+#
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
